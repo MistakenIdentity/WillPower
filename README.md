@@ -22,8 +22,9 @@ This package provides .Net Standard (2.1+) and .Net Framework (4+) libraries int
 parsing binary EBCDIC files or other fixed length files without other dependencies.
 
 It supports custom and/or built in encoders, including an EBCDIC encoder (IBM037) for convenience.
+
 Features include: 
- Character set translation
- Packed Decimal translation
- Packed Date translation (2 (short) and 4 (long) byte)
- Table field definitions and translation
+  Character set translation
+  Packed Decimal translation
+  Packed Date translation (2 (short) and 4 (long) byte)
+  Table field definitions and translation
