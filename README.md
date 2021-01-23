@@ -26,6 +26,7 @@ It supports custom and/or built in encoders, including an EBCDIC encoder (IBM037
 Features include: 
   <li>Character set translation.</li>
   <li>Packed Decimal translation.</li>
-  <li>Packed Date translation (2 (short) and 4 (long) byte)</li>
-  <li>Table field definitions and translation</li>
+  <li>Packed Date translation (2 (short) and 4 (long) byte).</li>
+  <li>Table field definitions and translation.</li>
 <p/>
+See WillPower.FileLayout for configuration specifications.
