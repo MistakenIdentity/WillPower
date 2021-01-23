@@ -18,7 +18,7 @@ Be sure you're using your WillPower ;)
 <p/>
 WillPower.FileParser
 
-This package provides .Net Standard (2.1+) and .Net Framework (4+) libraries intended to facilitate
+This package provides .Net Standard (2.1+) and .Net Framework (4 Client Profile) libraries intended to facilitate
 parsing binary EBCDIC files or other fixed length files without other dependencies.
 
 It supports custom and/or built in encoders, including an EBCDIC encoder (IBM037) for convenience.
