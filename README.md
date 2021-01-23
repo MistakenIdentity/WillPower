@@ -2,16 +2,6 @@
 The WillPower namespace stuff.
 Be sure you're using your WillPower ;)
 
-This package provides .Net Standard (2.1+) and .Net Framework (4+) libraries intended to facilitate
-parsing binary EBCDIC files or other fixed length files without other dependencies.
-
-It supports custom and/or built in encoders, including an EBCDIC encoder (IBM037) for convenience.
-Features include: 
- Character set translation
- Packed Decimal translation
- Packed Date translation (2 (short) and 4 (long) byte)
- Table field definitions and translation
-
  *************************************************************************************************
  *************************************************************************************************
  Code Copyright © 2020, Will `Willow' Osborn.                                                     
@@ -25,3 +15,15 @@ Features include:
  FULL and SOLE responsibility and culpability for ANYTHING you do with or around it.              
  *************************************************************************************************
  *************************************************************************************************
+
+WillPower.FileParser
+
+This package provides .Net Standard (2.1+) and .Net Framework (4+) libraries intended to facilitate
+parsing binary EBCDIC files or other fixed length files without other dependencies.
+
+It supports custom and/or built in encoders, including an EBCDIC encoder (IBM037) for convenience.
+Features include: 
+ Character set translation
+ Packed Decimal translation
+ Packed Date translation (2 (short) and 4 (long) byte)
+ Table field definitions and translation
