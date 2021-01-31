@@ -30,3 +30,13 @@ Features include:
   <li>Table field definitions and translation.</li>
 <p/>
 See WillPower.FileLayout for configuration specifications.
+<p/>
+<p/>
+WillPower.UI.Dialogs
+
+This package provides .Net 5 common dialogs that actually look GOOD and are multipurpose.
+<p/>
+Features include:
+  <li>MessageBox Dialog supporting the standard behavior you're used to, with moods...</li>
+  <li>Select Options Dialog (multiple choice) because it's overdue.</li>
+  <li>Custom Buttoms Dialog (single choice) just because...</li>
