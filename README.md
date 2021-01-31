@@ -30,7 +30,8 @@ Features include:
   <li>Table field definitions and translation.</li>
 <p/>
 See WillPower.FileLayout for configuration specifications.
-<p/>
+ *************************************************************************************************
+ *************************************************************************************************
 <p/>
 WillPower.UI.Dialogs
 
