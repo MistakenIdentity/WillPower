@@ -1,0 +1,87 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>WillPower.ico</ApplicationIcon>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <AssemblyVersion>1.2021.01.31</AssemblyVersion>
+    <FileVersion>1.2021.01.31</FileVersion>
+    <Version>1.2021.01.31</Version>
+    <Authors>Will 'Willow' Osborn</Authors>
+    <Company>NoneSuch</Company>
+    <Description>This package provides .Net 5 common dialogs that actually look GOOD and are multipurpose.
+
+This product is provided 'AS IS, NO WARRANTY' and is intended for no specific use or person. In fact, the code herein is so confuggled, it should not be used by anyone ever and anything that happens as a result of its use is completely and utterly YOUR FAULT.  :p
+Note: WillPower™ is an unregisterable trademark of everyone.</Description>
+    <Copyright>Copyright © 2020, Will `Willow' Osborn. AS-IS, NO WARRANTY. Do with as ye will at your own risk!</Copyright>
+    <PackageLicenseFile>License.txt</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/MistakenIdentity/WillPower</PackageProjectUrl>
+    <PackageIcon>WillPower.png</PackageIcon>
+    <RepositoryUrl>https://github.com/MistakenIdentity/WillPower</RepositoryUrl>
+    <RepositoryType>github, git</RepositoryType>
+    <PackageTags>net5 wpf dialog ui custom mood</PackageTags>
+    <PackageReleaseNotes>I farted.</PackageReleaseNotes>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\WillPower.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="License.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Controls\InlineCheckBox.xaml.cs">
+      <DependentUpon>InlineCheckBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Dialog\ButtonsDialog.xaml.cs">
+      <DependentUpon>ButtonsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Dialog\MessageDialog.xaml.cs">
+      <DependentUpon>MessageDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Dialog\OptionsDialog.xaml.cs">
+      <DependentUpon>OptionsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Forms\UniForm.xaml.cs">
+      <DependentUpon>UniForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Controls\InlineCheckBox.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialog\ButtonsDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialog\MessageDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Dialog\OptionsDialog.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Forms\UniForm.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+</Project>
