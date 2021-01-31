@@ -28,8 +28,7 @@ Features include:
   <li>Packed Decimal/Number translation.</li>
   <li>Packed Date translation (2 (short) and 4 (long) byte).</li>
   <li>Table field definitions and translation.</li>
-
-
+<br/>
 See WillPower.FileLayout for configuration specifications.
 
  *************************************************************************************************
