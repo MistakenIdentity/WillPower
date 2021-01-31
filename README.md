@@ -15,28 +15,28 @@ Be sure you're using your WillPower ;)
  FULL and SOLE responsibility and culpability for ANYTHING you do with or around it.              
  *************************************************************************************************
  *************************************************************************************************
-<p/>
+
 WillPower.FileParser
 
 This package provides .Net Standard (2.1+) and .Net Framework (4 Client Profile) libraries intended to facilitate
 parsing binary EBCDIC files or other fixed length files without other dependencies.
 
 It supports custom and/or built in encoders, including an EBCDIC encoder (IBM037) for convenience.
-<p/>
+
 Features include: 
   <li>Character set translation.</li>
-  <li>Packed Decimal translation.</li>
+  <li>Packed Decimal/Number translation.</li>
   <li>Packed Date translation (2 (short) and 4 (long) byte).</li>
   <li>Table field definitions and translation.</li>
-<p/>
+
 See WillPower.FileLayout for configuration specifications.
  *************************************************************************************************
  *************************************************************************************************
-<p/>
+
 WillPower.UI.Dialogs
 
 This package provides .Net 5 common dialogs that actually look GOOD and are multipurpose.
-<p/>
+
 Features include:
   <li>MessageBox Dialog supporting the standard behavior you're used to, with moods...</li>
   <li>Select Options Dialog (multiple choice) because it's overdue.</li>
