@@ -40,4 +40,4 @@ This package provides .Net 5 common dialogs that actually look GOOD and are mult
 Features include:
   <li>MessageBox Dialog supporting the standard behavior you're used to, with moods...</li>
   <li>Select Options Dialog (multiple choice) because it's overdue.</li>
-  <li>Custom Buttoms Dialog (single choice) just because...</li>
+  <li>Custom Buttoms Dialog (single choice) just because.</li>
