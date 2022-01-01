@@ -32,14 +32,25 @@ namespace WillPower
 
         /// <summary>
         /// The <see cref="System.Collections.Generic.IEnumerable{T}">collection</see> of <see cref="IFileRecord">records</see> read from the file.
+        /// It is suggested that this collection not be altered directly, but rather assigned to using the 
+        /// <see cref="AddRecord(IFileRecord)">AddRecord</see> and <see cref="AddRecords(IEnumerable{IFileRecord})">AddRecords</see> methods.
         /// </summary>
         public override IEnumerable<IFileRecord> Records => records.ToArray();
 
         /// <summary>
         /// .ctor. Creates a new instance of FileParser using the default <see cref="FileParserEncoder">FileParserEncoder</see>.
         /// </summary>
-        public FileParser() : this(new FileParserEncoder())
-        { }
+        /// <param name="write">
+        /// If <see cref="System.Boolean">true</see>, this will use the default ASCII to EBCDIC 
+        /// <see cref="IFileParserEncoder">IFileParserEncoder</see> instance for writing binary EBCDIC fields.
+        /// If <see cref="System.Boolean">false</see>, this will use the default EBCDIC to ASCII 
+        /// <see cref="IFileParserEncoder">IFileParserEncoder</see> instance for reading binary EBCDIC fields.
+        /// Default is <see cref="System.Boolean">false</see>.
+        /// </param>
+        public FileParser(bool write = false) : this(FileParserEncoder.GetDefaultEncoder(write))
+        {
+            records = new List<IFileRecord>();
+        }
         /// <summary>
         /// .ctor. Creates a new instance of FileParser.
         /// </summary>
@@ -53,7 +64,9 @@ namespace WillPower
         /// </summary>
         /// <param name="layout">The <see cref="IFileLayout">layout</see> instance to use for processing.</param>
         public FileParser(IFileLayout layout) : base(layout)
-        { }
+        {
+            records = new List<IFileRecord>();
+        }
 
         /// <summary>
         /// Load the provided <see cref="System.IO.Stream">stream</see> into the parser.
@@ -61,24 +74,21 @@ namespace WillPower
         /// <param name="stream">The <see cref="System.IO.Stream">stream</see> to load.</param>
         public override void LoadStream(System.IO.Stream stream)
         {
-            if (!this.Layout.OpenAsText && this.Layout.RecordLength < 1)
-            {
-                return;
-            }
-            if (this.Layout.MasterFields == null || this.Layout.MasterFields.Length < 1)
+            if ((!Layout.OpenAsText && Layout.RecordLength < 1)
+                || Layout.MasterFields == null || Layout.MasterFields.Length < 1)
             {
                 return;
             }
             UpdateEncoders();
-            if (this.Layout.OpenAsText)
+            if (Layout.OpenAsText)
             {
                 stream.GotoStart();
-                byte[] bytes = stream.ReadToChar(this.Layout.TextLineTerminator);
-                if (this.Layout.HeaderRecord != null && this.Layout.HeaderRecord.Fields?.Length > 0)
+                byte[] bytes = stream.ReadToChar(Layout.TextLineTerminator);
+                if (Layout.HeaderRecord != null && Layout.HeaderRecord.Fields?.Length > 0)
                 {
                     TaskManager.StartAction(delegate
                     {
-                        this.Layout.HeaderRecord.ReadRecord(bytes);
+                        Layout.HeaderRecord.ReadRecord(bytes);
                     });
                 }
                 else
@@ -87,13 +97,13 @@ namespace WillPower
                 }
                 while (bytes != null)
                 {
-                    bytes = stream.ReadToChar(this.Layout.TextLineTerminator, this.Layout.Encoder.SourceEncoding);
+                    bytes = stream.ReadToChar(Layout.TextLineTerminator, Layout.Encoder.SourceEncoding);
                     if ((stream.Position >= stream.Length - 2 || stream.Position < 0) 
-                        && this.Layout.FooterRecord != null && this.Layout.FooterRecord.Fields?.Length > 0)
+                        && Layout.FooterRecord != null && Layout.FooterRecord.Fields?.Length > 0)
                     {
                         TaskManager.StartAction(delegate
                         {
-                            this.Layout.FooterRecord.ReadRecord(bytes);
+                            Layout.FooterRecord.ReadRecord(bytes);
                         });
                         bytes = null;
                     }
@@ -103,20 +113,20 @@ namespace WillPower
                     }
                 }
             }
-            else if (stream.Length % this.Layout.RecordLength != 0)
+            else if (stream.Length % Layout.RecordLength != 0)
             {
                 throw new InvalidOperationException(
-                    $"{IO.FileParser.Properties.Resources.ResourceManager.GetString("InvalidLength")} Length: {stream.Length} RecordLength: {this.Layout.RecordLength}");
+                    $"{IO.FileParser.Properties.Resources.ResourceManager.GetString("InvalidLength")} ({stream.Length}/{Layout.RecordLength})");
             }
             else
             {
                 stream.GotoStart();
-                byte[] bytes = stream.ReadNext(this.Layout.RecordLength);
-                if (this.Layout.HeaderRecord != null && this.Layout.HeaderRecord.Fields.Length > 0)
+                byte[] bytes = stream.ReadNext(Layout.RecordLength);
+                if (Layout.HeaderRecord != null && Layout.HeaderRecord.Fields.Length > 0)
                 {
                     TaskManager.StartAction(delegate
                     {
-                        this.Layout.HeaderRecord.ReadRecord(bytes);
+                        Layout.HeaderRecord.ReadRecord(bytes);
                     });
                 }
                 else
@@ -125,13 +135,13 @@ namespace WillPower
                 }
                 while (bytes != null)
                 {
-                    bytes = stream.ReadNext(this.Layout.RecordLength);
+                    bytes = stream.ReadNext(Layout.RecordLength);
                     if ((stream.Position >= stream.Length - 2 || stream.Position < 0)
-                        && this.Layout.FooterRecord != null && this.Layout.FooterRecord.Fields.Length > 0)
+                        && Layout.FooterRecord != null && Layout.FooterRecord.Fields.Length > 0)
                     {
                         TaskManager.StartAction(delegate
                         {
-                            this.Layout.FooterRecord.ReadRecord(bytes);
+                            Layout.FooterRecord.ReadRecord(bytes);
                         });
                         bytes = null;
                     }
@@ -144,6 +154,88 @@ namespace WillPower
             TaskManager.AwaitAllThenClean();
         }
 
+        /// <summary>
+        /// Packs the <see cref="Records">Records</see> and their <see cref="IFileRecord.Fields">Fields</see> 
+        /// using the properties provided.
+        /// Optionally writes to the provided <see cref="System.String">outputFilename</see> as a binary.
+        /// </summary>
+        /// <param name="outputFilename">If not <see cref="System.Nullable">null</see>, will execute
+        /// <see cref="SaveAs(string)">SaveAs</see> after performing the Pack using the 
+        /// <see cref="System.String">value</see> provided.</param>
+        public override void Pack(string outputFilename = null)
+        {
+            if (!string.IsNullOrWhiteSpace(outputFilename))
+            {
+                fStream = new System.IO.FileStream(outputFilename, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.Write);
+            }
+            else
+            {
+                fStream = null;
+            }
+            if (Layout.HeaderRecord != null && Layout.HeaderRecord.Fields.Length > 0)
+            {
+                WriteToStream(Layout.HeaderRecord.Pack(Layout.RecordLength, Layout.FillByte));
+            }
+            foreach (var rec in Records)
+            {
+                PackRecord(rec);
+            }
+            TaskManager.AwaitAllThenClean();
+            if (Layout.FooterRecord != null && Layout.FooterRecord.Fields.Length > 0)
+            {
+                WriteToStream(Layout.FooterRecord.Pack(Layout.RecordLength, Layout.FillByte));
+            }
+            if (!string.IsNullOrWhiteSpace(outputFilename))
+            {
+                fStream.Close();
+                fStream.Dispose();
+                fStream = null;
+            }
+        }
+        private System.IO.FileStream fStream = null;
+
+        /// <summary>
+        /// Saves the Packed <see cref="Records">Records</see> to the provided <see cref="System.String">outputFilename</see> as a binary.
+        /// </summary>
+        /// <param name="outputFilename">The <see cref="System.String">name</see> of the output file.</param>
+        public override void SaveAs(string outputFilename)
+        {
+            System.IO.FileStream fs = new System.IO.FileStream(outputFilename, System.IO.FileMode.OpenOrCreate, System.IO.FileAccess.Write);
+            if (Layout.HeaderRecord != null && Layout.HeaderRecord.ByteValue != null && Layout.HeaderRecord.ByteValue.Length > 0)
+            {
+                fs.Write(Layout.HeaderRecord.ByteValue, 0, Layout.RecordLength.ToInt());
+            }
+            foreach (IFileRecord rec in records)
+            {
+                fs.Write(rec.ByteValue, 0, Layout.RecordLength.ToInt());
+            }
+            if (Layout.FooterRecord != null && Layout.FooterRecord.ByteValue != null && Layout.FooterRecord.ByteValue.Length > 0)
+            {
+                fs.Write(Layout.FooterRecord.ByteValue, 0, Layout.RecordLength.ToInt());
+            }
+            fs.Close();
+        }
+
+        /// <summary>
+        /// Adds the provided <see cref="IFileRecord">record</see> to the <see cref="Records">Records</see> collection.
+        /// </summary>
+        /// <param name="record">The <see cref="IFileRecord">IFileRecord</see> instance to add.</param>
+        public override void AddRecord(IFileRecord record)
+        {
+            records.Add(record);
+        }
+
+        /// <summary>
+        /// Adds the provided <see cref="System.Collections.Generic.IEnumerable{T}">collection</see> of 
+        /// <see cref="IFileRecord">records</see> to the <see cref="Records">Records</see> collection.
+        /// </summary>
+        /// <param name="fileRecords">The <see cref="System.Collections.Generic.IEnumerable{T}">collection</see> of 
+        /// <see cref="IFileRecord">IFileRecord</see> instances to add.</param>
+        public override void AddRecords(System.Collections.Generic.IEnumerable<IFileRecord> fileRecords)
+        {
+            records.AddRange(fileRecords);
+        }
+
         private void ReadRecord(byte[] data)
         {
             TaskManager.StartAction(delegate
@@ -151,7 +243,7 @@ namespace WillPower
                 if (base.IsConditional)
                 {
                     IFileRecord record = new FileRecord(Layout.MasterFields, data);
-                    foreach (IFileConditional condition in this.Layout.Conditions)
+                    foreach (IFileConditional condition in Layout.Conditions)
                     {
                         if (condition.Condition(record))
                         {
@@ -161,10 +253,33 @@ namespace WillPower
                 }
                 else
                 {
-                    records.Add(new FileRecord(this.Layout.MasterFields, data));
+                    records.Add(new FileRecord(Layout.MasterFields, data));
                 }
             });
         }
+
+        private void PackRecord(IFileRecord record)
+        {
+            WriteToStream(record.Pack(Layout.RecordLength, Layout.FillByte));
+        }
+
+        private void WriteToStream(byte[] bytes)
+        {
+            if (fStream == null)
+            {
+                return;
+            }
+            try
+            {
+                mut.WaitOne();
+                fStream.Write(bytes, 0, Layout.RecordLength.ToInt());
+            }
+            finally
+            {
+                mut.ReleaseMutex();
+            }
+        }
+        private static readonly System.Threading.Mutex mut = new System.Threading.Mutex();
 
     }
 }

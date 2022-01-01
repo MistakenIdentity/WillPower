@@ -22,7 +22,7 @@ using System.Linq;
 namespace WillPower
 {
     /// <summary>
-    /// A concreate class containing the necessary properties and methods for processing a single field.
+    /// A concrete class containing the necessary properties and methods for processing a single field.
     /// Cannot be inherited.
     /// </summary>
     [Serializable]
@@ -43,22 +43,34 @@ namespace WillPower
                 Compute();
             }
         }
-        byte[] byteValue;
+        private byte[] byteValue;
         /// <summary>
-        /// The <see cref="IFileField.Compute(byte[])">computed</see> result as a <see cref="System.String">string</see>.
+        /// The <see cref="IFileField.Compute(byte[])">computed</see> result as a <see cref="System.String">string</see> or 
+        /// the value to be written.
         /// </summary>
         public override string StringValue
         {
             get
             {
-                return this.ByteValue.ToEncodedString(this.Encoder.SourceEncoding, this.Encoder.DestinationEncoding);
+                return ByteValue.ToEncodedString(Encoder.SourceEncoding, Encoder.DestinationEncoding);
+            }
+            set
+            {
+                Value = value;
             }
         }
 
         /// <summary>
         /// .ctor. Creates a new instance of FileField.
         /// </summary>
-        public FileField() : base()
+        /// <param name="write">
+        /// If <see cref="System.Boolean">true</see>, this will use the default ASCII to EBCDIC 
+        /// <see cref="IFileParserEncoder">IFileParserEncoder</see> instance for writing binary EBCDIC fields.
+        /// If <see cref="System.Boolean">false</see>, this will use the default EBCDIC to ASCII 
+        /// <see cref="IFileParserEncoder">IFileParserEncoder</see> instance for reading binary EBCDIC fields.
+        /// Default is <see cref="System.Boolean">false</see>.
+        /// </param>
+        public FileField(bool write = false) : base(write)
         { }
         /// <summary>
         /// .ctor. Creates a new instance of FileField.
@@ -73,7 +85,7 @@ namespace WillPower
         /// <param name="data">The <see cref="System.Array">array</see> of bytes to read.</param>
         public FileField(IFileField clone, byte[] data) : this(clone)
         {
-            this.ByteValue = data;
+            ByteValue = data;
         }
         /// <summary>
         /// .ctor. Creates a new instance of FileField.
@@ -91,12 +103,12 @@ namespace WillPower
             {
                 throw new InvalidOperationException($"{IO.FileParser.Properties.Resources.ResourceManager.GetString("UnsupportedType")} : {format}");
             }
-            this.Encoder = encoder;
-            this.Type = type;
-            this.Name = name;
-            this.StartPosition = startPosition;
-            this.Length = length;
-            this.DataFormat = format;
+            Encoder = encoder;
+            Type = type;
+            Name = name;
+            StartPosition = startPosition;
+            Length = length;
+            DataFormat = format;
         }
         /// <summary>
         /// .ctor. Creates a new instance of FileField. Used for numeric <see cref="System.Decimal">(decimal)</see> <see cref="System.Type">types</see>.
@@ -107,10 +119,11 @@ namespace WillPower
         /// expressed as an <see cref="System.UInt32">unsigned integer</see>.</param>
         /// <param name="length">The field length expressed as an <see cref="System.UInt32">unsigned integer</see>.</param>
         /// <param name="format">The <see cref="FileFieldDataFormat">format</see> of the field.</param>
-        /// <param name="precision">The precision of the expected resultant as <see cref="System.Byte"/>Byte. Default is 0. 
+        /// <param name="precision">The precision of the expected resultant as <see cref="System.Int16"/>short. Default is 0. 
         /// The limitation is from logical reasons.</param>
         /// <param name="required">If <see cref="System.Boolean">true</see>, throw a <see cref="FieldException"></see> on a null result.</param>
-        public FileField(FileParserEncoder encoder, string name, uint startPosition, uint length, FileFieldDataFormat format, byte precision, bool required = false)
+        public FileField(IFileParserEncoder encoder, string name, uint startPosition, uint length, FileFieldDataFormat format, 
+            short precision, bool required = false)
             : base(encoder, name, startPosition, length, format, precision, required)
         { }
         /// <summary>
@@ -126,11 +139,28 @@ namespace WillPower
         /// Default is <see cref="System.Boolean">false</see>.
         /// Note: If the <see cref="System.String">string</see> contains a parsable date character ( / or - ) it will attempt to use 
         /// <see cref="System.DateTime.TryParse(string, out System.DateTime)">TryParse</see> and return any successful result. 
-        /// If <see cref="System.DateTime.TryParse(string, out System.DateTime)">TryParse</see> fails it proceeds on to <see cref="System.String">string</see> parsing.
+        /// If <see cref="System.DateTime.TryParse(string, out System.DateTime)">TryParse</see> fails it proceeds on to 
+        /// <see cref="System.String">string</see> parsing.
         /// </param>
         /// <param name="required">If <see cref="System.Boolean">true</see>, throw a <see cref="FieldException"></see> on a null result.</param>
-        public FileField(FileParserEncoder encoder, string name, uint startPosition, uint length, FileFieldDataFormat format, bool yearFirst, bool required = false)
+        public FileField(IFileParserEncoder encoder, string name, uint startPosition, uint length, FileFieldDataFormat format, 
+            bool yearFirst, bool required = false)
             : base(encoder, name, startPosition, length, format, yearFirst, required)
+        { }
+        /// <summary>
+        /// .ctor. Must be inherited. User for <see cref="System.Boolean">boolean</see> types with a <see cref="System.String">string</see> output.
+        /// </summary>
+        /// <param name="encoder">The <see cref="IFileParserEncoder">IFileParserEncoder</see> instance to use for encoding.</param>
+        /// <param name="name">The <see cref="System.String">name</see> of the field.</param>
+        /// <param name="startPosition">The starting position of this field in the <see cref="IFileRecord">record</see> expressed as an 
+        /// <see cref="System.UInt32">unsigned integer</see>.</param>
+        /// <param name="length">The field length expressed as an <see cref="System.UInt32">unsigned integer</see>.</param>
+        /// <param name="showAs">
+        /// Identifies how the <see cref="System.Boolean">boolean</see> value will be represented as a <see cref="System.String">string</see>.
+        /// Length of 1 will only return the first <see cref="System.Char">character</see> of the expected <see cref="System.String">string</see>.
+        /// </param>
+        public FileField(IFileParserEncoder encoder, string name, uint startPosition, uint length, BooleanStringRepresentation showAs)
+            : base(encoder, name, startPosition, length, showAs)
         { }
 
         /// <summary>
@@ -141,327 +171,457 @@ namespace WillPower
         {
             if (data != null && data.Length > 0)
             {
-                this.ByteValue = data;
-                return;
+                byteValue = data;
             }
-            if (this.ByteValue.Length < 1)
+            if (ByteValue == null || ByteValue.Length < 1)
             {
                 return;
             }
-            if (this.Type == typeof(string))
+            if (Type == typeof(string))
             {
-                this.Value = this.StringValue;
+                Value = StringValue;
                 return;
             }
-            if (this.Type == typeof(byte) || this.Type == typeof(byte?))
+            else if (DataFormat == FileFieldDataFormat.Raw)
             {
-                switch (this.DataFormat)
+                Value = ByteValue.ToObject();
+                return;
+            }
+            else if (Type == typeof(byte) || Type == typeof(byte?))
+            {
+                switch (DataFormat)
                 {
                     case FileFieldDataFormat.IBMPacked:
-                        this.Value = this.ByteValue.First();
-                        return;
-                    case FileFieldDataFormat.Raw:
-                        this.Value = this.ByteValue.First();
+                        Value = ByteValue.First();
                         return;
                     case FileFieldDataFormat.String:
-                        this.Value = byte.Parse(this.StringValue);
+                        Value = byte.Parse(StringValue);
                         return;
                 }
             }
-            if (this.Type == typeof(DateTime) || this.Type == typeof(DateTime?))
+            else if (Type == typeof(DateTime) || Type == typeof(DateTime?))
             {
-                switch (this.DataFormat)
+                switch (DataFormat)
                 {
                     case FileFieldDataFormat.IBMPacked:
-                        if (this.Type.IsAssignableFrom(typeof(Nullable)))
+                        if (Type.IsAssignableFrom(typeof(Nullable)))
                         {
-                            this.Value = this.ByteValue.FromPackedDate();
+                            Value = ByteValue.FromPackedDate();
                         }
                         else
                         {
-                            this.Value = this.ByteValue.FromPackedDate().Value;
-                        }
-                        return;
-                    case FileFieldDataFormat.Raw:
-                        if (this.Type.IsAssignableFrom(typeof(Nullable)))
-                        {
-                            this.Value = this.ByteValue.Convert(this.Encoder.SourceEncoding, this.Encoder.DestinationEncoding).FromRawDate();
-                        }
-                        else
-                        {
-                            this.Value = this.ByteValue.Convert(this.Encoder.SourceEncoding, this.Encoder.DestinationEncoding).FromRawDate().Value;
+                            Value = ByteValue.FromPackedDate().Value;
                         }
                         return;
                     case FileFieldDataFormat.String:
-                        if (this.Type.IsAssignableFrom(typeof(Nullable)))
+                        if (Type.IsAssignableFrom(typeof(Nullable)))
                         {
-                            this.Value = this.StringValue.ToDateTime(this.YearFirst);
+                            Value = StringValue.ToDateTime(YearFirst);
                         }
                         else
                         {
-                            this.Value = this.StringValue.ToDateTime(this.YearFirst).Value;
+                            Value = StringValue.ToDateTime(YearFirst).Value;
                         }
                         return;
                 }
             }
-            if (this.Type == typeof(bool) || this.Type == typeof(bool?))
+            else if (Type == typeof(bool) || Type == typeof(bool?))
             {
-                switch (this.DataFormat)
+                switch (DataFormat)
                 {
                     case FileFieldDataFormat.IBMPacked:
-                        this.Value = this.ByteValue.Last() > 0;
-                        return;
-                    case FileFieldDataFormat.Raw:
-                        this.Value = this.ByteValue.Last() > 0;
+                        Value = ByteValue.Last() > 0;
                         return;
                     case FileFieldDataFormat.String:
-                        if (this.Type.IsAssignableFrom(typeof(Nullable)))
+                        if (Type.IsAssignableFrom(typeof(Nullable)))
                         {
-                            this.Value = this.StringValue.ToBool();
+                            Value = StringValue.ToBool();
                         }
                         else
                         {
-                            this.Value = this.StringValue.ToBool().Value;
+                            Value = StringValue.ToBool().Value;
                         }
                         return;
                 }
             }
-            if (this.Type == typeof(short) || this.Type == typeof(short?))
+            else if (Type == typeof(short) || Type == typeof(short?))
             {
-                switch (this.DataFormat)
+                switch (DataFormat)
                 {
                     case FileFieldDataFormat.IBMPacked:
-                        this.Value = this.ByteValue.FromPackedShort();
-                        return;
-                    case FileFieldDataFormat.Raw:
-                        this.Value = this.ByteValue.FromRawShort();
+                        Value = ByteValue.FromPackedShort();
                         return;
                     case FileFieldDataFormat.String:
-                        if (this.Type.IsAssignableFrom(typeof(Nullable)))
+                        if (Type.IsAssignableFrom(typeof(Nullable)))
                         {
-                            if (short.TryParse(this.StringValue.Trim(), out short ret))
+                            if (short.TryParse(StringValue?.Trim(), out short ret))
                             {
-                                this.Value = ret;
+                                Value = ret;
                             }
                             else
                             {
-                                this.Value = null;
+                                Value = null;
                             }
                         }
                         else
                         {
-                            this.Value = short.Parse(this.StringValue.Trim());
+                            Value = short.Parse(StringValue.Trim());
                         }
                         return;
                 }
             }
-            if (this.Type == typeof(int) || this.Type == typeof(int?))
+            else if (Type == typeof(int) || Type == typeof(int?))
             {
-                switch (this.DataFormat)
+                switch (DataFormat)
                 {
                     case FileFieldDataFormat.IBMPacked:
-                        this.Value = this.ByteValue.FromPackedInt();
-                        return;
-                    case FileFieldDataFormat.Raw:
-                        this.Value = this.ByteValue.FromRawInt();
+                        Value = ByteValue.FromPackedInt();
                         return;
                     case FileFieldDataFormat.String:
-                        if (this.Type.IsAssignableFrom(typeof(Nullable)))
+                        if (Type.IsAssignableFrom(typeof(Nullable)))
                         {
-                            if (int.TryParse(this.StringValue.Trim(), out int ret))
+                            if (int.TryParse(StringValue?.Trim(), out int ret))
                             {
-                                this.Value = ret;
+                                Value = ret;
                             }
                             else
                             {
-                                this.Value = null;
+                                Value = null;
                             }
                         }
                         else
                         {
-                            this.Value = int.Parse(this.StringValue.Trim());
+                            Value = int.Parse(StringValue.Trim());
                         }
                         return;
                 }
             }
-            if (this.Type == typeof(long) || this.Type == typeof(long?))
+            else if (Type == typeof(long) || Type == typeof(long?))
             {
-                switch (this.DataFormat)
+                switch (DataFormat)
                 {
                     case FileFieldDataFormat.IBMPacked:
-                        this.Value = this.ByteValue.FromPackedLong();
-                        return;
-                    case FileFieldDataFormat.Raw:
-                        this.Value = this.ByteValue.FromRawLong();
+                        Value = ByteValue.FromPackedLong();
                         return;
                     case FileFieldDataFormat.String:
-                        if (this.Type.IsAssignableFrom(typeof(Nullable)))
+                        if (Type.IsAssignableFrom(typeof(Nullable)))
                         {
-                            if (long.TryParse(this.StringValue.Trim(), out long ret))
+                            if (long.TryParse(StringValue?.Trim(), out long ret))
                             {
-                                this.Value = ret;
+                                Value = ret;
                             }
                             else
                             {
-                                this.Value = null;
+                                Value = null;
                             }
                         }
                         else
                         {
-                            this.Value = long.Parse(this.StringValue.Trim());
+                            Value = long.Parse(StringValue.Trim());
                         }
                         return;
                 }
             }
-            if (this.Type == typeof(double) || this.Type == typeof(double?))
+            else if (Type == typeof(double) || Type == typeof(double?))
             {
-                switch (this.DataFormat)
+                switch (DataFormat)
                 {
                     case FileFieldDataFormat.IBMPacked:
-                        this.Value = this.ByteValue.FromPackedDouble();
-                        return;
-                    case FileFieldDataFormat.Raw:
-                        this.Value = this.ByteValue.FromRawDouble();
+                        Value = ByteValue.FromPackedDouble(Precision);
                         return;
                     case FileFieldDataFormat.String:
-                        if (this.Type.IsAssignableFrom(typeof(Nullable)))
+                        if (Type.IsAssignableFrom(typeof(Nullable)))
                         {
-                            if (double.TryParse(this.StringValue.Trim(), out double ret))
+                            if (double.TryParse(StringValue?.Trim(), out double ret))
                             {
-                                this.Value = ret;
+                                Value = ret;
                             }
                             else
                             {
-                                this.Value = null;
+                                Value = null;
                             }
                         }
                         else
                         {
-                            this.Value = long.Parse(this.StringValue.Trim());
+                            Value = long.Parse(StringValue.Trim());
                         }
                         return;
                 }
             }
-            if (this.Type == typeof(double) || this.Type == typeof(double?))
+            else if (Type == typeof(decimal) || Type == typeof(decimal?))
             {
-                switch (this.DataFormat)
+                switch (DataFormat)
                 {
                     case FileFieldDataFormat.IBMPacked:
-                        this.Value = this.ByteValue.FromPackedDecimal(this.Precision);
-                        return;
-                    case FileFieldDataFormat.Raw:
-                        this.Value = this.ByteValue.FromRawDecimal(this.Precision);
+                        Value = ByteValue.FromPackedDecimal(Precision);
                         return;
                     case FileFieldDataFormat.String:
                         decimal ret;
-                        if (this.Type.IsAssignableFrom(typeof(Nullable)))
+                        if (Type.IsAssignableFrom(typeof(Nullable)))
                         {
-                            if (!decimal.TryParse(this.StringValue.Trim(), out ret))
+                            if (!decimal.TryParse(StringValue?.Trim(), out ret))
                             {
-                                this.Value = null;
+                                Value = null;
                                 return;
                             }
-                         }
+                        }
                         else
                         {
-                            ret = decimal.Parse(this.StringValue.Trim());
+                            ret = decimal.Parse(StringValue.Trim());
                         }
-                        if (this.Precision != 0 && !this.StringValue.Contains("."))
+                        if (Precision != 0 && !StringValue.Contains("."))
                         {
-                            ret /= (decimal)Math.Pow(10, this.Precision);
+                            ret /= (decimal)Math.Pow(10, Precision);
                         }
-                        this.Value = ret;
+                        Value = ret;
                         return;
                 }
             }
-            if (this.Type == typeof(ushort) || this.Type == typeof(ushort?))
+            else if (Type == typeof(float) || Type == typeof(float?))
             {
-                switch (this.DataFormat)
+                switch (DataFormat)
                 {
                     case FileFieldDataFormat.IBMPacked:
-                        this.Value = this.ByteValue.FromPackedUShort();
-                        return;
-                    case FileFieldDataFormat.Raw:
-                        this.Value = this.ByteValue.FromRawUShort();
+                        Value = ByteValue.FromPackedFloat(Precision);
                         return;
                     case FileFieldDataFormat.String:
-                        if (this.Type.IsAssignableFrom(typeof(Nullable)))
+                        float ret;
+                        if (Type.IsAssignableFrom(typeof(Nullable)))
                         {
-                            if (ushort.TryParse(this.StringValue.Trim(), out ushort ret))
+                            if (!float.TryParse(StringValue?.Trim(), out ret))
                             {
-                                this.Value = ret;
+                                Value = null;
+                                return;
+                            }
+                        }
+                        else
+                        {
+                            ret = float.Parse(StringValue.Trim());
+                        }
+                        if (Precision != 0 && !StringValue.Contains("."))
+                        {
+                            ret /= (float)Math.Pow(10, Precision);
+                        }
+                        Value = ret;
+                        return;
+                }
+            }
+            else if (Type == typeof(ushort) || Type == typeof(ushort?))
+            {
+                switch (DataFormat)
+                {
+                    case FileFieldDataFormat.IBMPacked:
+                        Value = ByteValue.FromPackedUShort();
+                        return;
+                    case FileFieldDataFormat.String:
+                        if (Type.IsAssignableFrom(typeof(Nullable)))
+                        {
+                            if (ushort.TryParse(StringValue?.Trim(), out ushort ret))
+                            {
+                                Value = ret;
                             }
                             else
                             {
-                                this.Value = null;
+                                Value = null;
                             }
                         }
                         else
                         {
-                            this.Value = ushort.Parse(this.StringValue.Trim());
+                            Value = ushort.Parse(StringValue.Trim());
                         }
                         return;
                 }
             }
-            if (this.Type == typeof(uint) || this.Type == typeof(uint?))
+            else if (Type == typeof(uint) || Type == typeof(uint?))
             {
-                switch (this.DataFormat)
+                switch (DataFormat)
                 {
                     case FileFieldDataFormat.IBMPacked:
-                        this.Value = this.ByteValue.FromPackedUInt();
-                        return;
-                    case FileFieldDataFormat.Raw:
-                        this.Value = this.ByteValue.FromRawUInt();
+                        Value = ByteValue.FromPackedUInt();
                         return;
                     case FileFieldDataFormat.String:
-                        if (this.Type.IsAssignableFrom(typeof(Nullable)))
+                        if (Type.IsAssignableFrom(typeof(Nullable)))
                         {
-                            if (uint.TryParse(this.StringValue.Trim(), out uint ret))
+                            if (uint.TryParse(StringValue?.Trim(), out uint ret))
                             {
-                                this.Value = ret;
+                                Value = ret;
                             }
                             else
                             {
-                                this.Value = null;
+                                Value = null;
                             }
                         }
                         else
                         {
-                            this.Value = uint.Parse(this.StringValue.Trim());
+                            Value = uint.Parse(StringValue.Trim());
                         }
                         return;
                 }
             }
-            if (this.Type == typeof(ulong) || this.Type == typeof(ulong?))
+            else if (Type == typeof(ulong) || Type == typeof(ulong?))
             {
-                switch (this.DataFormat)
+                switch (DataFormat)
                 {
                     case FileFieldDataFormat.IBMPacked:
-                        this.Value = this.ByteValue.FromPackedULong();
-                        return;
-                    case FileFieldDataFormat.Raw:
-                        this.Value = this.ByteValue.FromRawULong();
+                        Value = ByteValue.FromPackedULong();
                         return;
                     case FileFieldDataFormat.String:
-                        if (this.Type.IsAssignableFrom(typeof(Nullable)))
+                        if (Type.IsAssignableFrom(typeof(Nullable)))
                         {
-                            if (ulong.TryParse(this.StringValue.Trim(), out ulong ret))
+                            if (ulong.TryParse(StringValue?.Trim(), out ulong ret))
                             {
-                                this.Value = ret;
+                                Value = ret;
                             }
                             else
                             {
-                                this.Value = null;
+                                Value = null;
                             }
                         }
                         else
                         {
-                            this.Value = ulong.Parse(this.StringValue.Trim());
+                            Value = ulong.Parse(StringValue.Trim());
                         }
                         return;
                 }
             }
-            this.Value = this.ByteValue.Convert(this.Encoder.SourceEncoding, this.Encoder.DestinationEncoding).ToObject();
+            Value = ByteValue.Convert(Encoder.SourceEncoding, Encoder.DestinationEncoding).ToObject();
+        }
+
+        /// <summary>
+        /// Packs the field <see cref="IFileField.Value">Value</see> to the <see cref="ByteValue">ByteValue</see> using the properties provided.
+        /// </summary>
+        public override byte[] Pack()
+        {
+            if (Value == null)
+            {
+                return Pad();
+            }
+            if (Type == typeof(byte) || Type == typeof(byte?))
+            {
+                byteValue = new byte[] { (byte)Value };
+            }
+            else if (DataFormat == FileFieldDataFormat.Raw)
+            {
+                byteValue = Value.ToByteArray(Encoder.DestinationEncoding);
+            }
+            else if (Type == typeof(DateTime) || Type == typeof(DateTime?))
+            {
+                switch (DataFormat)
+                {
+                    case FileFieldDataFormat.IBMPacked:
+                        byteValue = ((DateTime)Value).PackComp3(Length < 4);
+                        break;
+                    case FileFieldDataFormat.String:
+                        byteValue = ((DateTime)Value).ToFormattedDateString(Length.ToInt()).ToByteArray(Encoder.DestinationEncoding);
+                        break;
+                }
+            }
+            else if (Type == typeof(bool) || Type == typeof(bool?))
+            {
+                switch (DataFormat)
+                {
+                    case FileFieldDataFormat.IBMPacked:
+                        byteValue = new byte[] { (byte)(((bool)Value) ? 1 : 0) };
+                        break;
+                    case FileFieldDataFormat.String:
+                        if (Value == null)
+                        {
+                            byteValue = new byte[] { FillByte };
+                        }
+                        else
+                        {
+                            string sVal = ((bool)Value).ToString(BoolAsString);
+                            if (sVal.Length > Length)
+                            {
+                                sVal = sVal.Substring(0, Length.ToInt());
+                            }
+                            byteValue = sVal.ToByteArray(Encoder.DestinationEncoding);
+                        }
+                        break;
+                }
+            }
+            else if (Type == typeof(string) || DataFormat == FileFieldDataFormat.String)
+            {
+                byteValue = Value?.ToString().ToByteArray(Encoder.DestinationEncoding);
+            }
+            else if (DataFormat == FileFieldDataFormat.IBMPacked)
+            {
+                if (Type == typeof(double) || Type == typeof(double?) || Type == typeof(float) || Type == typeof(float?))
+                {
+                    double dVal = Convert.ToDouble(Value);
+                    byteValue = dVal.PackComp3(Precision);
+                    this.Type = this.Type;
+                }
+                else
+                {
+                    decimal dVal;
+                    if (Value == null)
+                    {
+                        dVal = FillByte;
+                    }
+                    else if (Type == typeof(short) || Type == typeof(short?))
+                    {
+                        dVal = Convert.ToInt16(Value);
+                    }
+                    else if (Type == typeof(int) || Type == typeof(int?))
+                    {
+                        dVal = Convert.ToInt32(Value);
+                    }
+                    else if (Type == typeof(long) || Type == typeof(long?))
+                    {
+                        dVal = Convert.ToInt64(Value);
+                    }
+                    else if (Type == typeof(ushort) || Type == typeof(ushort?))
+                    {
+                        dVal = Convert.ToUInt16(Value);
+                    }
+                    else if (Type == typeof(uint) || Type == typeof(uint?))
+                    {
+                        dVal = Convert.ToUInt32(Value);
+                    }
+                    else if (Type == typeof(ulong) || Type == typeof(ulong?))
+                    {
+                        dVal = Convert.ToUInt64(Value);
+                    }
+                    else
+                    {
+                        dVal = Convert.ToDecimal(Value);
+                    }
+                    byteValue = dVal.PackComp3(Precision);
+                }
+            }
+            return Pad();
+        }
+
+        private byte[] Pad()
+        {
+            if (Value == null)
+            {
+                byteValue = FillByte.NewArray(Length.ToInt()).Convert(Encoder.SourceEncoding, Encoder.DestinationEncoding);
+            }
+            if (byteValue.Length > Length)
+            {
+                throw new InvalidCastException(
+                    $"{IO.FileParser.Properties.Resources.ResourceManager.GetString("InvalidLength")} {Value}");
+            }
+            if (byteValue.Length == Length)
+            {
+                return byteValue;
+            }
+            byte fb = FillByte.Convert(Encoder.SourceEncoding, Encoder.DestinationEncoding);
+            if (DataFormat == FileFieldDataFormat.IBMPacked)
+            {
+                byteValue = byteValue.PadLeft(Length.ToInt(), fb, true);
+            }
+            else if (RightAlign)
+            {
+                byteValue = byteValue.PadLeft(Length.ToInt(), fb, true);
+            }
+            else
+            {
+                byteValue = byteValue.PadRight(Length.ToInt(), fb, true);
+            }
+            return byteValue;
         }
 
     }

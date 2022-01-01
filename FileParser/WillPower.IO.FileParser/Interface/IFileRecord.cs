@@ -19,7 +19,8 @@
 namespace WillPower
 {
     /// <summary>
-    /// A common interface for record-level data, their <see cref="IFileField">fields</see>, and any possible <see cref="FieldException">Exceptions</see>.
+    /// A common interface for record-level data, their <see cref="IFileField">fields</see>, and any possible 
+    /// <see cref="FieldException">Exceptions</see>.
     /// </summary>
     public interface IFileRecord
     {
@@ -35,6 +36,11 @@ namespace WillPower
         /// The <see cref="System.Array">collection</see> of <see cref="FieldException">Exceptions</see>, if any.
         /// </summary>
         FieldException[] Exceptions { get; }
+        /// <summary>
+        /// The packed and destination <see cref="System.Text.Encoding">Encoded</see> <see cref="System.Array">array</see> 
+        /// of bytes belonging to this <see cref="IFileRecord">record</see>. Not used for file read.
+        /// </summary>
+        byte[] ByteValue { get; set; }
 
         /// <summary>
         /// Reads an <see cref="System.Array">array</see> of bytes into this instance.
@@ -58,6 +64,23 @@ namespace WillPower
         /// <param name="fieldName">The <see cref="System.String">name</see> of the <see cref="IFileField">field</see>.</param>
         /// <returns>The value of the <see cref="IFileField">field</see> expressed as <see cref="System.Type">T</see>.</returns>
         T Get<T>(string fieldName);
+
+        /// <summary>
+        /// Packs the record <see cref="Fields">Fields</see> to their <see cref="IFileField.ByteValue">ByteValues</see> 
+        /// using the properties provided.
+        /// </summary>
+        /// <param name="recordLength">The length of the record expressed as an <see cref="System.UInt32">unsigned integer</see>.</param>
+        /// <param name="fillByte">        
+        /// The <see cref="System.Byte">byte</see>, in Source Encoding, from <see cref="IFileLayout">IFileLayout</see>.
+        /// </param>
+        byte[] Pack(uint recordLength, byte fillByte);
+
+        /// <summary>
+        /// Set the value of the specified <see cref="System.String">field</see> to the provided <see cref="System.Object">value</see>.
+        /// </summary>
+        /// <param name="fieldName">The <see cref="System.String">Name</see> of the field to apply the value to.</param>
+        /// <param name="value">The <see cref="System.Object">value</see> to assign to the field.</param>
+        void SetValue(string fieldName, object value);
 
     }
 }

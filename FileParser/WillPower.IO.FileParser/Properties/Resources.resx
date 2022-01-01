@@ -120,6 +120,9 @@
   <data name="InvalidLength" xml:space="preserve">
     <value>Length is invalid for this operation.</value>
   </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
   <data name="OverFlow" xml:space="preserve">
     <value>Provided value would result in a stack overflow.</value>
   </data>
@@ -128,5 +131,8 @@
   </data>
   <data name="UnsupportedType" xml:space="preserve">
     <value>This type does not support the requested operation.</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
   </data>
 </root>

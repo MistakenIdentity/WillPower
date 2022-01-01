@@ -70,6 +70,15 @@ namespace WillPower.IO.FileParser.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No.
+        /// </summary>
+        internal static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Provided value would result in a stack overflow..
         /// </summary>
         internal static string OverFlow {
@@ -93,6 +102,15 @@ namespace WillPower.IO.FileParser.Properties {
         internal static string UnsupportedType {
             get {
                 return ResourceManager.GetString("UnsupportedType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yes.
+        /// </summary>
+        internal static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

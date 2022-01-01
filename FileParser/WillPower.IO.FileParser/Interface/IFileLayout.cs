@@ -22,7 +22,8 @@ namespace WillPower
     /// The layout of the file, including any <see cref="IFileLayout.HeaderRecord">header</see>, 
     /// <see cref="IFileLayout.FooterRecord">footer</see>, or <see cref="IFileLayout.Conditions">conditional</see> rows.
     /// For binary files the <see cref="IFileLayout.RecordLength">RecordLength</see> must be greater than 0.
-    /// For text files the default <see cref="IFileLayout.TextLineTerminator">TextLineTerminator</see> is typically '\n' (nextline), but can be set at any time.
+    /// For text files the default <see cref="IFileLayout.TextLineTerminator">TextLineTerminator</see> is typically '\n' (nextline), 
+    /// but can be set at any time.
     /// </summary>
     public interface IFileLayout
     {
@@ -35,7 +36,8 @@ namespace WillPower
         /// </summary>
         IFileParserEncoder Encoder { get; set; }
         /// <summary>
-        /// The <see cref="System.Array">collection</see> of <see cref="IFileConditional">conditions</see> to evaulate each <see cref="IFileRecord">record</see> for (and apply those fields if true), if any.
+        /// The <see cref="System.Array">collection</see> of <see cref="IFileConditional">conditions</see> to evaulate each 
+        /// <see cref="IFileRecord">record</see> for (and apply those fields if true), if any.
         /// </summary>
         IFileConditional[] Conditions { get; set; }
         /// <summary>
@@ -47,7 +49,8 @@ namespace WillPower
         /// </summary>
         IFileRecord FooterRecord { get; set; }
         /// <summary>
-        /// The <see cref="System.Array">collection</see> of <see cref="IFileField">fields</see> containing either master key fields (3D file), or all fields (2D file).
+        /// The <see cref="System.Array">collection</see> of <see cref="IFileField">fields</see> containing either master key fields (3D file), 
+        /// or all fields (2D file).
         /// </summary>
         IFileField[] MasterFields { get; set; }
         /// <summary>
@@ -55,13 +58,27 @@ namespace WillPower
         /// </summary>
         uint RecordLength { get; set; }
         /// <summary>
-        /// If <see cref="System.Boolean">true</see>, open using character-based methods. If <see cref="System.Boolean">false</see>, open using binary methods.
+        /// If <see cref="System.Boolean">true</see>, open using character-based methods. If <see cref="System.Boolean">false</see>, 
+        /// open using binary methods.
         /// </summary>
         bool OpenAsText { get; set; }
         /// <summary>
-        /// The <see cref="System.Char">character</see> used to determine end of line when <see cref="IFileLayout.OpenAsText">OpenAsText</see> is <see cref="System.Boolean">true</see>.
+        /// The <see cref="System.Char">character</see> used to determine end of line when <see cref="IFileLayout.OpenAsText">OpenAsText</see> 
+        /// is <see cref="System.Boolean">true</see>.
         /// </summary>
         char TextLineTerminator { get; set; }
+        /// <summary>
+        /// The <see cref="System.Byte">byte</see>, in Source Encoding, to use as filler for a record (spaces between fields).
+        /// This or <see cref="FillCharacter">FillCharacter</see> must be set, but not both. Changing one 
+        /// will affect the other. Used for writing.
+        /// </summary>
+        byte FillByte { get; set; }
+        /// <summary>
+        /// The <see cref="System.Char">character</see>, in Source Encoding, to use as filler for a record (spaces between fields).
+        /// This or <see cref="FillByte">FillByte</see> must be set, but not both. Changing one 
+        /// will affect the other. Used for writing.
+        /// </summary>
+        char FillCharacter { get; set; }
 
     }
 }

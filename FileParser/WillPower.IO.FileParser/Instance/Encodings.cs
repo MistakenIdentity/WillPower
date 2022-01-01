@@ -9,7 +9,8 @@ namespace WillPower
     {
         /// <summary>
         /// The EBCDIC <see cref="System.Text.Encoding">Encoding</see> for easy reference. 
-        /// This is usually the <see href="https://www.ibm.com/support/knowledgecenter/SSEQ5Y_5.9.0/com.ibm.pcomm.doc/reference/pdf/hcp_referenceV58.pdf">
+        /// This is usually the 
+        /// <see href="https://www.ibm.com/support/knowledgecenter/SSEQ5Y_5.9.0/com.ibm.pcomm.doc/reference/pdf/hcp_referenceV58.pdf">
         /// IBM 037</see> code page in .Net.
         /// Default is CodePage IBM037.
         /// </summary>
@@ -17,6 +18,14 @@ namespace WillPower
         {
             get
             {
+#if NETSTANDARD
+                if (!registered)
+                {
+                    Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+                    registered = true;
+                }
+#endif
+
                 if (ebcdicEncoding == null)
                 {
                     ebcdicEncoding = Encoding.GetEncoding("IBM037");
@@ -28,7 +37,8 @@ namespace WillPower
                 ebcdicEncoding = value;
             }
         }
-        static Encoding ebcdicEncoding = null;
+        private static Encoding ebcdicEncoding = null;
+        private static bool registered = false;
 
         /// <summary>
         /// ANSI (Default) <see cref="System.Text.Encoding">Encoding</see> for easy reference. 

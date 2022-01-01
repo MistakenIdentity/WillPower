@@ -32,6 +32,9 @@ namespace WillPower
         IFileLayout Layout { get; set; }
         /// <summary>
         /// The <see cref="System.Collections.Generic.IEnumerable{T}">collection</see> of <see cref="IFileRecord">records</see> read from the file.
+        /// It is suggested that this collection not be altered directly, but rather assigned to using the 
+        /// <see cref="AddRecord(IFileRecord)">AddRecord</see> and 
+        /// <see cref="AddRecords(System.Collections.Generic.IEnumerable{IFileRecord})">AddRecords</see> methods.
         /// </summary>
         System.Collections.Generic.IEnumerable<IFileRecord> Records { get; }
         /// <summary>
@@ -58,5 +61,34 @@ namespace WillPower
         /// <returns>A <see cref="System.Data.DataSet">DataSet</see> of <see cref="System.Data.DataTable">DataTables</see> with resulting data.</returns>
         System.Data.DataSet ToDataSet();
 
+        /// <summary>
+        /// Packs the <see cref="Records">Records</see> and their <see cref="IFileRecord.Fields">Fields</see> 
+        /// using the properties provided.
+        /// Optionally writes to the provided <see cref="System.String">outputFilename</see> as a binary.
+        /// </summary>
+        /// <param name="outputFilename">If not <see cref="System.Nullable">null</see>, will execute
+        /// <see cref="SaveAs(string)">SaveAs</see> after performing the Pack using the 
+        /// <see cref="System.String">value</see> provided.</param>
+        void Pack(string outputFilename = null);
+
+        /// <summary>
+        /// Saves the Packed <see cref="Records">Records</see> to the provided <see cref="System.String">outputFilename</see> as a binary.
+        /// </summary>
+        /// <param name="outputFilename">The <see cref="System.String">name</see> of the output file.</param>
+        void SaveAs(string outputFilename);
+
+        /// <summary>
+        /// Adds the provided <see cref="IFileRecord">record</see> to the <see cref="Records">Records</see> collection.
+        /// </summary>
+        /// <param name="record">The <see cref="IFileRecord">IFileRecord</see> instance to add.</param>
+        void AddRecord(IFileRecord record);
+
+        /// <summary>
+        /// Adds the provided <see cref="System.Collections.Generic.IEnumerable{T}">collection</see> of 
+        /// <see cref="IFileRecord">records</see> to the <see cref="Records">Records</see> collection.
+        /// </summary>
+        /// <param name="fileRecords">The <see cref="System.Collections.Generic.IEnumerable{T}">collection</see> of 
+        /// <see cref="IFileRecord">IFileRecord</see> instances to add.</param>
+        void AddRecords(System.Collections.Generic.IEnumerable<IFileRecord> fileRecords);
     }
 }

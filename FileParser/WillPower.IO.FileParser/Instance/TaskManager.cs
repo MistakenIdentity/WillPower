@@ -16,9 +16,7 @@
 // ********************************************************************************************************
 //
 
-using System;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace WillPower
@@ -28,10 +26,10 @@ namespace WillPower
     /// Why isn't something like this part of .Net?
     /// Can be inherited because I was too lazy to make an Interface.
     /// </summary>
-    public class TaskManager : IDisposable
+    public class TaskManager : System.IDisposable
     {
-        const uint MAXTHREADSDEFAULT = 256;
-        bool disposing = false;
+        private const uint MAXTHREADSDEFAULT = 256;
+        private bool disposing = false;
 
         /// <summary>
         /// The delegate handler for <see cref="TaskManager.OnThreadException">OnThreadException</see>.
@@ -39,27 +37,27 @@ namespace WillPower
         /// <param name="sender"><see cref="TaskManager">This</see> instance.</param>
         /// <param name="exception">The <see cref="System.Exception">Exception</see> thrown.</param>
         /// <param name="action">The relevant <see cref="AbortableTask">AbortableTask</see>, if any.</param>
-        public delegate void OnThreadExceptionHandler(TaskManager sender, Exception exception, AbortableTask action = null);
+        public delegate void OnThreadExceptionHandler(TaskManager sender, System.Exception exception, AbortableTask action = null);
         /// <summary>
-        /// Fires when a <see cref="TaskManager.PendingTasks">Pending Task</see> is fails to execute.
+        /// Fires when a <see cref="TaskManager.PendingTasks">Pending Task</see> fails to execute.
         /// If this event is not handled, an unhandled <see cref="System.Exception">Exception</see> could 
         /// be thrown in the background thread and should be handled elsewhere.
         /// </summary>
         public event OnThreadExceptionHandler OnThreadException;
 
         /// <summary>
-        /// The <see cref="System.TimeSpan">System.TimeSpan</see> to wait for an available thread prior to throwing a 
-        /// <see cref="System.TimeoutException">TimeoutException</see>.
+        /// The <see cref="System.TimeSpan">TimeSpan</see> to wait for an available thread prior to throwing a 
+        /// <see cref="System.TimeoutException">Timeout Exception</see>.
         /// Default is 10 seconds.
         /// </summary>
-        public TimeSpan TimeOut { get; set; }
+        public System.TimeSpan TimeOut { get; set; }
 
         /// <summary>
         /// The <see cref="System.TimeSpan">System.TimeSpan</see> to wait for all threads to complete prior to throwing a 
         /// <see cref="System.TimeoutException">TimeoutException</see>.
         /// Default is 1 hour (60 minutes).
         /// </summary>
-        public TimeSpan TimeOutAll { get; set; }
+        public System.TimeSpan TimeOutAll { get; set; }
 
         /// <summary>
         /// The default <see cref="System.Threading.Tasks.TaskScheduler">TaskScheduler</see> of the 
@@ -70,7 +68,7 @@ namespace WillPower
         {
             get
             {
-                uint mc = this.TaskFactory.MaximumConcurrency();
+                uint mc = TaskFactory.MaximumConcurrency();
                 if (maxConcurrency < 1 && mc < 1)
                 {
                     maxConcurrency = MAXTHREADSDEFAULT;
@@ -83,7 +81,7 @@ namespace WillPower
             }
             set
             {
-                uint mc = this.TaskFactory.MaximumConcurrency();
+                uint mc = TaskFactory.MaximumConcurrency();
                 if (mc < 1 || value <= mc)
                 {
                     maxConcurrency = value;
@@ -99,7 +97,22 @@ namespace WillPower
         /// <summary>
         /// The <see cref="TaskFactory">System.Threading.Tasks.TaskFactory</see> instance used for instantiating tasks.
         /// </summary>
-        public TaskFactory TaskFactory { get; set; }
+        public TaskFactory TaskFactory 
+        {
+            get
+            {
+                if (tFact != null)
+                {
+                    return tFact;
+                }
+                return Task.Factory;
+            }
+            set
+            {
+                tFact = value;
+            }
+        }
+        private TaskFactory tFact = null;
 
         /// <summary>
         /// The <see cref="System.Collections.Generic.List{T}">collection</see> of <see cref="AbortableTask">Tasks</see> currently loaded.
@@ -110,45 +123,25 @@ namespace WillPower
         /// The <see cref="System.Collections.Generic.List{T}">collection</see> of <see cref="AbortableTask">Tasks</see> with a Canceled status.
         /// </summary>
         public System.Collections.Generic.List<AbortableTask> CanceledTasks
-        {
-            get
-            {
-                return this.Tasks.Where(x => x.Status == TaskStatus.Canceled).ToList();
-            }
-        }
+            => Tasks.Where(x => x.Status == TaskStatus.Canceled).ToList();
 
         /// <summary>
         /// The <see cref="System.Collections.Generic.List{T}">collection</see> of <see cref="AbortableTask">Tasks</see> with a Faulted status.
         /// </summary>
         public System.Collections.Generic.List<AbortableTask> FaultedTasks
-        {
-            get
-            {
-                return this.Tasks.Where(x => x.Status == TaskStatus.Faulted).ToList();
-            }
-        }
+            => Tasks.Where(x => x.Status == TaskStatus.Faulted).ToList();
 
         /// <summary>
         /// The <see cref="System.Collections.Generic.List{T}">collection</see> of <see cref="AbortableTask">Tasks</see> with a Completed status.
         /// </summary>
         public System.Collections.Generic.List<AbortableTask> CompletedTasks
-        {
-            get
-            {
-                return this.Tasks.Where(x => x.Status == TaskStatus.RanToCompletion).ToList();
-            }
-        }
+            => Tasks.Where(x => x.Status == TaskStatus.RanToCompletion).ToList();
 
         /// <summary>
         /// The <see cref="System.Collections.Generic.List{T}">collection</see> of <see cref="AbortableTask">Tasks</see> with a Running status.
         /// </summary>
         public System.Collections.Generic.List<AbortableTask> RunningTasks
-        {
-            get
-            {
-                return this.Tasks.Where(x => x.Status == TaskStatus.Running || x.Status == TaskStatus.WaitingForChildrenToComplete).ToList();
-            }
-        }
+            => Tasks.Where(x => x.Status == TaskStatus.Running || x.Status == TaskStatus.WaitingForChildrenToComplete).ToList();
 
         /// <summary>
         /// The <see cref="System.Collections.Generic.List{T}">List</see> of <see cref="AbortableTask">Tasks</see> awaiting execution.
@@ -162,7 +155,7 @@ namespace WillPower
         {
             get
             {
-                return this.RunningTasks.Count() > 0;
+                return RunningTasks.Count() > 0;
             }
         }
 
@@ -171,12 +164,11 @@ namespace WillPower
         /// </summary>
         public TaskManager()
         {
-            this.Tasks = new System.Collections.Generic.List<AbortableTask>();
-            this.PendingTasks = new System.Collections.Generic.List<AbortableTask>();
-            this.TimeOutAll = TimeSpan.FromHours(1);
-            this.TimeOut = TimeSpan.FromSeconds(10);
-            this.TaskFactory = new TaskFactory();
-            this.TaskFactory.StartNew(SpinAwait);
+            Tasks = new System.Collections.Generic.List<AbortableTask>();
+            PendingTasks = new System.Collections.Generic.List<AbortableTask>();
+            TimeOutAll = System.TimeSpan.FromHours(1);
+            TimeOut = System.TimeSpan.FromSeconds(10);
+            TaskFactory.StartNew(SpinAwait);
         }
 
         /// <summary>
@@ -185,7 +177,7 @@ namespace WillPower
         /// <see cref="TaskManager.PendingTasks">PendingTasks</see> collection if no threads are available.
         /// </summary>
         /// <param name="action">The <see cref="System.Action">action</see> to be executed.</param>
-        public void StartAction(Action action) 
+        public void StartAction(System.Action action) 
         {
             StartTask(new AbortableTask(action));
         }
@@ -197,7 +189,7 @@ namespace WillPower
         /// </summary>
         /// <param name="action">The <see cref="System.Action">action</see> to be executed.</param>
         /// <param name="cancellationTokenSource">The <see cref="System.Threading.CancellationTokenSource">source</see> of the <see cref="System.Threading.CancellationToken">CancellationToken</see>.</param>
-        public void StartAction(Action action, CancellationTokenSource cancellationTokenSource)
+        public void StartAction(System.Action action, System.Threading.CancellationTokenSource cancellationTokenSource)
         {
             StartTask(new AbortableTask(action, cancellationTokenSource));
         }
@@ -209,14 +201,21 @@ namespace WillPower
         /// <param name="task"></param>
         public void StartTask(AbortableTask task)
         {
-            if (this.MaximumConcurrency <= this.RunningTasks.Count())
+            if (MaximumConcurrency <= RunningTasks.Count())
             {
-                this.PendingTasks.Add(task);
+                PendingTasks.Add(task);
             }
             else
             {
-                this.Tasks.Add(task);
-                task.Start(this.TaskFactory.Scheduler);
+                Tasks.Add(task);
+                if (TaskFactory.Scheduler == null)
+                {
+                    task.Task.Start();
+                }
+                else
+                {
+                    task.Task.Start(TaskFactory.Scheduler);
+                }
             }
         }
         /// <summary>
@@ -227,8 +226,7 @@ namespace WillPower
         /// <param name="task">The <see cref="System.Threading.Tasks.Task">Task</see> to be executed.</param>
         public void StartTask(Task task)
         {
-            AbortableTask abt = task as AbortableTask;
-            abt.CancellationTokenSource = new CancellationTokenSource();
+            AbortableTask abt = new AbortableTask(task);
             StartTask(abt);
         }
         /// <summary>
@@ -238,11 +236,11 @@ namespace WillPower
         /// using the provided <see cref="System.Threading.CancellationTokenSource">CancellationTokenSource</see>.
         /// </summary>
         /// <param name="task">The <see cref="System.Threading.Tasks.Task">Task</see> to be executed.</param>
-        /// <param name="cancellationTokenSource">The <see cref="System.Threading.CancellationTokenSource">source</see> of the <see cref="System.Threading.CancellationToken">CancellationToken</see>.</param>
-        public void StartTask(Task task, CancellationTokenSource cancellationTokenSource)
+        /// <param name="cancellationTokenSource">The <see cref="System.Threading.CancellationTokenSource">source</see> 
+        /// of the <see cref="System.Threading.CancellationToken">CancellationToken</see>.</param>
+        public void StartTask(Task task, System.Threading.CancellationTokenSource cancellationTokenSource)
         {
-            AbortableTask abt = task as AbortableTask;
-            abt.CancellationTokenSource = cancellationTokenSource;
+            AbortableTask abt = new AbortableTask(task, cancellationTokenSource);
             StartTask(abt);
         }
 
@@ -251,7 +249,7 @@ namespace WillPower
         /// </summary>
         public void CleanTasks()
         {
-            this.Tasks.RemoveAll(x => x.Status != TaskStatus.Running && x.Status != TaskStatus.WaitingForChildrenToComplete);
+            Tasks.RemoveAll(x => x.Status != TaskStatus.Running && x.Status != TaskStatus.WaitingForChildrenToComplete);
         }
 
         /// <summary>
@@ -260,14 +258,14 @@ namespace WillPower
         public void AwaitAll()
         {
             System.DateTime dtStart = System.DateTime.Now;
-            while (this.HasActiveTasks)
+            while (HasActiveTasks)
             {
                 System.Threading.Thread.Sleep(10);
-                if (System.DateTime.Now - dtStart >= this.TimeOutAll)
+                if (System.DateTime.Now - dtStart >= TimeOutAll)
                 {
                     throw new System.TimeoutException(
                         string.Format(IO.FileParser.Properties.Resources.ResourceManager.GetString("ThreadNotAvailable"),
-                        this.TimeOutAll.ToString("HH:mm:ss.fff")));
+                        TimeOutAll.ToString("HH:mm:ss.fff")));
                 }
             }
         }
@@ -290,7 +288,7 @@ namespace WillPower
         {
             disposing = true;
             CleanTasks();
-            foreach (AbortableTask t in this.Tasks)
+            foreach (AbortableTask t in Tasks)
             {
                 t.Abort();
             }
@@ -304,15 +302,15 @@ namespace WillPower
                 {
                     WaitForAvailableThread();
                     if (disposing) return;
-                    if (this.PendingTasks.Count > 0)
+                    if (PendingTasks.Count > 0)
                     {
-                        AbortableTask action = this.PendingTasks[0];
+                        AbortableTask action = PendingTasks[0];
                         try
                         {
-                            action.Start(this.TaskFactory.Scheduler);
-                            this.Tasks.Add(action);
+                            action.Task.Start(TaskFactory.Scheduler);
+                            Tasks.Add(action);
                         }
-                        catch (Exception ex1)
+                        catch (System.Exception ex1)
                         {
                             if (OnThreadException != null)
                             {
@@ -323,10 +321,10 @@ namespace WillPower
                                 throw;
                             }
                         }
-                        this.PendingTasks.Remove(action);
+                        PendingTasks.Remove(action);
                     }
                 }
-                catch (Exception ex0)
+                catch (System.Exception ex0)
                 {
                     if (OnThreadException != null)
                     {
@@ -337,21 +335,21 @@ namespace WillPower
                         throw;
                     }
                 }
-                Thread.Sleep(20);
+                System.Threading.Thread.Sleep(20);
             }
         }
 
         private void WaitForAvailableThread()
         {
             System.DateTime dtStart = System.DateTime.Now;
-            while (!disposing && this.MaximumConcurrency <= this.RunningTasks.Count())
+            while (!disposing && MaximumConcurrency <= RunningTasks.Count())
             {
                 System.Threading.Thread.Sleep(10);
-                if (System.DateTime.Now - dtStart >= this.TimeOut)
+                if (System.DateTime.Now - dtStart >= TimeOut)
                 {
                     throw new System.TimeoutException(
                         string.Format(IO.FileParser.Properties.Resources.ResourceManager.GetString("ThreadNotAvailable"), 
-                        this.TimeOut.ToString("HH:mm:ss.fff")));
+                        TimeOut.ToString("HH:mm:ss.fff")));
                 }
             }
         }

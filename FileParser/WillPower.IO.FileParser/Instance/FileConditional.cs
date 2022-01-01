@@ -61,7 +61,7 @@ namespace WillPower
         /// </summary>
         public FileConditional()
         {
-            this.Fields = new IFileField[] { };
+            Fields = new IFileField[] { };
         }
         /// <summary>
         /// .ctor. Sets the Condition Property to condition.
@@ -90,21 +90,24 @@ namespace WillPower
         /// </param>
         public FileConditional(System.Func<IFileRecord, bool> condition) : this()
         {
-            this.Condition = condition;
+            Condition = condition;
         }
 
         /// <summary>
         /// Evaluates the provided <see cref="IFileRecord">record</see> against the <see cref="IFileConditional.Condition">Condition</see> property.
         /// </summary>
-        /// <param name="record">The <see cref="IFileRecord">record</see> to evaluate against the <see cref="IFileConditional.Condition">Condition</see> property.</param>
-        /// <returns>True if the <see cref="IFileRecord">record</see> meets the <see cref="IFileConditional.Condition">Condition</see> property.</returns>
+        /// <param name="record">The <see cref="IFileRecord">record</see> to evaluate against the 
+        /// <see cref="IFileConditional.Condition">Condition</see> property.</param>
+        /// <returns>
+        /// True if the <see cref="IFileRecord">record</see> meets the <see cref="IFileConditional.Condition">Condition</see> property.
+        /// </returns>
         public bool IsConditional(IFileRecord record)
         {
-            if (this.Condition == null)
+            if (Condition == null)
             {
                 return false;
             }
-            return this.Condition(record);
+            return Condition(record);
         }
 
     }

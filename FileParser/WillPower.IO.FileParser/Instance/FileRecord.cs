@@ -28,7 +28,7 @@ namespace WillPower
     [Serializable]
     public sealed class FileRecord : FileRecordBase, IFileRecord
     {
-        readonly List<FieldException> invalids;
+        private readonly List<FieldException> invalids;
 
         /// <summary>
         /// The <see cref="System.Array">collection</see> of <see cref="FieldException">Exceptions</see>, if any.
@@ -41,6 +41,13 @@ namespace WillPower
             }
         }
 
+        /// <summary>
+        /// .ctor. Creates a new instance of FileRecord.
+        /// </summary>
+        public FileRecord() : base() 
+        {
+            invalids = new List<FieldException>();
+        }
         /// <summary>
         /// .ctor. Creates a new instance of FileRecord.
         /// </summary>
@@ -63,7 +70,7 @@ namespace WillPower
             {
                 myfields.Add(new FileField(field));
             }
-            this.Fields = myfields.ToArray();
+            Fields = myfields.ToArray();
         }
         /// <summary>
         /// .ctor. Creates a new instance of FileRecord. Will use the <see cref="IFileParserEncoder">IFileParserEncoder</see> 
@@ -85,12 +92,13 @@ namespace WillPower
         /// <param name="data"></param>
         public FileRecord(IFileRecord clone, IFileConditional condition, byte[] data) : base(clone.Encoder)
         {
+            invalids = new List<FieldException>();
             List<IFileField> fields = clone.Fields.ToList();
             foreach (IFileField field in condition.Fields.Where(x => !fields.Any(y => y.Name == x.Name)))
             {
                 fields.Add(new FileField(field));
             }
-            this.Fields = fields.ToArray();
+            Fields = fields.ToArray();
             ReadRecord(data);
         }
 
@@ -100,7 +108,7 @@ namespace WillPower
         /// <param name="data">The <see cref="System.Array">array</see> of bytes to read.</param>
         public override void ReadRecord(byte[] data)
         {
-            foreach (IFileField field in this.Fields.Where(x => x.Value == null))
+            foreach (IFileField field in Fields.Where(x => x.Value == null))
             {
                 try
                 {
@@ -111,6 +119,64 @@ namespace WillPower
                     invalids.Add(new FieldException(ex, field));
                 }
             }
+        }
+
+        /// <summary>
+        /// Packs the record <see cref="IFileRecord.Fields">Fields</see> to their <see cref="IFileField.ByteValue">ByteValues</see> 
+        /// using the properties provided.
+        /// </summary>
+        /// <param name="recordLength">The length of the record expressed as an <see cref="System.UInt32">unsigned integer</see>.</param>
+        /// <param name="fillByte">        
+        /// The <see cref="System.Byte">byte</see>, in Source Encoding, from <see cref="IFileLayout">IFileLayout</see>.
+        /// </param>
+        public override byte[] Pack(uint recordLength, byte fillByte)
+        {
+            List<byte> bytes = new List<byte>();
+            foreach (IFileField field in Fields.OrderBy(x => x.StartPosition))
+            {
+                if (field.StartPosition > bytes.Count)
+                {
+                    bytes.AddRange(fillByte.NewArray(field.StartPosition.ToInt() - bytes.Count)
+                        .Convert(Encoder.SourceEncoding, Encoder.DestinationEncoding));
+                }
+                try
+                {
+                    field.Pack();
+                    bytes.AddRange(field.ByteValue);
+                }
+                catch (Exception ex)
+                {
+                    invalids.Add(new FieldException(ex, field));
+                    if (bytes.Count <= (field.StartPosition))
+                    {
+                        bytes.AddRange(field.FillByte.NewArray(field.Length.ToInt())
+                            .Convert(Encoder.SourceEncoding, Encoder.DestinationEncoding));
+                    }
+                }
+            }
+            if (recordLength > bytes.Count)
+            {
+                bytes.AddRange(fillByte.NewArray(recordLength.ToInt() - bytes.Count)
+                        .Convert(Encoder.SourceEncoding, Encoder.DestinationEncoding));
+            }
+            ByteValue = bytes.ToArray();
+            return Pad(recordLength, fillByte);
+        }
+
+        internal void AddException(FieldException ex)
+        {
+            invalids.Add(ex);
+        }
+
+        private byte[] Pad(uint recordLength, byte fillByte)
+        {
+            //if (ByteValue.Length > recordLength)
+            //{
+            //    throw new InvalidCastException(
+            //        $"{IO.FileParser.Properties.Resources.ResourceManager.GetString("InvalidLength")}");
+            //}
+            ByteValue = ByteValue.PadRight(recordLength.ToInt(), fillByte.Convert(Encoder.SourceEncoding, Encoder.DestinationEncoding), true);
+            return ByteValue;
         }
 
     }

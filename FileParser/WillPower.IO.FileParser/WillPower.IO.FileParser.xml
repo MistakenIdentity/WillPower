@@ -17,7 +17,8 @@
         </member>
         <member name="P:WillPower.FileFieldBase.StartPosition">
             <summary>
-            The starting position of this field in the <see cref="T:WillPower.IFileRecord">record</see> expressed as an <see cref="T:System.UInt32">unsigned integer</see>.
+            The starting position of this field in the <see cref="T:WillPower.IFileRecord">record</see> expressed as an 
+            <see cref="T:System.UInt32">unsigned integer</see>.
             </summary>
         </member>
         <member name="P:WillPower.FileFieldBase.Length">
@@ -57,6 +58,28 @@
             will attempt to read the date value with year at the beginning.
             </summary>
         </member>
+        <member name="P:WillPower.FileFieldBase.FillByte">
+            <summary>
+            The <see cref="T:System.Byte">byte</see>, in Source Encoding, to use as filler for this field.
+            This or <see cref="P:WillPower.FileFieldBase.FillCharacter">FillCharacter</see> must be set, but not both. Changing one 
+            will affect the other. Used for writing.
+            </summary>
+        </member>
+        <member name="P:WillPower.FileFieldBase.FillCharacter">
+            <summary>
+            The <see cref="T:System.Char">character</see>, in Source Encoding, to use as filler for this field.
+            This or <see cref="P:WillPower.FileFieldBase.FillByte">FillByte</see> must be set, but not both. Changing one 
+            will affect the other. Used for writing.
+            </summary>
+        </member>
+        <member name="P:WillPower.FileFieldBase.RightAlign">
+            <summary>
+            If <see cref="T:System.Boolean">true</see> the field will pad the <see cref="P:WillPower.FileFieldBase.FillByte">FillByte</see> 
+            or <see cref="P:WillPower.FileFieldBase.FillCharacter">FillCharacter</see> to the left.
+            If <see cref="T:System.Boolean">false</see> the field will pad the <see cref="P:WillPower.FileFieldBase.FillByte">FillByte</see> 
+            or <see cref="P:WillPower.FileFieldBase.FillCharacter">FillCharacter</see> to the right.
+            </summary>
+        </member>
         <member name="P:WillPower.FileFieldBase.ByteValue">
             <summary>
             The original, source <see cref="T:System.Text.Encoding">Encoded</see> <see cref="T:System.Array">array</see> of bytes belonging to this field.
@@ -64,13 +87,27 @@
         </member>
         <member name="P:WillPower.FileFieldBase.StringValue">
             <summary>
-            The <see cref="M:WillPower.IFileField.Compute(System.Byte[])">computed</see> result as a <see cref="T:System.String">string</see>.
+            The <see cref="M:WillPower.IFileField.Compute(System.Byte[])">computed</see> result as a <see cref="T:System.String">string</see> or 
+            the value to be written.
             </summary>
         </member>
-        <member name="M:WillPower.FileFieldBase.#ctor">
+        <member name="P:WillPower.FileFieldBase.BoolAsString">
+            <summary>
+            Identifies how a <see cref="T:System.Boolean">boolean</see> value is represented as a <see cref="T:System.String">string</see>.
+            Length of 1 will only return the first <see cref="T:System.Char">character</see> of the expected <see cref="T:System.String">string</see>.
+            </summary>
+        </member>
+        <member name="M:WillPower.FileFieldBase.#ctor(System.Boolean)">
             <summary>
             .ctor. Must be inherited.
             </summary>
+            <param name="write">
+            If <see cref="T:System.Boolean">true</see>, this will use the default ASCII to EBCDIC 
+            <see cref="T:WillPower.IFileParserEncoder">IFileParserEncoder</see> instance for writing binary EBCDIC fields.
+            If <see cref="T:System.Boolean">false</see>, this will use the default EBCDIC to ASCII 
+            <see cref="T:WillPower.IFileParserEncoder">IFileParserEncoder</see> instance for reading binary EBCDIC fields.
+            Default is <see cref="T:System.Boolean">false</see>.
+            </param>
         </member>
         <member name="M:WillPower.FileFieldBase.#ctor(WillPower.IFileField)">
             <summary>
@@ -85,20 +122,23 @@
             <param name="encoder">The <see cref="T:WillPower.IFileParserEncoder">IFileParserEncoder</see> instance to use for encoding.</param>
             <param name="type">The <see cref="T:System.Type">type</see> of data the field contains.</param>
             <param name="name">The <see cref="T:System.String">name</see> of the field.</param>
-            <param name="startPosition">The starting position of this field in the <see cref="T:WillPower.IFileRecord">record</see> expressed as an <see cref="T:System.UInt32">unsigned integer</see>.</param>
+            <param name="startPosition">The starting position of this field in the <see cref="T:WillPower.IFileRecord">record</see> expressed as an 
+            <see cref="T:System.UInt32">unsigned integer</see>.</param>
             <param name="length">The field length expressed as an <see cref="T:System.UInt32">unsigned integer</see>.</param>
             <param name="format">The <see cref="T:WillPower.FileFieldDataFormat">format</see> of the field.</param>
         </member>
-        <member name="M:WillPower.FileFieldBase.#ctor(WillPower.IFileParserEncoder,System.String,System.UInt32,System.UInt32,WillPower.FileFieldDataFormat,System.Byte,System.Boolean)">
+        <member name="M:WillPower.FileFieldBase.#ctor(WillPower.IFileParserEncoder,System.String,System.UInt32,System.UInt32,WillPower.FileFieldDataFormat,System.Int16,System.Boolean)">
             <summary>
             .ctor. Must be inherited. Used for numeric <see cref="T:System.Decimal">(decimal)</see> <see cref="T:System.Type">types</see>.
             </summary>
             <param name="encoder">The <see cref="T:WillPower.IFileParserEncoder">IFileParserEncoder</see> instance to use for encoding.</param>
             <param name="name">The <see cref="T:System.String">name</see> of the field.</param>
-            <param name="startPosition">The starting position of this field in the <see cref="T:WillPower.IFileRecord">record</see> expressed as an <see cref="T:System.UInt32">unsigned integer</see>.</param>
+            <param name="startPosition">The starting position of this field in the <see cref="T:WillPower.IFileRecord">record</see> expressed as an 
+            <see cref="T:System.UInt32">unsigned integer</see>.</param>
             <param name="length">The field length expressed as an <see cref="T:System.UInt32">unsigned integer</see>.</param>
             <param name="format">The <see cref="T:WillPower.FileFieldDataFormat">format</see> of the field.</param>
-            <param name="precision">The precision of the expected resultant as <see cref="T:System.Byte"/>Byte. Default is 0. The limitation is from logical reasons.</param>
+            <param name="precision">The precision of the expected resultant as <see cref="T:System.Int16"/>short. Default is 0. 
+            The limitation is from logical reasons.</param>
             <param name="required">If <see cref="T:System.Boolean">true</see>, throw a <see cref="T:WillPower.FieldException"></see> on a null result.</param>
         </member>
         <member name="M:WillPower.FileFieldBase.#ctor(WillPower.IFileParserEncoder,System.String,System.UInt32,System.UInt32,WillPower.FileFieldDataFormat,System.Boolean,System.Boolean)">
@@ -107,21 +147,49 @@
             </summary>
             <param name="encoder">The <see cref="T:WillPower.IFileParserEncoder">IFileParserEncoder</see> instance to use for encoding.</param>
             <param name="name">The <see cref="T:System.String">name</see> of the field.</param>
-            <param name="startPosition">The starting position of this field in the <see cref="T:WillPower.IFileRecord">record</see> expressed as an <see cref="T:System.UInt32">unsigned integer</see>.</param>
+            <param name="startPosition">The starting position of this field in the <see cref="T:WillPower.IFileRecord">record</see> expressed as an 
+            <see cref="T:System.UInt32">unsigned integer</see>.</param>
             <param name="length">The field length expressed as an <see cref="T:System.UInt32">unsigned integer</see>.</param>
             <param name="format">The <see cref="T:WillPower.FileFieldDataFormat">format</see> of the field.</param>
-            <param name="yearFirst">If <see cref="T:System.Boolean">true</see> it assumes the year is the first part of the string. Default is <see cref="T:System.Boolean">false</see>.
+            <param name="yearFirst">If <see cref="T:System.Boolean">true</see> it assumes the year is the first part of the string. Default is 
+            <see cref="T:System.Boolean">false</see>.
             Note: If the <see cref="T:System.String">string</see> contains a parsable date character ( / or - ) it will attempt to use 
             <see cref="M:System.DateTime.TryParse(System.String,System.DateTime@)">TryParse</see> and return any successful result. 
-            If <see cref="M:System.DateTime.TryParse(System.String,System.DateTime@)">TryParse</see> fails it proceeds on to <see cref="T:System.String">string</see> parsing.
+            If <see cref="M:System.DateTime.TryParse(System.String,System.DateTime@)">TryParse</see> fails it proceeds on to 
+            <see cref="T:System.String">string</see> parsing.
             </param>
             <param name="required">If <see cref="T:System.Boolean">true</see>, throw a <see cref="T:WillPower.FieldException"></see> on a null result.</param>
+        </member>
+        <member name="M:WillPower.FileFieldBase.#ctor(WillPower.IFileParserEncoder,System.String,System.UInt32,System.UInt32,WillPower.BooleanStringRepresentation)">
+            <summary>
+            .ctor. Must be inherited. User for <see cref="T:System.Boolean">boolean</see> types with a <see cref="T:System.String">string</see> output.
+            </summary>
+            <param name="encoder">The <see cref="T:WillPower.IFileParserEncoder">IFileParserEncoder</see> instance to use for encoding.</param>
+            <param name="name">The <see cref="T:System.String">name</see> of the field.</param>
+            <param name="startPosition">The starting position of this field in the <see cref="T:WillPower.IFileRecord">record</see> expressed as an 
+            <see cref="T:System.UInt32">unsigned integer</see>.</param>
+            <param name="length">The field length expressed as an <see cref="T:System.UInt32">unsigned integer</see>.</param>
+            <param name="showAs">
+            Identifies how the <see cref="T:System.Boolean">boolean</see> value will be represented as a <see cref="T:System.String">string</see>.
+            Length of 1 will only return the first <see cref="T:System.Char">character</see> of the expected <see cref="T:System.String">string</see>.
+            </param>
         </member>
         <member name="M:WillPower.FileFieldBase.Compute(System.Byte[])">
             <summary>
             Computes this provided <see cref="T:System.Array">array</see> of bytes using the properties provided.
             </summary>
             <param name="data">The <see cref="T:System.Array">array</see> of bytes to process.</param>
+        </member>
+        <member name="M:WillPower.FileFieldBase.Pack">
+            <summary>
+            Packs the field <see cref="P:WillPower.FileFieldBase.Value">Value</see> to the <see cref="P:WillPower.FileFieldBase.ByteValue">ByteValue</see> using the properties provided.
+            </summary>
+        </member>
+        <member name="M:WillPower.FileFieldBase.SetValue(System.Object)">
+            <summary>
+            Set the value of this field to the provided <see cref="T:System.Object">value</see>.
+            </summary>
+            <param name="value">The <see cref="T:System.Object">value</see> to assign to this field.</param>
         </member>
         <member name="T:WillPower.FileParserBase">
             <summary>
@@ -178,6 +246,36 @@
             </summary>
             <param name="stream">The <see cref="T:System.IO.Stream">stream</see> to load.</param>
         </member>
+        <member name="M:WillPower.FileParserBase.Pack(System.String)">
+            <summary>
+            Packs the <see cref="P:WillPower.FileParserBase.Records">Records</see> and their <see cref="P:WillPower.IFileRecord.Fields">Fields</see> 
+            using the properties provided.
+            Optionally writes to the provided <see cref="T:System.String">outputFilename</see> as a binary.
+            </summary>
+            <param name="outputFilename">If not <see cref="T:System.Nullable">null</see>, will execute
+            <see cref="M:WillPower.FileParserBase.SaveAs(System.String)">SaveAs</see> after performing the Pack using the 
+            <see cref="T:System.String">value</see> provided.</param>
+        </member>
+        <member name="M:WillPower.FileParserBase.SaveAs(System.String)">
+            <summary>
+            Saves the Packed <see cref="P:WillPower.FileParserBase.Records">Records</see> to the provided <see cref="T:System.String">outputFilename</see> as a binary.
+            </summary>
+            <param name="outputFilename">The <see cref="T:System.String">name</see> of the output file.</param>
+        </member>
+        <member name="M:WillPower.FileParserBase.AddRecord(WillPower.IFileRecord)">
+            <summary>
+            Adds the provided <see cref="T:WillPower.IFileRecord">record</see> to the <see cref="P:WillPower.FileParserBase.Records">Records</see> collection.
+            </summary>
+            <param name="record">The <see cref="T:WillPower.IFileRecord">IFileRecord</see> instance to add.</param>
+        </member>
+        <member name="M:WillPower.FileParserBase.AddRecords(System.Collections.Generic.IEnumerable{WillPower.IFileRecord})">
+            <summary>
+            Adds the provided <see cref="T:System.Collections.Generic.IEnumerable`1">collection</see> of 
+            <see cref="T:WillPower.IFileRecord">records</see> to the <see cref="P:WillPower.FileParserBase.Records">Records</see> collection.
+            </summary>
+            <param name="fileRecords">The <see cref="T:System.Collections.Generic.IEnumerable`1">collection</see> of 
+            <see cref="T:WillPower.IFileRecord">IFileRecord</see> instances to add.</param>
+        </member>
         <member name="M:WillPower.FileParserBase.UpdateEncoders">
             <summary>
             Updates any <see cref="T:WillPower.IFileParserEncoder">encoders</see> within the system
@@ -188,7 +286,9 @@
             Creates a <see cref="T:System.Data.DataSet">DataSet</see> containing <see cref="T:System.Data.DataTable">DataTables</see> 
             for each conditional record type, header, footer, and/or master recordset.
             </summary>
-            <returns>A <see cref="T:System.Data.DataSet">DataSet</see> of <see cref="T:System.Data.DataTable">DataTables</see> with resulting data.</returns>
+            <returns>
+            A <see cref="T:System.Data.DataSet">DataSet</see> of <see cref="T:System.Data.DataTable">DataTables</see> with resulting data.
+            </returns>
         </member>
         <member name="M:WillPower.FileParserBase.Dispose">
             <summary>
@@ -197,7 +297,8 @@
         </member>
         <member name="T:WillPower.FileRecordBase">
             <summary>
-            A common base class for record-level data, their <see cref="T:WillPower.IFileField">fields</see>, and any possible <see cref="T:WillPower.FieldException">Exceptions</see>.
+            A common base class for record-level data, their <see cref="T:WillPower.IFileField">fields</see>, and any possible 
+            <see cref="T:WillPower.FieldException">Exceptions</see>.
             </summary>
         </member>
         <member name="P:WillPower.FileRecordBase.Encoder">
@@ -207,7 +308,14 @@
         </member>
         <member name="P:WillPower.FileRecordBase.Fields">
             <summary>
-            The <see cref="T:System.Array">collection</see> of <see cref="T:WillPower.IFileField">fields</see> belonging to this <see cref="T:WillPower.IFileRecord">record</see>.
+            The <see cref="T:System.Array">collection</see> of <see cref="T:WillPower.IFileField">fields</see> belonging to this 
+            <see cref="T:WillPower.IFileRecord">record</see>.
+            </summary>
+        </member>
+        <member name="P:WillPower.FileRecordBase.ByteValue">
+            <summary>
+            The packed and destination <see cref="T:System.Text.Encoding">Encoded</see> <see cref="T:System.Array">array</see> 
+            of bytes belonging to this <see cref="T:WillPower.IFileRecord">record</see>. Not used for file read.
             </summary>
         </member>
         <member name="P:WillPower.FileRecordBase.Exceptions">
@@ -221,6 +329,21 @@
             </summary>
             <param name="data">The <see cref="T:System.Array">array</see> of bytes to read.</param>
         </member>
+        <member name="M:WillPower.FileRecordBase.Pack(System.UInt32,System.Byte)">
+            <summary>
+            Packs the record <see cref="P:WillPower.FileRecordBase.Fields">Fields</see> to their <see cref="P:WillPower.IFileField.ByteValue">ByteValues</see> 
+            using the properties provided.
+            </summary>
+            <param name="recordLength">The length of the record expressed as an <see cref="T:System.UInt32">unsigned integer</see>.</param>
+            <param name="fillByte">        
+            The <see cref="T:System.Byte">byte</see>, in Source Encoding, from <see cref="T:WillPower.IFileLayout">IFileLayout</see>.
+            </param>
+        </member>
+        <member name="M:WillPower.FileRecordBase.#ctor">
+            <summary>
+            .ctor. Must be inherited.
+            </summary>
+        </member>
         <member name="M:WillPower.FileRecordBase.#ctor(WillPower.IFileParserEncoder)">
             <summary>
             .ctor. Must be inherited.
@@ -229,18 +352,27 @@
         </member>
         <member name="M:WillPower.FileRecordBase.Get(System.String)">
             <summary>
-            Returns the value of the <see cref="T:WillPower.IFileField">field</see> having the provided <see cref="T:System.String">name</see> as an <see cref="T:System.Object">object</see>.
+            Returns the value of the <see cref="T:WillPower.IFileField">field</see> having the provided <see cref="T:System.String">name</see> as an 
+            <see cref="T:System.Object">object</see>.
             </summary>
             <param name="fieldName">The <see cref="T:System.String">name</see> of the <see cref="T:WillPower.IFileField">field</see>.</param>
             <returns>The value of the <see cref="T:WillPower.IFileField">field</see> expressed as an <see cref="T:System.Object">object</see>.</returns>
         </member>
         <member name="M:WillPower.FileRecordBase.Get``1(System.String)">
             <summary>
-            Returns the value of the <see cref="T:WillPower.IFileField">field</see> having the provided <see cref="T:System.String">name</see> as <see cref="T:System.Type">T</see>.
+            Returns the value of the <see cref="T:WillPower.IFileField">field</see> having the provided <see cref="T:System.String">name</see> as 
+            <see cref="T:System.Type">T</see>.
             </summary>
             <typeparam name="T"></typeparam>
             <param name="fieldName">The <see cref="T:System.String">name</see> of the <see cref="T:WillPower.IFileField">field</see>.</param>
             <returns>The value of the <see cref="T:WillPower.IFileField">field</see> expressed as <see cref="T:System.Type">T</see>.</returns>
+        </member>
+        <member name="M:WillPower.FileRecordBase.SetValue(System.String,System.Object)">
+            <summary>
+            Set the value of the specified <see cref="T:System.String">fieldName</see> to the provided <see cref="T:System.Object">value</see>.
+            </summary>
+            <param name="fieldName">The <see cref="T:System.String">Name</see> of the field to apply the value to.</param>
+            <param name="value">The <see cref="T:System.Object">value</see> to assign to the field.</param>
         </member>
         <member name="T:WillPower.FileFieldDataFormat">
             <summary>
@@ -254,7 +386,8 @@
         </member>
         <member name="F:WillPower.FileFieldDataFormat.IBMPacked">
             <summary>
-            The value is packed using the <see href="https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/rzasd/padecfo.htm">IBM Packed Data Format</see>, 
+            The value is packed using the 
+            <see href="https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/rzasd/padecfo.htm">IBM Packed Data Format</see>, 
             which is an implementation of <see href="http://www.3480-3590-data-conversion.com/article-packed-fields.html">Cobol COMP3</see>.
             </summary>
         </member>
@@ -266,6 +399,132 @@
         <member name="F:WillPower.FileFieldDataFormat.Table">
             <summary>
             The value is a collection of values in a subset which may include multiple rows within the main recordset.
+            </summary>
+        </member>
+        <member name="T:WillPower.BitOrder">
+            <summary>
+            enum for bits within a byte by order
+            </summary>
+        </member>
+        <member name="F:WillPower.BitOrder.Bit1">
+            <summary>
+            From Left to Right, the 1st, most significant bit
+            </summary>
+        </member>
+        <member name="F:WillPower.BitOrder.Bit2">
+            <summary>
+            From Left to Right, the 2nd bit
+            </summary>
+        </member>
+        <member name="F:WillPower.BitOrder.Bit3">
+            <summary>
+            From Left to Right, the 3rd bit
+            </summary>
+        </member>
+        <member name="F:WillPower.BitOrder.Bit4">
+            <summary>
+            From Left to Right, the 4th bit
+            </summary>
+        </member>
+        <member name="F:WillPower.BitOrder.Bit5">
+            <summary>
+            From Left to Right, the 5th bit
+            </summary>
+        </member>
+        <member name="F:WillPower.BitOrder.Bit6">
+            <summary>
+            From Left to Right, the 6th bit
+            </summary>
+        </member>
+        <member name="F:WillPower.BitOrder.Bit7">
+            <summary>
+            From Left to Right, the 7th bit
+            </summary>
+        </member>
+        <member name="F:WillPower.BitOrder.Bit8">
+            <summary>
+            From Left to Right, the 8th or last, least significant bit
+            </summary>
+        </member>
+        <member name="T:WillPower.BitValue">
+            <summary>
+            enum for bits within a byte by value
+            </summary>
+        </member>
+        <member name="F:WillPower.BitValue.Bit1">
+            <summary>
+            From Left to Right, the 1st, most significant bit
+            </summary>
+        </member>
+        <member name="F:WillPower.BitValue.Bit2">
+            <summary>
+            From Left to Right, the 2nd bit
+            </summary>
+        </member>
+        <member name="F:WillPower.BitValue.Bit3">
+            <summary>
+            From Left to Right, the 3rd bit
+            </summary>
+        </member>
+        <member name="F:WillPower.BitValue.Bit4">
+            <summary>
+            From Left to Right, the 4th bit
+            </summary>
+        </member>
+        <member name="F:WillPower.BitValue.Bit5">
+            <summary>
+            From Left to Right, the 5th bit
+            </summary>
+        </member>
+        <member name="F:WillPower.BitValue.Bit6">
+            <summary>
+            From Left to Right, the 6th bit
+            </summary>
+        </member>
+        <member name="F:WillPower.BitValue.Bit7">
+            <summary>
+            From Left to Right, the 7th bit
+            </summary>
+        </member>
+        <member name="F:WillPower.BitValue.Bit8">
+            <summary>
+            From Left to Right, the 8th or last, least significant bit
+            </summary>
+        </member>
+        <member name="T:WillPower.BooleanStringRepresentation">
+            <summary>
+            Identifies how a <see cref="T:System.Boolean">boolean</see> value is represented as a <see cref="T:System.String">string</see>.
+            Length of 1 will only return the first <see cref="T:System.Char">charcter</see> of the expected <see cref="T:System.String">string</see>.
+            </summary>
+        </member>
+        <member name="F:WillPower.BooleanStringRepresentation.Yes_No">
+            <summary>
+            Yes, No, Y or N
+            </summary>
+        </member>
+        <member name="F:WillPower.BooleanStringRepresentation.True_False">
+            <summary>
+            True, False, T or F
+            </summary>
+        </member>
+        <member name="F:WillPower.BooleanStringRepresentation.yes_no">
+            <summary>
+            yes, no, y or n
+            </summary>
+        </member>
+        <member name="F:WillPower.BooleanStringRepresentation.true_false">
+            <summary>
+            true, false, t or f
+            </summary>
+        </member>
+        <member name="F:WillPower.BooleanStringRepresentation.One_Zero">
+            <summary>
+            1 (true) or 0 (false)
+            </summary>
+        </member>
+        <member name="F:WillPower.BooleanStringRepresentation.Zero_Minus1">
+            <summary>
+            0 (true) or -1 (false)
             </summary>
         </member>
         <member name="T:WillPower.Extensions">
@@ -291,11 +550,21 @@
         </member>
         <member name="M:WillPower.Extensions.IsSimpleType(System.Object)">
             <summary>
-            Determines if the <see cref="T:System.Object">object</see> is of a simple <see cref="T:System.Type">type</see>.
+            Determines if the <see cref="T:System.Object">object</see> is of a simple <see cref="T:System.Type">type</see>,
+            including implementations of <see cref="T:System.Nullable">System.Nullable</see> upon simple types.
             </summary>
             <param name="value">The <see cref="T:System.Object">object</see> to evaluate.</param>
             <returns><see cref="T:System.Boolean">True</see> if the <see cref="T:System.Object">object</see> is not of a complex 
-            <see cref="T:System.Type">type</see>.</returns>
+            <see cref="T:System.Type">type</see>, aka a <see cref="T:System.String">string</see>, a number, a 
+            <see cref="T:System.DateTime">DateTime</see>, or a <see cref="T:System.Nullable">Nullable</see> implementation of any.
+            </returns>
+        </member>
+        <member name="M:WillPower.Extensions.ForceGetType(System.Object)">
+            <summary>
+            Returns the <see cref="T:System.Type">System.Type</see> of the object even if it is null.
+            </summary>
+            <param name="value">The <see cref="T:System.Object">object</see> to evaluate.</param>
+            <returns>The <see cref="T:System.Type">System.Type</see> of the object.</returns>
         </member>
         <member name="M:WillPower.Extensions.NumbersOnly(System.String,System.Boolean)">
             <summary>
@@ -330,6 +599,17 @@
             <param name="sourceEncoding">The <see cref="T:System.Text.Encoding">Encoding</see> scheme of the bytes provided.</param>
             <param name="destinationEncoding">The <see cref="T:System.Text.Encoding">Encoding</see> scheme of the bytes expected.</param>
             <returns>The resulting byte <see cref="T:System.Array">array</see>.</returns>
+        </member>
+        <member name="M:WillPower.Extensions.Convert(System.Byte,System.Text.Encoding,System.Text.Encoding)">
+            <summary>
+            Converts the <see cref="T:System.Byte">byte</see> from the provided source <see cref="T:System.Text.Encoding">Encoding</see> 
+            to the optional destination <see cref="T:System.Text.Encoding">Encoding</see> or <see cref="P:System.Text.Encoding.UTF8">UTF8</see> 
+            as a byte <see cref="T:System.Array">array</see>.
+            </summary>
+            <param name="value">The <see cref="T:System.Byte">byte</see> to evaluate.</param>
+            <param name="sourceEncoding">The <see cref="T:System.Text.Encoding">Encoding</see> scheme of the bytes provided.</param>
+            <param name="destinationEncoding">The <see cref="T:System.Text.Encoding">Encoding</see> scheme of the bytes expected.</param>
+            <returns>The converted <see cref="T:System.Byte">byte</see>.</returns>
         </member>
         <member name="M:WillPower.Extensions.ToEncodedString(System.Byte[],System.Text.Encoding,System.Text.Encoding)">
             <summary>
@@ -415,9 +695,19 @@
         <member name="M:WillPower.Extensions.Century(System.DateTime)">
             <summary>
             Returns the Century of the <see cref="T:System.DateTime">System.DateTime</see> as an <see cref="T:System.Int32">int</see>.
+            Valid return values are 0 to 99.
             </summary>
-            <param name="value">The <see cref="T:System.DateTime">System.DateTime</see> value</param>
+            <param name="value">The <see cref="T:System.DateTime">System.DateTime</see> value.</param>
             <returns>The Century as an <see cref="T:System.Int32">int</see>.</returns>
+        </member>
+        <member name="M:WillPower.Extensions.TwoDigitYear(System.DateTime)">
+            <summary>
+            Returns the last 2 digits of the year of the <see cref="T:System.DateTime">System.DateTime</see> as an 
+            <see cref="T:System.Int32">int</see>.
+            Valid return values are 0 to 99.
+            </summary>
+            <param name="value">The <see cref="T:System.DateTime">System.DateTime</see> value.</param>
+            <returns>The Year as a 2 digit (or less) <see cref="T:System.Int32">integer</see>.</returns>
         </member>
         <member name="M:WillPower.Extensions.PascalCased(System.String)">
             <summary>
@@ -464,6 +754,20 @@
             <param name="value">The <see cref="T:System.String">string</see> value to evaluate.</param>
             <returns><see cref="T:System.Boolean">Boolean</see> or null.</returns>
         </member>
+        <member name="M:WillPower.Extensions.ToString(System.Boolean,WillPower.BooleanStringRepresentation)">
+            <summary>
+            Returns the formatted <see cref="T:System.String">string</see> representation of the <see cref="T:System.Boolean">boolean</see> 
+            value provided using the <see cref="T:WillPower.BooleanStringRepresentation">format</see> provided or empty ("").
+            </summary>
+            <param name="value">The <see cref="T:System.Boolean">boolean</see> value to evaluate.</param>
+            <param name="format">
+            The <see cref="T:WillPower.BooleanStringRepresentation">format</see> identifying how the <see cref="T:System.Boolean">boolean</see> 
+            value will be represented as a <see cref="T:System.String">string</see>.
+            </param>
+            <returns>
+            The formatted <see cref="T:System.String">string</see> representation of the <see cref="T:System.Boolean">boolean</see> value.
+            </returns>
+        </member>
         <member name="M:WillPower.Extensions.ToDateTime(System.String,System.Boolean)">
             <summary>
             Converts the string to a <see cref="T:System.DateTime">System.DateTime</see> or null.
@@ -478,11 +782,12 @@
             </param>
             <returns><see cref="T:System.DateTime">System.DateTime</see> or null.</returns>
         </member>
-        <member name="M:WillPower.Extensions.ToInt(System.UInt32)">
+        <member name="M:WillPower.Extensions.ToInt(System.UInt32,System.Boolean)">
             <summary>
             Converts an <see cref="T:System.UInt32">unsigned integer</see> to a <see cref="T:System.Int32">signed integer</see>.
-            If the <see cref="T:System.UInt32">unsigned integer</see> is greater than <see cref="F:System.Int32.MaxValue">int.MaxValue</see> it will return
-            a negative <see cref="T:System.Int32">integer</see> starting at -1 for each value greater than <see cref="F:System.Int32.MaxValue">int.MaxValue</see>.
+            If the <see cref="T:System.UInt32">unsigned integer</see> is greater than <see cref="F:System.Int32.MaxValue">int.MaxValue</see> 
+            it will return a negative <see cref="T:System.Int32">integer</see> starting at -1 for each value greater than 
+            <see cref="F:System.Int32.MaxValue">int.MaxValue</see>.
             I.e., int.MaxValue + 1 returns -1, int.MaxValue + 2 returns -2, int.MaxValue + 3 returns -3, and so forth.
             <code>
             public static int ToInt(this uint value)
@@ -496,9 +801,12 @@
             </code>
             </summary>
             <param name="value">The <see cref="T:System.UInt32">unsigned integer</see> to evaluate.</param>
+            <param name="throwOnInvalid">If <see cref="T:System.Boolean">true</see> it will throw an 
+            <see cref="T:System.InvalidCastException">InvalidCastException</see> if value exceeds int.MaxValue. 
+            Default is <see cref="T:System.Boolean">false</see>.</param>
             <returns>The resulting <see cref="T:System.Int32">signed integer</see>.</returns>
         </member>
-        <member name="M:WillPower.Extensions.ToUInt(System.Int32)">
+        <member name="M:WillPower.Extensions.ToUInt(System.Int32,System.Boolean)">
             <summary>
             Converts a <see cref="T:System.Int32">signed integer</see> to an <see cref="T:System.UInt32">unsigned integer</see>.
             If the <see cref="T:System.Int32">signed integer</see> is negative then it will return
@@ -514,24 +822,28 @@
             </code>
             </summary>
             <param name="value">The <see cref="T:System.Int32">signed integer</see> to evaluate.</param>
+            <param name="throwOnInvalid">If <see cref="T:System.Boolean">true</see> it will throw an 
+            <see cref="T:System.InvalidCastException">InvalidCastException</see> if value is negative. 
+            Default is <see cref="T:System.Boolean">false</see>.</param>
             <returns>The resulting <see cref="T:System.UInt32">unsigned integer</see>.</returns>
         </member>
         <member name="M:WillPower.Extensions.MaximumConcurrency(System.Threading.Tasks.TaskFactory)">
             <summary>
-            Returns the default <see cref="T:System.Threading.Tasks.TaskScheduler">TaskScheduler</see> of the <see cref="T:System.Threading.Tasks.TaskFactory"> 
-            TaskFactory's</see> <see cref="P:System.Threading.Tasks.TaskScheduler.MaximumConcurrencyLevel">MaximumConcurrencyLevel</see> 
-            as an <see cref="T:System.UInt32">unsigned integer</see>.
+            Returns the default <see cref="T:System.Threading.Tasks.TaskScheduler">TaskScheduler</see> of the 
+            <see cref="T:System.Threading.Tasks.TaskFactory"> TaskFactory's</see> 
+            <see cref="P:System.Threading.Tasks.TaskScheduler.MaximumConcurrencyLevel">MaximumConcurrencyLevel</see> 
+            as an <see cref="T:System.UInt32">unsigned integer</see>. If any values are null, it will return 0.
             <code>
             public static uint MaximumConcurrency(this System.Threading.Tasks.TaskFactory value)
             {
                 return (value?.<see cref="P:System.Threading.Tasks.TaskFactory.Scheduler">Scheduler</see>?
-                    .MaximumConcurrencyLevel ?? 0).<see cref="M:WillPower.Extensions.ToUInt(System.Int32)">ToUInt()</see>;
+                    .MaximumConcurrencyLevel ?? 0).<see cref="M:WillPower.Extensions.ToUInt(System.Int32,System.Boolean)">ToUInt()</see>;
             }
             </code>
             </summary>
             <param name="value">The <see cref="T:System.Threading.Tasks.TaskFactory">TaskFactory</see> to evaluate.</param>
             <returns>
-            The resulting <see cref="T:System.Int32">signed integer</see> as an <see cref="T:System.UInt32">unsigned integer</see>.
+            The resulting <see cref="T:System.Int32">signed integer</see> as an <see cref="T:System.UInt32">unsigned integer</see> or 0.
             </returns>
         </member>
         <member name="M:WillPower.Extensions.CastAs``1(System.Object)">
@@ -592,61 +904,108 @@
             Returns the <see cref="T:System.Int16">short</see> value of the packed number or 0.
             <seealso href="https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/rzasd/padecfo.htm">IBM Packed Decimal Format.</seealso>
             </summary>
-            <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate.</param>
+            <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate.
+            A <exception cref="T:System.InvalidCastException">System.InvalidCastException</exception> results from a null or empty 
+            <see cref="T:System.Array">array</see>.
+            </param>
             <returns>The <see cref="T:System.Int16">System.Int16</see> resultant.</returns>
+            <exception cref="T:System.InvalidCastException">System.InvalidCastException</exception>
         </member>
         <member name="M:WillPower.Extensions.FromPackedInt(System.Byte[])">
             <summary>
             Returns the <see cref="T:System.Int32">int</see> value of the packed number or 0.
             <seealso href="https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/rzasd/padecfo.htm">IBM Packed Decimal Format.</seealso>
             </summary>
-            <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate.</param>
+            <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate.
+            A <exception cref="T:System.InvalidCastException">System.InvalidCastException</exception> results from a null or empty 
+            <see cref="T:System.Array">array</see>.
+            </param>
             <returns>The <see cref="T:System.Int32">System.Int32</see> resultant.</returns>
+            <exception cref="T:System.InvalidCastException">System.InvalidCastException</exception>
         </member>
         <member name="M:WillPower.Extensions.FromPackedLong(System.Byte[])">
             <summary>
             Returns the <see cref="T:System.Int64">long</see> value of the packed number or 0.
             <seealso href="https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/rzasd/padecfo.htm">IBM Packed Decimal Format.</seealso>
             </summary>
-            <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate.</param>
+            <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate.
+            A <exception cref="T:System.InvalidCastException">System.InvalidCastException</exception> results from a null or empty 
+            <see cref="T:System.Array">array</see>.
+            </param>
             <returns>The <see cref="T:System.Int64">System.Int64</see> resultant.</returns>
+            <exception cref="T:System.InvalidCastException">System.InvalidCastException</exception>
         </member>
         <member name="M:WillPower.Extensions.FromPackedUShort(System.Byte[])">
             <summary>
             Returns the <see cref="T:System.UInt16">unsigned short</see> value of the packed number or 0.
             <seealso href="https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/rzasd/padecfo.htm">IBM Packed Decimal Format.</seealso>
             </summary>
-            <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate.</param>
+            <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate.
+            A <exception cref="T:System.InvalidCastException">System.InvalidCastException</exception> results from a null or empty 
+            <see cref="T:System.Array">array</see>.
+            </param>
             <returns>The <see cref="T:System.UInt16">System.UInt16</see> resultant.</returns>
+            <exception cref="T:System.InvalidCastException">System.InvalidCastException</exception>
         </member>
         <member name="M:WillPower.Extensions.FromPackedUInt(System.Byte[])">
             <summary>
             Returns the <see cref="T:System.UInt32">unsigned int</see> value of the packed number or 0.
             <seealso href="https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/rzasd/padecfo.htm">IBM Packed Decimal Format.</seealso>
             </summary>
-            <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate.</param>
+            <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate.
+            A <exception cref="T:System.InvalidCastException">System.InvalidCastException</exception> results from a null or empty 
+            <see cref="T:System.Array">array</see>.
+            </param>
             <returns>The <see cref="T:System.UInt32">System.UInt32</see> resultant.</returns>
+            <exception cref="T:System.InvalidCastException">System.InvalidCastException</exception>
         </member>
         <member name="M:WillPower.Extensions.FromPackedULong(System.Byte[])">
             <summary>
             Returns the <see cref="T:System.UInt64">unsigned long</see> value of the packed number or 0.
             <seealso href="https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/rzasd/padecfo.htm">IBM Packed Decimal Format.</seealso>
             </summary>
-            <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate.</param>
+            <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate.
+            A <exception cref="T:System.InvalidCastException">System.InvalidCastException</exception> results from a null or empty 
+            <see cref="T:System.Array">array</see>.
+            </param>
             <returns>The <see cref="T:System.UInt64">System.UInt64</see> resultant.</returns>
+            <exception cref="T:System.InvalidCastException">System.InvalidCastException</exception>
         </member>
-        <member name="M:WillPower.Extensions.FromPackedDouble(System.Byte[])">
+        <member name="M:WillPower.Extensions.FromPackedDouble(System.Byte[],System.Int16)">
             <summary>
             Returns the <see cref="T:System.Double">double</see> value of the packed number or 0.
             <seealso href="https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/rzasd/padecfo.htm">IBM Packed Decimal Format.</seealso>
             </summary>
-            <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate.</param>
+            <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate.
+            A <exception cref="T:System.InvalidCastException">System.InvalidCastException</exception> results from a null or empty 
+            <see cref="T:System.Array">array</see>.
+            </param>
+            <param name="precision">The precision of the expected resultant as a <see cref="T:System.Int16">short</see> integer. Default is 0. 
+            The limitation of short is for logical reasons. 
+            </param>
             <returns>The <see cref="T:System.Double">System.Double</see> resultant.</returns>
+            <exception cref="T:System.InvalidCastException">System.InvalidCastException</exception>
+        </member>
+        <member name="M:WillPower.Extensions.FromPackedFloat(System.Byte[],System.Int16)">
+            <summary>
+            Returns the <see cref="T:System.Single">float</see> value of the packed number or 0.
+            <seealso href="https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/rzasd/padecfo.htm">IBM Packed Decimal Format.</seealso>
+            </summary>
+            <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate.
+            A <exception cref="T:System.InvalidCastException">System.InvalidCastException</exception> results from a null or empty 
+            <see cref="T:System.Array">array</see>.
+            </param>
+            <param name="precision">The precision of the expected resultant as a <see cref="T:System.Int16">short</see> integer. Default is 0. 
+            The limitation of short is for logical reasons. 
+            </param>
+            <returns>The <see cref="T:System.Single">float</see> resultant.</returns>
+            <exception cref="T:System.InvalidCastException">System.InvalidCastException</exception>
         </member>
         <member name="M:WillPower.Extensions.FromPackedDate(System.Byte[])">
             <summary>
-            Returns the <see cref="T:System.DateTime">DateTime</see> value of the packed number or null.
-            Note: The byte <see cref="T:System.Array">array</see> must be 2 or 4 bytes long.
+            Returns the <see cref="T:System.DateTime">DateTime</see><see cref="P:System.DateTime.Date">.Date</see> value of the packed number or null.
+            Note: The byte <see cref="T:System.Array">array</see> must be 2 or 4 bytes long. On 2 byte arrays, future years are considered to be
+            from the previous century.
             </summary>
             <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate. 
             Length must be 2 (Short Date Format) or 4 (Long Date Format).
@@ -660,93 +1019,363 @@
             Used in <see cref="M:WillPower.Extensions.FromPackedDate(System.Byte[])">byte[].FromPackedDate()</see>.
             </summary>
             <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate.</param>
-            <returns>The resulting <see cref="T:System.UInt64">unsigned long</see>.</returns>
+            <returns>The resulting <see cref="T:System.Double">double</see> value.</returns>
         </member>
-        <member name="M:WillPower.Extensions.FromPackedDecimal(System.Byte[],System.Byte)">
+        <member name="M:WillPower.Extensions.FromPackedDecimal(System.Byte[],System.Int16)">
             <summary>
             Returns the <see cref="T:System.Decimal">decimal</see> value of the packed number.
             <seealso href="https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/rzasd/padecfo.htm">IBM Packed Decimal Format.</seealso>
             </summary>
             <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate.
-            <exception cref="T:System.InvalidCastException">System.InvalidCastException</exception> results from null or empty byte <see cref="T:System.Array">array</see>.
+            <exception cref="T:System.InvalidCastException">System.InvalidCastException</exception> results from null or empty byte 
+            <see cref="T:System.Array">array</see>.
             </param>
-            <param name="precision">The precision of the expected resultant as <see cref="T:System.Byte"/>Byte. Default is 0. The limitation is from logical reasons. 
-            Obviously negative values are not supported and should be handled through the decimal.Raise(double) extension method or your own code (10 raised to precision * value).
+            <param name="precision">The precision of the expected resultant as a <see cref="T:System.Int16">short</see> integer. Default is 0. 
+            The limitation of short is for logical reasons. 
             </param>
             <returns>The resultant as <see cref="T:System.Decimal">decimal</see>.</returns>
+            <exception cref="T:System.InvalidCastException">System.InvalidCastException</exception>
         </member>
-        <member name="M:WillPower.Extensions.FromRawDate(System.Byte[])">
+        <member name="M:WillPower.Extensions.PackComp3(System.Int32)">
             <summary>
-            Returns the <see cref="T:System.DateTime">DateTime</see> value of the byte <see cref="T:System.Array">array</see> or null.
-            It is assumed the bytes store a <see cref="T:System.DateTime">DateTime</see> value encoded directly.
+            Returns the <see cref="T:System.Array">array</see> of bytes in a COMP3 (IBMPacked) Format.
+            <seealso href="https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/rzasd/padecfo.htm">IBM Packed Decimal Format.</seealso>
             </summary>
-            <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate. 
-            </param>
-            <returns>The <see cref="T:System.DateTime">System.DateTime</see> resultant or null.</returns>
+            <param name="value">The <see cref="T:System.Int32">integer</see> to convert.</param>
+            <returns>The resultant as an <see cref="T:System.Array">array</see> of bytes.</returns>
         </member>
-        <member name="M:WillPower.Extensions.FromRawDecimal(System.Byte[],System.Byte)">
+        <member name="M:WillPower.Extensions.PackComp3(System.Decimal,System.Int16)">
             <summary>
-            Returns the <see cref="T:System.Decimal">decimal</see> value of the byte <see cref="T:System.Array">array</see>.
+            Returns the <see cref="T:System.Array">array</see> of bytes in a COMP3 (IBMPacked Decimal) Format.
+            <seealso href="https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/rzasd/padecfo.htm">IBM Packed Decimal Format.</seealso>
+            </summary>
+            <param name="value">The <see cref="T:System.Decimal">decimal</see> to convert.</param>
+            <param name="precision">The precision of the converted resultant as a <see cref="T:System.Int16">short</see>. Default is 0. 
+            The limitation of short is for logical reasons. 
+            </param>
+            <returns>The resultant as an <see cref="T:System.Array">array</see> of bytes.</returns>
+        </member>
+        <member name="M:WillPower.Extensions.PackComp3(System.Double,System.Int16)">
+            <summary>
+            Returns the <see cref="T:System.Array">array</see> of bytes in a COMP3 (IBMPacked Decimal) Format.
+            <seealso href="https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/rzasd/padecfo.htm">IBM Packed Decimal Format.</seealso>
+            </summary>
+            <param name="value">The <see cref="T:System.Double">double</see> to convert.</param>
+            <param name="precision">The precision of the converted resultant as a <see cref="T:System.Int16">short</see>. Default is 0. 
+            The limitation of short is for logical reasons. 
+            </param>
+            <returns>The resultant as an <see cref="T:System.Array">array</see> of bytes.</returns>
+        </member>
+        <member name="M:WillPower.Extensions.PackComp3(System.DateTime,System.Boolean)">
+            <summary>
+            Returns the <see cref="T:System.Array">array</see> of bytes in a COMP3 (IBMPacked) Format.
+            <seealso href="https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/rzasd/padecfo.htm">IBM Packed Decimal Format.</seealso>
+            </summary>
+            <param name="value">The <see cref="T:System.DateTime">System.DateTime</see> value.</param>
+            <param name="shortFormat">
+            If <see cref="T:System.Boolean">true</see>, will return a 2 <see cref="T:System.Byte">byte</see> 
+            <see cref="T:System.Array">array</see> representing the date. If <see cref="T:System.Boolean">false</see>, 
+            will return a 4 <see cref="T:System.Byte">byte</see> <see cref="T:System.Array">array</see> representing the date.
+            Default is <see cref="T:System.Boolean">false</see>.
+            </param>
+            <returns>The resultant as an <see cref="T:System.Array">array</see> of bytes.</returns>
+        </member>
+        <member name="M:WillPower.Extensions.Bit(System.Byte,System.Byte)">
+            <summary>
+            Returns <see cref="T:System.Boolean">true</see> if the requested bit (0 (most significant) through 7 (least significant)) is 1.
+            Returns <see cref="T:System.Boolean">false</see> if the requested bit (0 (most significant) through 7 (least significant)) is 0.
+            </summary>
+            <param name="value">The <see cref="T:System.Byte">byte</see> to evaluate.</param>
+            <param name="position">The bit position to return as a <see cref="T:System.Byte">byte</see>.
+            If an invalid value is provided an <exception cref="T:System.InvalidOperationException">InvalidOperationException</exception> is thrown. 
+            Valid values are 0 (most significant) through 7 (least significant).
+            </param>
+            <returns>
+            Returns <see cref="T:System.Boolean">true</see> if the requested bit (0 (most significant) through 7 (least significant)) is 1.
+            Returns <see cref="T:System.Boolean">false</see> if the requested bit (0 (most significant) through 7 (least significant)) is 0.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown when the requested bit is an invalid value. Valid values are 0 (most significant) through 7 (least significant).
+            </exception>
+        </member>
+        <member name="M:WillPower.Extensions.Bit(System.Byte,WillPower.BitOrder)">
+            <summary>
+            Returns <see cref="T:System.Boolean">true</see> if the requested bit (Bit1 (most significant) through Bit8 (least significant)) is 1.
+            Returns <see cref="T:System.Boolean">false</see> if the requested bit (Bit1 (most significant) through Bit8 (least significant)) is 0.
+            </summary>
+            <param name="value">The <see cref="T:System.Byte">byte</see> to evaluate.</param>
+            <param name="bitOrder">The bit <see cref="T:WillPower.BitOrder">position</see> to return.
+            </param>
+            <returns>
+            Returns <see cref="T:System.Boolean">true</see> if the requested bit (Bit1 (most significant) through Bit8 (least significant)) is 1.
+            Returns <see cref="T:System.Boolean">false</see> if the requested bit (Bit1 (most significant) through Bit8 (least significant)) is 0.
+            </returns>
+        </member>
+        <member name="M:WillPower.Extensions.SetBit(System.Byte,System.Byte,System.Boolean)">
+            <summary>
+            Sets the specified bit in the provided <see cref="T:System.Byte">byte</see> to high or low.
+            </summary>
+            <param name="value">The <see cref="T:System.Byte">byte</see> being edited and returned.</param>
+            <param name="bit">The bit <see cref="T:System.Byte">position</see> to return.
+            If an invalid value is provided an <exception cref="T:System.InvalidOperationException">InvalidOperationException</exception> is thrown. 
+            Valid values are 0 (most significant) through 7 (least significant).
+            </param>
+            <param name="high">If <see cref="T:System.Boolean">true</see> sets the bit to 1 at the position specified, else
+            sets the bit to 0.</param>
+            <returns>The <see cref="T:System.Byte">byte</see> being edited.</returns>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown when the requested bit is an invalid value. Valid values are 0 (most significant) through 7 (least significant).
+            </exception>
+        </member>
+        <member name="M:WillPower.Extensions.SetBit(System.Byte,WillPower.BitOrder,System.Boolean)">
+            <summary>
+            Sets the specified bit in the provided <see cref="T:System.Byte">byte</see> to high or low.
+            </summary>
+            <param name="value">The <see cref="T:System.Byte">byte</see> being edited and returned.</param>
+            <param name="bitOrder">The bit <see cref="T:WillPower.BitOrder">position</see> to set.
+            </param>
+            <param name="high">If <see cref="T:System.Boolean">true</see> sets the bit to 1 at the position specified, else
+            sets the bit to 0.</param>
+            <returns>The <see cref="T:System.Byte">byte</see> being edited.</returns>
+        </member>
+        <member name="M:WillPower.Extensions.BitValue(System.Byte,System.Byte)">
+            <summary>
+            Returns the numeric value of the bit in its position with the <see cref="T:System.Byte">byte</see> 
+            if the bit is high or 0 if the bit is low.
+            <code>
+            byte value = 16;
+            value.BitValue(3) = 16; // Since bit 3 is high
+            value = 8;
+            value.BitValue(3) = 0; // Since bit 3 is now low
+            </code>
+            </summary>
+            <param name="value">The <see cref="T:System.Byte">byte</see> to evaluate.</param>
+            <param name="bit">The bit <see cref="T:System.Byte">position</see> to return.
+            If an invalid value is provided an <exception cref="T:System.InvalidOperationException">InvalidOperationException</exception> is thrown. 
+            Valid values are 0 (most significant) through 7 (least significant).
+            </param>
+            <returns>The numeric value of the bit if high or 0 if low as a <see cref="T:System.Byte">byte</see>.</returns>
+        </member>
+        <member name="M:WillPower.Extensions.BitValue(System.Byte,WillPower.BitOrder)">
+            <summary>
+            Returns the numeric value of the bit in its position with the <see cref="T:System.Byte">byte</see> 
+            if the bit is high or 0 if the bit is low.
+            <code>
+            byte value = 16;
+            value.BitValue(3) = 16; // Since bit 3 is high
+            value = 8;
+            value.BitValue(3) = 0; // Since bit 3 is now low
+            </code>
+            </summary>
+            <param name="value">The <see cref="T:System.Byte">byte</see> to evaluate.</param>
+            <param name="bitOrder">The bit <see cref="T:WillPower.BitOrder">position</see> to evaluate.
+            </param>
+            <returns>The numeric value of the bit if high or 0 if low as a <see cref="T:System.Byte">byte</see>.</returns>
+        </member>
+        <member name="M:WillPower.Extensions.Prefix(System.Byte[],System.UInt32,System.Byte)">
+            <summary>
+            Similar to <see cref="M:System.String.PadLeft(System.Int32,System.Char)">string.PadLeft</see>, this inserts the 
+            <see cref="T:System.Byte">defaultByte</see> for the expected <see cref="T:System.UInt32">count</see> 
+            at the beginning of the <see cref="T:System.Array">array</see> or, if the 
+            <see cref="T:System.Array">array</see> length is equal to or greater than the expected 
+            <see cref="T:System.UInt32">count</see>, does nothing. Will not throw an 
+            <see cref="T:System.Exception">Exception</see> if the <see cref="T:System.Array">array</see> 
+            exceeds the expected <see cref="T:System.UInt32">count</see>.
+            </summary>
+            <param name="value">
+            The <see cref="T:System.Array">array</see> of <see cref="T:System.Byte">bytes</see> to evaluate.
+            </param>
+            <param name="count">
+            The minimum <see cref="T:System.UInt32">length</see> of the <see cref="T:System.Array">array</see> returned.
+            </param>
+            <param name="defaultByte">
+            The "filler" <see cref="T:System.Byte">byte</see> to use for padding.
+            The default value is 0.
+            </param>
+            <returns>
+            An <see cref="T:System.Array">array</see> of <see cref="T:System.Byte">bytes</see> of a minimum length
+            equal to <see cref="T:System.UInt32">count</see>.
+            </returns>
+        </member>
+        <member name="M:WillPower.Extensions.Suffix(System.Byte[],System.UInt32,System.Byte)">
+            <summary>
+            Similar to <see cref="M:System.String.PadRight(System.Int32,System.Char)">string.PadRight</see>, this appends the 
+            <see cref="T:System.Byte">defaultByte</see> for the expected <see cref="T:System.UInt32">count</see> 
+            at the end of the <see cref="T:System.Array">array</see> or, if the 
+            <see cref="T:System.Array">array</see> length is equal to or greater than the expected 
+            <see cref="T:System.UInt32">count</see>, does nothing. Will not throw an 
+            <see cref="T:System.Exception">Exception</see> if the <see cref="T:System.Array">array</see> 
+            exceeds the expected <see cref="T:System.UInt32">count</see>.
+            </summary>
+            <param name="value">
+            The <see cref="T:System.Array">array</see> of <see cref="T:System.Byte">bytes</see> to evaluate.
+            </param>
+            <param name="count">
+            The minimum <see cref="T:System.UInt32">length</see> of the <see cref="T:System.Array">array</see> returned.
+            </param>
+            <param name="defaultByte">
+            The "filler" <see cref="T:System.Byte">byte</see> to use for padding.
+            The default value is 0.
+            </param>
+            <returns>
+            An <see cref="T:System.Array">array</see> of <see cref="T:System.Byte">bytes</see> of a minimum length
+            equal to <see cref="T:System.UInt32">count</see>.
+            </returns>
+        </member>
+        <member name="M:WillPower.Extensions.NewArray``1(``0,System.Int32)">
+            <summary>
+            Creates a new <see cref="T:System.Array">array</see> of the specified <see cref="T:System.Type">Type</see> 
+            and value of the length provided (or 1).
+            </summary>
+            <typeparam name="T">The <see cref="T:System.Type">type</see> in the <see cref="T:System.Array">array</see>.</typeparam>
+            <param name="value">The object to be utilized for instantiation.</param>
+            <param name="length">The <see cref="T:System.Int32">length</see> or the <see cref="T:System.Array">array</see> or 1.</param>
+            <returns>A new <see cref="T:System.Array">array</see> of the specified <see cref="T:System.Type">Type</see>.</returns>
+        </member>
+        <member name="M:WillPower.Extensions.PadRight``1(``0[],System.Int32,``0,System.Boolean)">
+            <summary>
+            Pads the <see cref="T:System.Type">object</see> <see cref="T:System.Array">array</see> to the right with the specified length 
+            of <see cref="T:System.Type">objects</see> (padValue) provided (or default). If the <see cref="T:System.Array">array</see>
+            is null, a new <see cref="T:System.Array">array</see> of the specified length is returned provided the type is explicitedly 
+            provided (like PadRight{byte}(byteArray...)).
+            </summary>
+            <typeparam name="T">The <see cref="T:System.Type">type</see> in the <see cref="T:System.Array">array</see>.</typeparam>
+            <param name="value">The <see cref="T:System.Array">array</see> of <see cref="T:System.Type">objects</see> to evaluate.</param>
+            <param name="length">The desired length expressed as an <see cref="T:System.Int32">integer</see>.</param>
+            <param name="padValue">The value of the <see cref="T:System.Type">type</see> to use as fill or default.</param>
+            <param name="trim">If <see cref="T:System.Boolean">false</see> will throw a 
+            <exception cref="T:System.InvalidOperationException">System.InvalidOperationException</exception> if the length of the provided 
+            <see cref="T:System.Array">array</see> is greater than the length specified. If <see cref="T:System.Boolean">true</see> the 
+            <see cref="T:System.Array">array</see> will be truncated on the right to the length provided. Default is 
+            <see cref="T:System.Boolean">false</see> (throw).</param>
+            <returns>The <see cref="T:System.Array">array</see> of <see cref="T:System.Type">objects</see> at the specified length.</returns>
+            <exception cref="T:System.InvalidOperationException">System.InvalidOperationException</exception>
+        </member>
+        <member name="M:WillPower.Extensions.PadLeft``1(``0[],System.Int32,``0,System.Boolean)">
+            <summary>
+            Pads the <see cref="T:System.Type">object</see> <see cref="T:System.Array">array</see> to the left with the specified length 
+            of <see cref="T:System.Type">objects</see> (padValue) provided (or default). If the <see cref="T:System.Array">array</see>
+            is null, a new <see cref="T:System.Array">array</see> of the specified length is returned provided the type is explicitedly 
+            provided (like PadLeft{byte}(byteArray...)).
+            </summary>
+            <typeparam name="T">The <see cref="T:System.Type">type</see> in the <see cref="T:System.Array">array</see>.</typeparam>
+            <param name="value">The <see cref="T:System.Array">array</see> of <see cref="T:System.Type">objects</see> to evaluate.</param>
+            <param name="length">The desired length expressed as an <see cref="T:System.Int32">integer</see>.</param>
+            <param name="padValue">The value of the <see cref="T:System.Type">type</see> to use as fill or default.</param>
+            <param name="trim">If <see cref="T:System.Boolean">false</see> will throw a 
+            <exception cref="T:System.InvalidOperationException">System.InvalidOperationException</exception> if the length of the provided 
+            <see cref="T:System.Array">array</see> is greater than the length specified. If <see cref="T:System.Boolean">true</see> the 
+            <see cref="T:System.Array">array</see> will be truncated on the left to the length provided. Default is 
+            <see cref="T:System.Boolean">false</see> (throw).</param>
+            <returns>The <see cref="T:System.Array">array</see> of <see cref="T:System.Type">objects</see> at the specified length.</returns>
+            <exception cref="T:System.InvalidOperationException">System.InvalidOperationException</exception>
+        </member>
+        <member name="M:WillPower.Extensions.FromSignedDecimal(System.Byte[],System.Byte,System.Boolean,System.Text.Encoding)">
+            <summary>
+            Returns the <see cref="T:System.Decimal">decimal</see> value of the signed number.
+            <seealso href="https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/rzasd/intfmt9.htm">IBM Signed Numeric Format</seealso>.
             </summary>
             <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate.
-            <exception cref="T:System.InvalidCastException">System.InvalidCastException</exception> results from null or 
-            empty byte <see cref="T:System.Array">array</see>.
+            <exception cref="T:System.InvalidCastException">System.InvalidCastException</exception> results from a null or empty  
+            <see cref="T:System.Array">array</see>.
             </param>
-            <param name="precision">The precision of the expected resultant as <see cref="T:System.Byte"/>Byte. Default is 0. 
-            The limitation is from logical reasons. 
-            Obviously negative values are not supported and should be handled through the decimal.Raise(double) 
-            extension method or your own code (10 raised to precision * value).
+            <param name="precision">The precision of the expected resultant as a <see cref="T:System.Byte">Byte</see>. Default is 0. 
+            The limitation of byte is for logical reasons. 
+            </param>
+            <param name="negativePrecision">If true, it will apply precision * -1 as the actual precision, allowing the
+            <see cref="T:System.Byte">byte</see> value of precision to be used as a negative number.
+            </param>
+            <param name="sourceEncoding">
+            The <see cref="T:System.Text.Encoding">Encoding</see> the anticipated input is in.
+            Default is <see cref="P:WillPower.Encodings.EBCDIC">EBCDIC</see>, or IBM binary and text encoding.
             </param>
             <returns>The resultant as <see cref="T:System.Decimal">decimal</see>.</returns>
+            <exception cref="T:System.InvalidCastException">System.InvalidCastException</exception>
         </member>
-        <member name="M:WillPower.Extensions.FromRawShort(System.Byte[])">
+        <member name="M:WillPower.Extensions.Right(System.String,System.Int32)">
             <summary>
-            Returns the <see cref="T:System.Int16">short</see> value of the byte <see cref="T:System.Array">array</see> or 0.
+            Returns the right-most <see cref="T:System.Char">characters</see> of the specified length as a 
+            <see cref="T:System.String">string</see> or the value if length is longer or value is null.
             </summary>
-            <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate.</param>
-            <returns>The <see cref="T:System.Int16">System.Int16</see> resultant.</returns>
+            <param name="value">The <see cref="T:System.String">string</see> to evaluate</param>
+            <param name="length">The <see cref="T:System.Int32">length</see> to return (or less).</param>
+            <returns>A <see cref="T:System.String">string</see> up to the length of value or null if the value 
+            is null. For exact length strings, add the <see cref="M:System.String.PadLeft(System.Int32)">PadLeft</see> and
+            <see cref="M:System.String.PadRight(System.Int32)">PadRight</see> function for <see cref="T:System.String">String</see>.
+            </returns>
+            <seealso cref="M:System.String.PadLeft(System.Int32)"/>
+            <seealso cref="M:System.String.PadRight(System.Int32)"/>
+            <seealso cref="M:WillPower.Extensions.Left(System.String,System.Int32)"/>
         </member>
-        <member name="M:WillPower.Extensions.FromRawInt(System.Byte[])">
+        <member name="M:WillPower.Extensions.Left(System.String,System.Int32)">
             <summary>
-            Returns the <see cref="T:System.Int32">int</see> value of the byte <see cref="T:System.Array">array</see> or 0.
+            Returns the left-most <see cref="T:System.Char">characters</see> of the specified length as a 
+            <see cref="T:System.String">string</see> or the value if length is longer or value is null.
             </summary>
-            <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate.</param>
-            <returns>The <see cref="T:System.Int32">System.Int32</see> resultant.</returns>
+            <param name="value">The <see cref="T:System.String">string</see> to evaluate</param>
+            <param name="length">The <see cref="T:System.Int32">length</see> to return (or less).</param>
+            <returns>A <see cref="T:System.String">string</see> up to the length of value or null if the value 
+            is null. For exact length strings, add the <see cref="M:System.String.PadLeft(System.Int32)">PadLeft</see> and
+            <see cref="M:System.String.PadRight(System.Int32)">PadRight</see> function for <see cref="T:System.String">String</see>.
+            </returns>
+            <seealso cref="M:System.String.PadLeft(System.Int32)"/>
+            <seealso cref="M:System.String.PadRight(System.Int32)"/>
+            <seealso cref="M:WillPower.Extensions.Right(System.String,System.Int32)"/>
         </member>
-        <member name="M:WillPower.Extensions.FromRawLong(System.Byte[])">
+        <member name="M:WillPower.Extensions.GetNibble(System.Byte,System.Boolean)">
             <summary>
-            Returns the <see cref="T:System.Int64">long</see> value of the byte <see cref="T:System.Array">array</see> or 0.
+            Gets the nibble (4-bit value) as a <see cref="T:System.Byte">byte</see> or the first 4 (most signficiant)
+            or last 4 (least significant) bits.
             </summary>
-            <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate.</param>
-            <returns>The <see cref="T:System.Int64">System.Int64</see> resultant.</returns>
+            <param name="value">The <see cref="T:System.Byte">byte</see> value to evaluate.</param>
+            <param name="leastSigificant">If <see cref="T:System.Boolean"/></param>
+            <returns></returns>
         </member>
-        <member name="M:WillPower.Extensions.FromRawDouble(System.Byte[])">
+        <member name="M:WillPower.Extensions.ToFormattedDateString(System.DateTime,System.Int32)">
             <summary>
-            Returns the <see cref="T:System.Double">double</see> value of the byte <see cref="T:System.Array">array</see> or 0.
+            Provides expected short date string formats for <see cref="T:System.DateTime">DateTime</see>.
+            Ex. "010221", "01022021", "01/02/2021"
             </summary>
-            <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate.</param>
-            <returns>The <see cref="T:System.Double">System.Double</see> resultant.</returns>
+            <param name="value">The <see cref="T:System.DateTime">System.DateTime</see> value.</param>
+            <param name="length">The <see cref="T:System.Int32">length</see> to return (or less).</param>
+            <returns>A <see cref="T:System.String">string</see> up to the length.
+            </returns>
         </member>
-        <member name="M:WillPower.Extensions.FromRawUShort(System.Byte[])">
+        <member name="M:WillPower.Extensions.JulianDay(System.DateTime)">
             <summary>
-            Returns the <see cref="T:System.UInt16">unsigned short</see> value of the byte <see cref="T:System.Array">array</see> or 0.
+            Returns the julian day number of the provided <see cref="T:System.DateTime">DateTime</see>.
             </summary>
-            <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate.</param>
-            <returns>The <see cref="T:System.UInt16">System.UInt16</see> resultant.</returns>
+            <param name="value">The <see cref="T:System.DateTime">DateTime</see> to evaluate.</param>
+            <returns>The <see cref="T:System.Int32">integer</see> Julian Day.</returns>
         </member>
-        <member name="M:WillPower.Extensions.FromRawUInt(System.Byte[])">
+        <member name="M:WillPower.Extensions.JulianDate(System.DateTime,System.Boolean)">
             <summary>
-            Returns the <see cref="T:System.UInt32">unsigned int</see> value of the byte <see cref="T:System.Array">array</see> or 0.
+            Returns a <see cref="T:System.String">string</see> representation of the Julian Date
+            from the <see cref="T:System.DateTime">DateTime</see>.
             </summary>
-            <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate.</param>
-            <returns>The <see cref="T:System.UInt32">System.UInt32</see> resultant.</returns>
+            <param name="value">The <see cref="T:System.DateTime">DateTime</see> to evaluate.</param>
+            <param name="twoDigitYear">If <see cref="T:System.Boolean">true</see> will only return the
+            last 2 digits of the year in the representation, else all 4 digits are returned.</param>
+            <returns>A <see cref="T:System.String">string</see> representation of the Julian Date.</returns>
         </member>
-        <member name="M:WillPower.Extensions.FromRawULong(System.Byte[])">
+        <member name="M:WillPower.Extensions.FromJulianDay(System.Int32,System.Nullable{System.Int32})">
             <summary>
-            Returns the <see cref="T:System.UInt64">unsigned long</see> value of the byte <see cref="T:System.Array">array</see> or 0.
+            Converts the <see cref="T:System.Int32">integer</see> value from a Julian Day value to a
+            <see cref="T:System.DateTime">DateTime</see> using the optional year value or the current year.
             </summary>
-            <param name="value">The <see cref="T:System.Array">array</see> of bytes to evaluate.</param>
-            <returns>The <see cref="T:System.UInt64">System.UInt64</see> resultant.</returns>
+            <param name="value">The <see cref="T:System.Int32">integer</see> value to evaluate.</param>
+            <param name="year">The <see cref="T:System.Int32">integer</see> value for the returned
+            <see cref="T:System.DateTime">DateTime's</see> Year component or null.</param>
+            <returns>A <see cref="T:System.DateTime">DateTime</see> representing the number.</returns>
+        </member>
+        <member name="M:WillPower.Extensions.FromJulianDate(System.String)">
+            <summary>
+            Converts the string value to a <see cref="T:System.Nullable`1">nullable</see> 
+            <see cref="T:System.DateTime">DateTme</see> assuming a Julian Date format.
+            Expected as "{year}\{day}".
+            </summary>
+            <param name="value">The <see cref="T:System.String">string</see> to evaluate.</param>
+            <returns>A <see cref="T:System.Nullable`1">nullable</see> <see cref="T:System.DateTime">DateTme</see></returns>
         </member>
         <member name="M:WillPower.Extensions.ReadNext(System.IO.Stream,System.UInt32)">
             <summary>
@@ -765,6 +1394,138 @@
             <param name="sourceEncoding">The optional destination <see cref="T:System.Text.Encoding">Encoding</see> or 
             <see cref="P:System.Text.Encoding.ASCII">ASCII</see>.</param>
             <returns>An <see cref="T:System.Array">array</see> of bytes from the stream or null.</returns>
+        </member>
+        <member name="M:WillPower.Extensions.ToFileRecords(System.Data.DataTable,WillPower.IFileLayout)">
+            <summary>
+            Creates a <see cref="T:System.Collections.Generic.IEnumerable`1">collection</see> of <see cref="T:WillPower.IFileRecord">records</see> 
+            from the <see cref="T:System.Data.DataTable">DataTable</see> using the <see cref="T:WillPower.IFileLayout">layout</see> provided.
+            Note: Column and field names much match. Any unmatched fields will be added to the Exceptions collection of the record.
+            Any unmatched columns will be ignored.
+            </summary>
+            <param name="table">The <see cref="T:System.Data.DataTable">DataTable</see> to be exported.</param>
+            <param name="layout">The <see cref="T:WillPower.IFileLayout">layout</see> to implement.</param>
+            <returns>A <see cref="T:System.Collections.Generic.IEnumerable`1">collection</see> of 
+            <see cref="T:WillPower.IFileRecord">IFileRecord</see>.</returns>
+        </member>
+        <member name="M:WillPower.Extensions.ToFileRecords(System.Data.DataTable,WillPower.IFileRecord)">
+            <summary>
+            Creates a <see cref="T:System.Collections.Generic.IEnumerable`1">collection</see> of <see cref="T:WillPower.IFileRecord">records</see> 
+            from the <see cref="T:System.Data.DataTable">DataTable</see> using the <see cref="T:WillPower.IFileLayout">layout</see> provided.
+            Note: Column and field names much match. Any unmatched fields will be added to the Exceptions collection of the record.
+            Any unmatched columns will be ignored. Useful for building Conditional records for 3D files.
+            </summary>
+            <param name="table">The <see cref="T:System.Data.DataTable">DataTable</see> to be exported.</param>
+            <param name="conditional">The <see cref="T:WillPower.IFileRecord">record</see> to implement as master.</param>
+            <returns>A <see cref="T:System.Collections.Generic.IEnumerable`1">collection</see> of 
+            <see cref="T:WillPower.IFileRecord">IFileRecord</see>.</returns>
+        </member>
+        <member name="M:WillPower.Extensions.ToFileRecords(System.Data.DataTable,WillPower.IFileField[])">
+            <summary>
+            Creates a <see cref="T:System.Collections.Generic.IEnumerable`1">collection</see> of <see cref="T:WillPower.IFileRecord">records</see> 
+            from the <see cref="T:System.Data.DataTable">DataTable</see> using the <see cref="T:WillPower.IFileLayout">layout</see> provided.
+            Note: Column and field names much match. Any unmatched fields will be added to the Exceptions collection of the record.
+            Any unmatched columns will be ignored. Useful for building Conditional records for 3D files.
+            </summary>
+            <param name="table">The <see cref="T:System.Data.DataTable">DataTable</see> to be exported.</param>
+            <param name="fields">
+            The <see cref="T:System.Array">collection</see> of <see cref="T:WillPower.IFileField">fields</see> to implement as master.
+            </param>
+            <returns>A <see cref="T:System.Collections.Generic.IEnumerable`1">collection</see> of 
+            <see cref="T:WillPower.IFileRecord">IFileRecord</see>.</returns>
+        </member>
+        <member name="M:WillPower.Extensions.ImportDataTable(WillPower.IFileParser,System.Data.DataTable)">
+            <summary>
+            Imports a <see cref="T:System.Collections.Generic.IEnumerable`1">collection</see> of <see cref="T:WillPower.IFileRecord">records</see> 
+            from the <see cref="T:System.Data.DataTable">DataTable</see> using the <see cref="T:WillPower.IFileLayout">layout</see> of the 
+            <see cref="T:WillPower.IFileParser">parser</see>.
+            </summary>
+            <param name="value">The <see cref="T:WillPower.IFileParser">parser</see> being affected.</param>
+            <param name="table">The <see cref="T:System.Data.DataTable">DataTable</see> to be imported.</param>
+            <returns>The same instance of the <see cref="T:WillPower.IFileParser">IFileParser</see>.</returns>
+        </member>
+        <member name="T:WillPower.AbortableTask">
+            <summary>
+            A simple container for handling <see cref="T:System.Threading.Tasks.Task">Task</see> cancellation.
+            Inherits <see cref="T:System.Threading.Tasks.Task">System.Threading.Tasks.Task</see>.
+            </summary>
+        </member>
+        <member name="P:WillPower.AbortableTask.Task">
+            <summary>
+            The root <see cref="T:System.Threading.Tasks.Task">Task</see>.
+            </summary>
+        </member>
+        <member name="P:WillPower.AbortableTask.CancellationTokenSource">
+            <summary>
+            The <see cref="T:System.Threading.CancellationTokenSource">source</see> of the 
+            <see cref="T:System.Threading.CancellationToken">CancellationToken</see>.
+            </summary>
+        </member>
+        <member name="P:WillPower.AbortableTask.CancellationToken">
+            <summary>
+            The <see cref="T:System.Threading.CancellationToken">CancellationToken</see>.
+            </summary>
+        </member>
+        <member name="P:WillPower.AbortableTask.Status">
+            <summary>
+            Gets the System.Threading.Tasks.TaskStatus of this task.
+            </summary>
+        </member>
+        <member name="M:WillPower.AbortableTask.#ctor(System.Action,System.Threading.CancellationTokenSource)">
+            <summary>
+            .ctor. Creates a new Instance of AbortableTask.
+            </summary>
+            <param name="action">The <see cref="T:System.Action">action</see> to be executed.</param>
+            <param name="tokenSource">The <see cref="T:System.Threading.CancellationTokenSource">source</see> 
+            of the <see cref="T:System.Threading.CancellationToken">CancellationToken</see>.</param>
+        </member>
+        <member name="M:WillPower.AbortableTask.#ctor(System.Action)">
+            <summary>
+            .ctor. Creates a new Instance of AbortableTask.
+            </summary>
+            <param name="action">The <see cref="T:System.Action">action</see> to be executed.</param>
+        </member>
+        <member name="M:WillPower.AbortableTask.#ctor(System.Threading.Tasks.Task,System.Threading.CancellationTokenSource)">
+            <summary>
+            .ctor. Creates a new Instance of AbortableTask.
+            </summary>
+            <param name="task">The <see cref="T:System.Threading.Tasks.Task">task</see> to be executed.</param>
+            <param name="tokenSource">The <see cref="T:System.Threading.CancellationTokenSource">source</see> 
+            of the <see cref="T:System.Threading.CancellationToken">CancellationToken</see>.</param>
+        </member>
+        <member name="M:WillPower.AbortableTask.#ctor(System.Threading.Tasks.Task)">
+            <summary>
+            .ctor. Creates a new Instance of AbortableTask.
+            </summary>
+            <param name="task">The <see cref="T:System.Threading.Tasks.Task">task</see> to be executed.</param>
+        </member>
+        <member name="M:WillPower.AbortableTask.Abort">
+            <summary>
+            Invokes Cancel on the <see cref="T:System.Threading.CancellationTokenSource">CancellationTokenSource</see>.
+            </summary>
+        </member>
+        <member name="M:WillPower.AbortableTask.Dispose">
+            <summary>
+            Disposes of this instance.
+            </summary>
+        </member>
+        <member name="T:WillPower.Encodings">
+            <summary>
+            A container for uncommonly used <see cref="T:System.Text.Encoding">Encodings</see>.
+            </summary>
+        </member>
+        <member name="P:WillPower.Encodings.EBCDIC">
+            <summary>
+            The EBCDIC <see cref="T:System.Text.Encoding">Encoding</see> for easy reference. 
+            This is usually the 
+            <see href="https://www.ibm.com/support/knowledgecenter/SSEQ5Y_5.9.0/com.ibm.pcomm.doc/reference/pdf/hcp_referenceV58.pdf">
+            IBM 037</see> code page in .Net.
+            Default is CodePage IBM037.
+            </summary>
+        </member>
+        <member name="P:WillPower.Encodings.ANSI">
+            <summary>
+            ANSI (Default) <see cref="T:System.Text.Encoding">Encoding</see> for easy reference. 
+            </summary>
         </member>
         <member name="T:WillPower.FieldException">
             <summary>
@@ -796,69 +1557,6 @@
             </summary>
             <param name="ex">The original <see cref="T:System.Exception">Exception</see> generated during field processing, passed to <see cref="P:System.Exception.InnerException">InnerException</see>.</param>
             <param name="field">The specific field <see cref="T:WillPower.IFileField">(IFileField)</see> that generated the <see cref="T:System.Exception">Exception</see>.</param>
-        </member>
-        <member name="T:WillPower.AbortableTask">
-            <summary>
-            A simple container for handling <see cref="T:System.Threading.Tasks.Task">Task</see> cancellation.
-            Inherits <see cref="T:System.Threading.Tasks.Task">System.Threading.Tasks.Task</see>.
-            </summary>
-        </member>
-        <member name="P:WillPower.AbortableTask.Task">
-            <summary>
-            The root <see cref="T:System.Threading.Tasks.Task">Task</see>.
-            </summary>
-        </member>
-        <member name="P:WillPower.AbortableTask.CancellationTokenSource">
-            <summary>
-            The <see cref="T:System.Threading.CancellationTokenSource">source</see> of the <see cref="T:System.Threading.CancellationToken">CancellationToken</see>.
-            </summary>
-        </member>
-        <member name="P:WillPower.AbortableTask.CancellationToken">
-            <summary>
-            The <see cref="T:System.Threading.CancellationToken">CancellationToken</see>.
-            </summary>
-        </member>
-        <member name="M:WillPower.AbortableTask.#ctor(System.Action,System.Threading.CancellationTokenSource)">
-            <summary>
-            .ctor. Creates a new Instance of AbortableTask.
-            </summary>
-            <param name="action">The <see cref="T:System.Action">action</see> to be executed.</param>
-            <param name="tokenSource">The <see cref="T:System.Threading.CancellationTokenSource">source</see> 
-            of the <see cref="T:System.Threading.CancellationToken">CancellationToken</see>.</param>
-        </member>
-        <member name="M:WillPower.AbortableTask.#ctor(System.Action)">
-            <summary>
-            .ctor. Creates a new Instance of AbortableTask.
-            </summary>
-            <param name="action">The <see cref="T:System.Action">action</see> to be executed.</param>
-        </member>
-        <member name="M:WillPower.AbortableTask.Abort">
-            <summary>
-            Invokes Cancel on the <see cref="T:System.Threading.CancellationTokenSource">CancellationTokenSource</see>.
-            </summary>
-        </member>
-        <member name="M:WillPower.AbortableTask.Dispose">
-            <summary>
-            Disposes of this instance.
-            </summary>
-        </member>
-        <member name="T:WillPower.Encodings">
-            <summary>
-            A container for uncommonly used <see cref="T:System.Text.Encoding">Encodings</see>.
-            </summary>
-        </member>
-        <member name="P:WillPower.Encodings.EBCDIC">
-            <summary>
-            The EBCDIC <see cref="T:System.Text.Encoding">Encoding</see> for easy reference. 
-            This is usually the <see href="https://www.ibm.com/support/knowledgecenter/SSEQ5Y_5.9.0/com.ibm.pcomm.doc/reference/pdf/hcp_referenceV58.pdf">
-            IBM 037</see> code page in .Net.
-            Default is CodePage IBM037.
-            </summary>
-        </member>
-        <member name="P:WillPower.Encodings.ANSI">
-            <summary>
-            ANSI (Default) <see cref="T:System.Text.Encoding">Encoding</see> for easy reference. 
-            </summary>
         </member>
         <member name="T:WillPower.FileConditional">
             <summary>
@@ -935,12 +1633,15 @@
             <summary>
             Evaluates the provided <see cref="T:WillPower.IFileRecord">record</see> against the <see cref="P:WillPower.IFileConditional.Condition">Condition</see> property.
             </summary>
-            <param name="record">The <see cref="T:WillPower.IFileRecord">record</see> to evaluate against the <see cref="P:WillPower.IFileConditional.Condition">Condition</see> property.</param>
-            <returns>True if the <see cref="T:WillPower.IFileRecord">record</see> meets the <see cref="P:WillPower.IFileConditional.Condition">Condition</see> property.</returns>
+            <param name="record">The <see cref="T:WillPower.IFileRecord">record</see> to evaluate against the 
+            <see cref="P:WillPower.IFileConditional.Condition">Condition</see> property.</param>
+            <returns>
+            True if the <see cref="T:WillPower.IFileRecord">record</see> meets the <see cref="P:WillPower.IFileConditional.Condition">Condition</see> property.
+            </returns>
         </member>
         <member name="T:WillPower.FileField">
             <summary>
-            A concreate class containing the necessary properties and methods for processing a single field.
+            A concrete class containing the necessary properties and methods for processing a single field.
             Cannot be inherited.
             </summary>
         </member>
@@ -951,13 +1652,21 @@
         </member>
         <member name="P:WillPower.FileField.StringValue">
             <summary>
-            The <see cref="M:WillPower.IFileField.Compute(System.Byte[])">computed</see> result as a <see cref="T:System.String">string</see>.
+            The <see cref="M:WillPower.IFileField.Compute(System.Byte[])">computed</see> result as a <see cref="T:System.String">string</see> or 
+            the value to be written.
             </summary>
         </member>
-        <member name="M:WillPower.FileField.#ctor">
+        <member name="M:WillPower.FileField.#ctor(System.Boolean)">
             <summary>
             .ctor. Creates a new instance of FileField.
             </summary>
+            <param name="write">
+            If <see cref="T:System.Boolean">true</see>, this will use the default ASCII to EBCDIC 
+            <see cref="T:WillPower.IFileParserEncoder">IFileParserEncoder</see> instance for writing binary EBCDIC fields.
+            If <see cref="T:System.Boolean">false</see>, this will use the default EBCDIC to ASCII 
+            <see cref="T:WillPower.IFileParserEncoder">IFileParserEncoder</see> instance for reading binary EBCDIC fields.
+            Default is <see cref="T:System.Boolean">false</see>.
+            </param>
         </member>
         <member name="M:WillPower.FileField.#ctor(WillPower.IFileField)">
             <summary>
@@ -984,7 +1693,7 @@
             <param name="length">The field length expressed as an <see cref="T:System.UInt32">unsigned integer</see>.</param>
             <param name="format">The <see cref="T:WillPower.FileFieldDataFormat">format</see> of the field.</param>
         </member>
-        <member name="M:WillPower.FileField.#ctor(WillPower.FileParserEncoder,System.String,System.UInt32,System.UInt32,WillPower.FileFieldDataFormat,System.Byte,System.Boolean)">
+        <member name="M:WillPower.FileField.#ctor(WillPower.IFileParserEncoder,System.String,System.UInt32,System.UInt32,WillPower.FileFieldDataFormat,System.Int16,System.Boolean)">
             <summary>
             .ctor. Creates a new instance of FileField. Used for numeric <see cref="T:System.Decimal">(decimal)</see> <see cref="T:System.Type">types</see>.
             </summary>
@@ -994,11 +1703,11 @@
             expressed as an <see cref="T:System.UInt32">unsigned integer</see>.</param>
             <param name="length">The field length expressed as an <see cref="T:System.UInt32">unsigned integer</see>.</param>
             <param name="format">The <see cref="T:WillPower.FileFieldDataFormat">format</see> of the field.</param>
-            <param name="precision">The precision of the expected resultant as <see cref="T:System.Byte"/>Byte. Default is 0. 
+            <param name="precision">The precision of the expected resultant as <see cref="T:System.Int16"/>short. Default is 0. 
             The limitation is from logical reasons.</param>
             <param name="required">If <see cref="T:System.Boolean">true</see>, throw a <see cref="T:WillPower.FieldException"></see> on a null result.</param>
         </member>
-        <member name="M:WillPower.FileField.#ctor(WillPower.FileParserEncoder,System.String,System.UInt32,System.UInt32,WillPower.FileFieldDataFormat,System.Boolean,System.Boolean)">
+        <member name="M:WillPower.FileField.#ctor(WillPower.IFileParserEncoder,System.String,System.UInt32,System.UInt32,WillPower.FileFieldDataFormat,System.Boolean,System.Boolean)">
             <summary>
             .ctor. Creates a new instance of FileField. Used for <see cref="T:System.DateTime">Date</see> <see cref="T:System.Type">types</see>.
             </summary>
@@ -1012,15 +1721,35 @@
             Default is <see cref="T:System.Boolean">false</see>.
             Note: If the <see cref="T:System.String">string</see> contains a parsable date character ( / or - ) it will attempt to use 
             <see cref="M:System.DateTime.TryParse(System.String,System.DateTime@)">TryParse</see> and return any successful result. 
-            If <see cref="M:System.DateTime.TryParse(System.String,System.DateTime@)">TryParse</see> fails it proceeds on to <see cref="T:System.String">string</see> parsing.
+            If <see cref="M:System.DateTime.TryParse(System.String,System.DateTime@)">TryParse</see> fails it proceeds on to 
+            <see cref="T:System.String">string</see> parsing.
             </param>
             <param name="required">If <see cref="T:System.Boolean">true</see>, throw a <see cref="T:WillPower.FieldException"></see> on a null result.</param>
+        </member>
+        <member name="M:WillPower.FileField.#ctor(WillPower.IFileParserEncoder,System.String,System.UInt32,System.UInt32,WillPower.BooleanStringRepresentation)">
+            <summary>
+            .ctor. Must be inherited. User for <see cref="T:System.Boolean">boolean</see> types with a <see cref="T:System.String">string</see> output.
+            </summary>
+            <param name="encoder">The <see cref="T:WillPower.IFileParserEncoder">IFileParserEncoder</see> instance to use for encoding.</param>
+            <param name="name">The <see cref="T:System.String">name</see> of the field.</param>
+            <param name="startPosition">The starting position of this field in the <see cref="T:WillPower.IFileRecord">record</see> expressed as an 
+            <see cref="T:System.UInt32">unsigned integer</see>.</param>
+            <param name="length">The field length expressed as an <see cref="T:System.UInt32">unsigned integer</see>.</param>
+            <param name="showAs">
+            Identifies how the <see cref="T:System.Boolean">boolean</see> value will be represented as a <see cref="T:System.String">string</see>.
+            Length of 1 will only return the first <see cref="T:System.Char">character</see> of the expected <see cref="T:System.String">string</see>.
+            </param>
         </member>
         <member name="M:WillPower.FileField.Compute(System.Byte[])">
             <summary>
             Computes this provided <see cref="T:System.Array">array</see> of bytes using the properties provided.
             </summary>
             <param name="data">The <see cref="T:System.Array">array</see> of bytes to process.</param>
+        </member>
+        <member name="M:WillPower.FileField.Pack">
+            <summary>
+            Packs the field <see cref="P:WillPower.IFileField.Value">Value</see> to the <see cref="P:WillPower.FileField.ByteValue">ByteValue</see> using the properties provided.
+            </summary>
         </member>
         <member name="T:WillPower.FileLayout">
             <summary>
@@ -1043,7 +1772,8 @@
         </member>
         <member name="P:WillPower.FileLayout.Conditions">
             <summary>
-            The <see cref="T:System.Array">collection</see> of <see cref="T:WillPower.IFileConditional">conditions</see> to evaulate each <see cref="T:WillPower.IFileRecord">record</see> for (and apply those fields if true), if any.
+            The <see cref="T:System.Array">collection</see> of <see cref="T:WillPower.IFileConditional">conditions</see> to evaulate each 
+            <see cref="T:WillPower.IFileRecord">record</see> for (and apply those fields if true), if any.
             </summary>
         </member>
         <member name="P:WillPower.FileLayout.HeaderRecord">
@@ -1058,7 +1788,8 @@
         </member>
         <member name="P:WillPower.FileLayout.MasterFields">
             <summary>
-            The <see cref="T:System.Array">collection</see> of <see cref="T:WillPower.IFileField">fields</see> containing either master key fields (3D file), or all fields (2D file).
+            The <see cref="T:System.Array">collection</see> of <see cref="T:WillPower.IFileField">fields</see> containing either master key fields (3D file), 
+            or all fields (2D file).
             </summary>
         </member>
         <member name="P:WillPower.FileLayout.RecordLength">
@@ -1066,9 +1797,24 @@
             The length of each record expressed as an <see cref="T:System.UInt32">unsigned integer</see>.
             </summary>
         </member>
+        <member name="P:WillPower.FileLayout.FillByte">
+            <summary>
+            The <see cref="T:System.Byte">byte</see>, in Source Encoding, to use as filler for a record (spaces between fields).
+            This or <see cref="P:WillPower.FileLayout.FillCharacter">FillCharacter</see> must be set, but not both. Changing one 
+            will affect the other. Used for writing.
+            </summary>
+        </member>
+        <member name="P:WillPower.FileLayout.FillCharacter">
+            <summary>
+            The <see cref="T:System.Char">character</see>, in Source Encoding, to use as filler for a record (spaces between fields).
+            This or <see cref="P:WillPower.FileLayout.FillByte">FillByte</see> must be set, but not both. Changing one 
+            will affect the other. Used for writing.
+            </summary>
+        </member>
         <member name="P:WillPower.FileLayout.OpenAsText">
             <summary>
-            If <see cref="T:System.Boolean">true</see>, open using character-based methods. If <see cref="T:System.Boolean">false</see>, open using binary methods.
+            If <see cref="T:System.Boolean">true</see>, open using character-based methods. If <see cref="T:System.Boolean">false</see>, 
+            open using binary methods.
             </summary>
         </member>
         <member name="P:WillPower.FileLayout.TextLineTerminator">
@@ -1097,12 +1843,21 @@
         <member name="P:WillPower.FileParser.Records">
             <summary>
             The <see cref="T:System.Collections.Generic.IEnumerable`1">collection</see> of <see cref="T:WillPower.IFileRecord">records</see> read from the file.
+            It is suggested that this collection not be altered directly, but rather assigned to using the 
+            <see cref="M:WillPower.FileParser.AddRecord(WillPower.IFileRecord)">AddRecord</see> and <see cref="M:WillPower.FileParser.AddRecords(System.Collections.Generic.IEnumerable{WillPower.IFileRecord})">AddRecords</see> methods.
             </summary>
         </member>
-        <member name="M:WillPower.FileParser.#ctor">
+        <member name="M:WillPower.FileParser.#ctor(System.Boolean)">
             <summary>
             .ctor. Creates a new instance of FileParser using the default <see cref="T:WillPower.FileParserEncoder">FileParserEncoder</see>.
             </summary>
+            <param name="write">
+            If <see cref="T:System.Boolean">true</see>, this will use the default ASCII to EBCDIC 
+            <see cref="T:WillPower.IFileParserEncoder">IFileParserEncoder</see> instance for writing binary EBCDIC fields.
+            If <see cref="T:System.Boolean">false</see>, this will use the default EBCDIC to ASCII 
+            <see cref="T:WillPower.IFileParserEncoder">IFileParserEncoder</see> instance for reading binary EBCDIC fields.
+            Default is <see cref="T:System.Boolean">false</see>.
+            </param>
         </member>
         <member name="M:WillPower.FileParser.#ctor(WillPower.IFileParserEncoder)">
             <summary>
@@ -1122,6 +1877,36 @@
             </summary>
             <param name="stream">The <see cref="T:System.IO.Stream">stream</see> to load.</param>
         </member>
+        <member name="M:WillPower.FileParser.Pack(System.String)">
+            <summary>
+            Packs the <see cref="P:WillPower.FileParser.Records">Records</see> and their <see cref="P:WillPower.IFileRecord.Fields">Fields</see> 
+            using the properties provided.
+            Optionally writes to the provided <see cref="T:System.String">outputFilename</see> as a binary.
+            </summary>
+            <param name="outputFilename">If not <see cref="T:System.Nullable">null</see>, will execute
+            <see cref="M:WillPower.FileParser.SaveAs(System.String)">SaveAs</see> after performing the Pack using the 
+            <see cref="T:System.String">value</see> provided.</param>
+        </member>
+        <member name="M:WillPower.FileParser.SaveAs(System.String)">
+            <summary>
+            Saves the Packed <see cref="P:WillPower.FileParser.Records">Records</see> to the provided <see cref="T:System.String">outputFilename</see> as a binary.
+            </summary>
+            <param name="outputFilename">The <see cref="T:System.String">name</see> of the output file.</param>
+        </member>
+        <member name="M:WillPower.FileParser.AddRecord(WillPower.IFileRecord)">
+            <summary>
+            Adds the provided <see cref="T:WillPower.IFileRecord">record</see> to the <see cref="P:WillPower.FileParser.Records">Records</see> collection.
+            </summary>
+            <param name="record">The <see cref="T:WillPower.IFileRecord">IFileRecord</see> instance to add.</param>
+        </member>
+        <member name="M:WillPower.FileParser.AddRecords(System.Collections.Generic.IEnumerable{WillPower.IFileRecord})">
+            <summary>
+            Adds the provided <see cref="T:System.Collections.Generic.IEnumerable`1">collection</see> of 
+            <see cref="T:WillPower.IFileRecord">records</see> to the <see cref="P:WillPower.FileParser.Records">Records</see> collection.
+            </summary>
+            <param name="fileRecords">The <see cref="T:System.Collections.Generic.IEnumerable`1">collection</see> of 
+            <see cref="T:WillPower.IFileRecord">IFileRecord</see> instances to add.</param>
+        </member>
         <member name="T:WillPower.FileParserEncoder">
             <summary>
             A concrete class for containing the necessary <see cref="T:System.Text.Encoding">Encoding</see> properties to parse a file.
@@ -1139,6 +1924,20 @@
             Default is <see cref="P:System.Text.Encoding.ASCII">ASCII</see>.
             </summary>
         </member>
+        <member name="M:WillPower.FileParserEncoder.GetDefaultEncoder(System.Boolean)">
+            <summary>
+            Factory method for providing a default EBCDIC to ASCII (write = <see cref="T:System.Boolean">false</see>) or 
+            ASCII to EBCDIC (write = <see cref="T:System.Boolean">true</see>) <see cref="T:WillPower.IFileParserEncoder">IFileParserEncoder</see>.
+            </summary>
+            <param name="write">
+            If <see cref="T:System.Boolean">true</see>, this will return the default ASCII to EBCDIC 
+            <see cref="T:WillPower.IFileParserEncoder">IFileParserEncoder</see> instance for writing binary EBCDIC files.
+            If <see cref="T:System.Boolean">false</see>, this will return the default EBCDIC to ASCII 
+            <see cref="T:WillPower.IFileParserEncoder">IFileParserEncoder</see> instance for reading binary EBCDIC files.
+            Default is <see cref="T:System.Boolean">false</see>.
+            </param>
+            <returns>A new default instance of <see cref="T:WillPower.FileParserEncoder">FileParserEncoder</see>.</returns>
+        </member>
         <member name="T:WillPower.FileRecord">
             <summary>
             A concrete class for record-level data, their <see cref="T:WillPower.IFileField">fields</see>, and any possible <see cref="T:WillPower.FieldException">Exceptions</see>.
@@ -1147,6 +1946,11 @@
         <member name="P:WillPower.FileRecord.Exceptions">
             <summary>
             The <see cref="T:System.Array">collection</see> of <see cref="T:WillPower.FieldException">Exceptions</see>, if any.
+            </summary>
+        </member>
+        <member name="M:WillPower.FileRecord.#ctor">
+            <summary>
+            .ctor. Creates a new instance of FileRecord.
             </summary>
         </member>
         <member name="M:WillPower.FileRecord.#ctor(WillPower.IFileParserEncoder)">
@@ -1188,6 +1992,16 @@
             </summary>
             <param name="data">The <see cref="T:System.Array">array</see> of bytes to read.</param>
         </member>
+        <member name="M:WillPower.FileRecord.Pack(System.UInt32,System.Byte)">
+            <summary>
+            Packs the record <see cref="P:WillPower.IFileRecord.Fields">Fields</see> to their <see cref="P:WillPower.IFileField.ByteValue">ByteValues</see> 
+            using the properties provided.
+            </summary>
+            <param name="recordLength">The length of the record expressed as an <see cref="T:System.UInt32">unsigned integer</see>.</param>
+            <param name="fillByte">        
+            The <see cref="T:System.Byte">byte</see>, in Source Encoding, from <see cref="T:WillPower.IFileLayout">IFileLayout</see>.
+            </param>
+        </member>
         <member name="T:WillPower.FileTable">
             <summary>
             A table field that functions more or less like a miniature file reader within a record.
@@ -1219,6 +2033,35 @@
             The <see cref="T:WillPower.FileFieldDataFormat">format</see> of Table (3).
             </summary>
         </member>
+        <member name="P:WillPower.FileTable.FillByte">
+            <summary>
+            The <see cref="T:System.Byte">byte</see>, in Source Encoding, to use as filler for this field.
+            This or <see cref="P:WillPower.FileTable.FillCharacter">FillCharacter</see> must be set, but not both. Changing one 
+            will affect the other. Not needed on <see cref="T:WillPower.FileTable">File Table</see>.
+            </summary>
+        </member>
+        <member name="P:WillPower.FileTable.FillCharacter">
+            <summary>
+            The <see cref="T:System.Char">character</see>, in Source Encoding, to use as filler for this field.
+            This or <see cref="P:WillPower.FileTable.FillByte">FillByte</see> must be set, but not both. Changing one 
+            will affect the other. Not needed on <see cref="T:WillPower.FileTable">File Table</see>.
+            </summary>
+        </member>
+        <member name="P:WillPower.FileTable.RightAlign">
+            <summary>
+            If <see cref="T:System.Boolean">true</see> the field will pad the <see cref="P:WillPower.FileTable.FillByte">FillByte</see> 
+            or <see cref="P:WillPower.FileTable.FillCharacter">FillCharacter</see> to the left.
+            If <see cref="T:System.Boolean">false</see> the field will pad the <see cref="P:WillPower.FileTable.FillByte">FillByte</see> 
+            or <see cref="P:WillPower.FileTable.FillCharacter">FillCharacter</see> to the right.
+            Not needed on <see cref="T:WillPower.FileTable">File Table</see>.
+            </summary>
+        </member>
+        <member name="P:WillPower.FileTable.BoolAsString">
+            <summary>
+            Identifies how a <see cref="T:System.Boolean">boolean</see> value is represented as a <see cref="T:System.String">string</see>.
+            Not used on this instance.
+            </summary>
+        </member>
         <member name="P:WillPower.FileTable.Layout">
             <summary>
             The <see cref="T:WillPower.IFileLayout">layout</see> of the table.
@@ -1227,6 +2070,8 @@
         <member name="P:WillPower.FileTable.Records">
             <summary>
             The <see cref="T:System.Collections.Generic.IEnumerable`1">collection</see> of <see cref="T:WillPower.IFileRecord">records</see> read from the table.
+            It is suggested that this collection not be altered directly, but rather assigned to using the 
+            <see cref="M:WillPower.FileTable.AddRecord(WillPower.IFileRecord)">AddRecord</see> and <see cref="M:WillPower.FileTable.AddRecords(WillPower.IFileRecord[])">AddRecords</see> methods.
             </summary>
         </member>
         <member name="P:WillPower.FileTable.Value">
@@ -1258,7 +2103,7 @@
         <member name="P:WillPower.FileTable.StringValue">
             <summary>
             The <see cref="M:WillPower.IFileField.Compute(System.Byte[])">computed</see> result as a <see cref="T:System.String">string</see>.
-            For this object, this field will not return viable results.
+            For this object, this field will not set or return viable results.
             </summary>
         </member>
         <member name="M:WillPower.FileTable.#ctor(WillPower.IFileParserEncoder)">
@@ -1277,6 +2122,26 @@
             expressed as an <see cref="T:System.UInt32">unsigned integer</see>.</param>
             <param name="length">The field (table) length expressed as an <see cref="T:System.UInt32">unsigned integer</see>.</param>
         </member>
+        <member name="M:WillPower.FileTable.SetRecords(WillPower.IFileRecord[])">
+            <summary>
+            Assigns the provided collection of <see cref="T:WillPower.IFileRecord">records</see> to the table.
+            </summary>
+            <param name="rows">The <see cref="T:System.Collections.Generic.IEnumerable`1">collection</see> of 
+            <see cref="T:WillPower.IFileRecord">records</see> to assign to this table.</param>
+        </member>
+        <member name="M:WillPower.FileTable.AddRecords(WillPower.IFileRecord[])">
+            <summary>
+            Adds the provided collection of <see cref="T:WillPower.IFileRecord">records</see> to the <see cref="P:WillPower.FileTable.Records">Records</see> collection.
+            </summary>
+            <param name="rows">The <see cref="T:System.Collections.Generic.IEnumerable`1">collection</see> of 
+            <see cref="T:WillPower.IFileRecord">records</see> to add to this table.</param>
+        </member>
+        <member name="M:WillPower.FileTable.AddRecord(WillPower.IFileRecord)">
+            <summary>
+            Adds the provided <see cref="T:WillPower.IFileRecord">record</see> to the <see cref="P:WillPower.FileTable.Records">Records</see> collection.
+            </summary>
+            <param name="row">The <see cref="T:WillPower.IFileRecord">record</see> to add to this table.</param>
+        </member>
         <member name="M:WillPower.FileTable.Compute(System.Byte[])">
             <summary>
             Computes the provided <see cref="T:System.Array">array</see> of bytes using the properties provided.
@@ -1288,6 +2153,252 @@
             Creates a <see cref="T:System.Data.DataTable">DataTable</see> from the resulting <see cref="T:WillPower.IFileRecord">records</see>.
             </summary>
             <returns>A <see cref="T:System.Data.DataTable">DataTable</see> of the <see cref="T:WillPower.IFileRecord">records</see> computed.</returns>
+        </member>
+        <member name="M:WillPower.FileTable.Pack">
+            <summary>
+            Packs the <see cref="P:WillPower.FileTable.Records">Records</see> and their <see cref="P:WillPower.IFileRecord.Fields">Fields</see> 
+            using the properties provided.
+            </summary>
+        </member>
+        <member name="M:WillPower.FileTable.SetValue(System.Object)">
+            <summary>
+            Assign values using the <see cref="P:WillPower.FileTable.Records">Records</see> collection of this object. 
+            Do not use this method directly. 
+            </summary>
+            <param name="value">Not Used.</param>
+            <exception cref="T:System.ArgumentException">Thrown Always.</exception>
+        </member>
+        <member name="T:WillPower.Nibble">
+            <summary>
+            A common use container for half a byte (or 4 bits), referred to as a "Nibble"
+            </summary>
+        </member>
+        <member name="P:WillPower.Nibble.Bit1">
+            <summary>
+            From Left to Right, the 1st, most significant bit as a <see cref="T:System.Boolean">boolean</see>.
+            </summary>
+        </member>
+        <member name="P:WillPower.Nibble.Bit2">
+            <summary>
+            From Left to Right, the 2nd bit as a <see cref="T:System.Boolean">boolean</see>.
+            </summary>
+        </member>
+        <member name="P:WillPower.Nibble.Bit3">
+            <summary>
+            From Left to Right, the 3rd bit as a <see cref="T:System.Boolean">boolean</see>.
+            </summary>
+        </member>
+        <member name="P:WillPower.Nibble.Bit4">
+            <summary>
+            From Left to Right, the 4th or last, least significant bit as a <see cref="T:System.Boolean">boolean</see>.
+            </summary>
+        </member>
+        <member name="P:WillPower.Nibble.Value">
+            <summary>
+            The <see cref="T:System.Byte">byte</see> value of the nibble. Will never exceed 15. 
+            Any values assigned discard the 4 most significant bits.
+            </summary>
+        </member>
+        <member name="M:WillPower.Nibble.#ctor">
+            <summary>
+            .ctor. Creates a new instance of Nibble.
+            </summary>
+        </member>
+        <member name="M:WillPower.Nibble.#ctor(System.Byte)">
+            <summary>
+            .ctor. Creates a new instance of Nibble.
+            </summary>
+            <param name="value">The <see cref="T:System.Byte">value</see> to assign to the <see cref="P:WillPower.Nibble.Value">Value</see> property.</param>
+        </member>
+        <member name="M:WillPower.Nibble.#ctor(System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            .ctor. Creates a new instance of Nibble.
+            </summary>
+            <param name="b1">If <see cref="T:System.Boolean">true</see> sets the <see cref="P:WillPower.Nibble.Bit1">Bit1</see> property to true.</param>
+            <param name="b2">If <see cref="T:System.Boolean">true</see> sets the <see cref="P:WillPower.Nibble.Bit2">Bit2</see> property to true.</param>
+            <param name="b3">If <see cref="T:System.Boolean">true</see> sets the <see cref="P:WillPower.Nibble.Bit3">Bit3</see> property to true.</param>
+            <param name="b4">If <see cref="T:System.Boolean">true</see> sets the <see cref="P:WillPower.Nibble.Bit4">Bit4</see> property to true.</param>
+        </member>
+        <member name="M:WillPower.Nibble.Append(WillPower.Nibble)">
+            <summary>
+            Combine this <see cref="T:WillPower.Nibble">nibble</see> <see cref="T:System.Byte">value</see> as the high-order nibble 
+            with the provided low-order <see cref="T:WillPower.Nibble">nibble</see> <see cref="T:System.Byte">value</see>.
+            </summary>
+            <param name="nibble"></param>
+            <returns></returns>
+        </member>
+        <member name="T:WillPower.SerializableField">
+            <summary>
+            A class containing the necessary properties for processing a single field.
+            </summary>
+        </member>
+        <member name="P:WillPower.SerializableField.StartPosition">
+            <summary>
+            The starting position of this field in the <see cref="T:WillPower.IFileRecord">record</see> expressed as an 
+            <see cref="T:System.UInt32">unsigned integer</see>.
+            </summary>
+        </member>
+        <member name="P:WillPower.SerializableField.Length">
+            <summary>
+            The field length expressed as an <see cref="T:System.UInt32">unsigned integer</see>.
+            </summary>
+        </member>
+        <member name="P:WillPower.SerializableField.Name">
+            <summary>
+            The <see cref="T:System.String">name</see> of the field.
+            </summary>
+        </member>
+        <member name="P:WillPower.SerializableField.DataFormat">
+            <summary>
+            The <see cref="T:WillPower.FileFieldDataFormat">format</see> of the field.
+            String = 0, Comp3 (IBM Packed Number) = 1, Raw (binary) = 2.
+            </summary>
+        </member>
+        <member name="P:WillPower.SerializableField.Value">
+            <summary>
+            The <see cref="M:WillPower.IFileField.Compute(System.Byte[])">computed</see> value boxed as an <see cref="T:System.Object">object</see>.
+            </summary>
+        </member>
+        <member name="P:WillPower.SerializableField.Type">
+            <summary>
+            The <see cref="T:System.Type">type</see> of data the field contains represented as a <see cref="T:System.String">string</see>.
+            </summary>
+        </member>
+        <member name="P:WillPower.SerializableField.Precision">
+            <summary>
+            The precision of the value if decimal.
+            </summary>
+        </member>
+        <member name="P:WillPower.SerializableField.YearFirst">
+            <summary>
+            If <see cref="T:System.Boolean">true</see> and the <see cref="P:WillPower.IFileField.DataFormat">DataFormat</see> is set to String (0), 
+            will attempt to read the date value with year at the beginning.
+            </summary>
+        </member>
+        <member name="P:WillPower.SerializableField.FillByte">
+            <summary>
+            The <see cref="T:System.Byte">byte</see>, in Source Encoding, to use as filler for this field.
+            This or <see cref="P:WillPower.SerializableField.FillCharacter">FillCharacter</see> must be set, but not both. Changing one 
+            will affect the other. Used for writing.
+            </summary>
+        </member>
+        <member name="P:WillPower.SerializableField.FillCharacter">
+            <summary>
+            The <see cref="T:System.Char">character</see>, in Source Encoding, to use as filler for this field.
+            This or <see cref="P:WillPower.SerializableField.FillByte">FillByte</see> must be set, but not both. Changing one 
+            will affect the other. Used for writing.
+            </summary>
+        </member>
+        <member name="P:WillPower.SerializableField.RightAlign">
+            <summary>
+            If <see cref="T:System.Boolean">true</see> the field will pad the <see cref="P:WillPower.SerializableField.FillByte">FillByte</see> 
+            or <see cref="P:WillPower.SerializableField.FillCharacter">FillCharacter</see> to the left.
+            If <see cref="T:System.Boolean">false</see> the field will pad the <see cref="P:WillPower.SerializableField.FillByte">FillByte</see> 
+            or <see cref="P:WillPower.SerializableField.FillCharacter">FillCharacter</see> to the right.
+            </summary>
+        </member>
+        <member name="P:WillPower.SerializableField.BoolAsString">
+            <summary>
+            Identifies how a <see cref="T:System.Boolean">boolean</see> value is represented as a <see cref="T:System.String">string</see>.
+            Length of 1 will only return the first <see cref="T:System.Char">character</see> of the expected <see cref="T:System.String">string</see>.
+            </summary>
+        </member>
+        <member name="M:WillPower.SerializableField.#ctor">
+            <summary>
+            .ctor. Creates a default instance of this object.
+            </summary>
+        </member>
+        <member name="M:WillPower.SerializableField.#ctor(WillPower.IFileField)">
+            <summary>
+            .ctor. Create an instance of this object using the <see cref="T:WillPower.IFileField">field</see> layout provided.
+            </summary>
+            <param name="field"></param>
+        </member>
+        <member name="M:WillPower.SerializableField.GetField(WillPower.IFileParserEncoder)">
+            <summary>
+            Gets the <see cref="T:WillPower.IFileField">IFileField</see> layout definition for this object.
+            </summary>
+            <param name="encoder">The <see cref="T:WillPower.IFileParserEncoder">encoder</see> to use. If null, the default (EBCDIC 2 ASCII) is used.</param>
+            <returns>An <see cref="T:WillPower.IFileField">IFileField</see> object utilizing this object's layout.</returns>
+        </member>
+        <member name="T:WillPower.SerializableLayout">
+            <summary>
+            A container for serializing in and out of json and xml for <see cref="T:WillPower.FileLayout">file layouts</see>.
+            Note: Only valid for 2D layouts at this time.
+            </summary>
+        </member>
+        <member name="P:WillPower.SerializableLayout.Name">
+            <summary>
+            The <see cref="T:System.String">name</see> of this layout, for reference.
+            </summary>
+        </member>
+        <member name="P:WillPower.SerializableLayout.HeaderFields">
+            <summary>
+            The <see cref="T:System.Array">collection</see> of <see cref="T:WillPower.SerializableField">fields</see> used for the header record, if any.
+            </summary>
+        </member>
+        <member name="P:WillPower.SerializableLayout.FooterFields">
+            <summary>
+            The <see cref="T:System.Array">collection</see> of <see cref="T:WillPower.SerializableField">fields</see> used for the footer record, if any.
+            </summary>
+        </member>
+        <member name="P:WillPower.SerializableLayout.MasterFields">
+            <summary>
+            The <see cref="T:System.Array">collection</see> of <see cref="T:WillPower.SerializableField">fields</see> containing all fields (2D file).
+            </summary>
+        </member>
+        <member name="P:WillPower.SerializableLayout.RecordLength">
+            <summary>
+            The length of each record expressed as an <see cref="T:System.UInt32">unsigned integer</see>.
+            </summary>
+        </member>
+        <member name="P:WillPower.SerializableLayout.FillByte">
+            <summary>
+            The <see cref="T:System.Byte">byte</see>, in Source Encoding, to use as filler for a record (spaces between fields).
+            </summary>
+        </member>
+        <member name="P:WillPower.SerializableLayout.FillCharacter">
+            <summary>
+            The <see cref="T:System.Char">character</see>, in Source Encoding, to use as filler for a record (spaces between fields).
+            </summary>
+        </member>
+        <member name="P:WillPower.SerializableLayout.OpenAsText">
+            <summary>
+            If <see cref="T:System.Boolean">true</see>, open using character-based methods. If <see cref="T:System.Boolean">false</see>, 
+            open using binary methods.
+            </summary>
+        </member>
+        <member name="P:WillPower.SerializableLayout.TextLineTerminator">
+            <summary>
+            The <see cref="T:System.Char">character</see> used to determine end of line when 
+            <see cref="P:WillPower.IFileLayout.OpenAsText">OpenAsText</see> is <see cref="T:System.Boolean">true</see>.
+            For text files the default is '\n' (nextline), but can be set at any time.
+            </summary>
+        </member>
+        <member name="M:WillPower.SerializableLayout.#ctor">
+            <summary>
+            .ctor.  Creates a default instance of this object.
+            </summary>
+        </member>
+        <member name="M:WillPower.SerializableLayout.#ctor(WillPower.IFileLayout)">
+            <summary>
+            .ctor. Creates an instance of this object using the <see cref="T:WillPower.IFileLayout">layout</see> provided.
+            </summary>
+            <param name="layout">The <see cref="T:WillPower.IFileLayout">layout</see> to model this instance from.</param>
+        </member>
+        <member name="M:WillPower.SerializableLayout.GetFileLayout(WillPower.IFileParserEncoder)">
+            <summary>
+            Gets the <see cref="T:WillPower.IFileLayout">layout</see> relevant to this object.
+            </summary>
+            <param name="encoder">The <see cref="T:WillPower.IFileParserEncoder">encoder</see> to use. If null, the default (EBCDIC 2 ASCII) is used.</param>
+            <returns>A <see cref="T:WillPower.IFileLayout">layout</see> matching this object's properties.</returns>
+        </member>
+        <member name="M:WillPower.SerializableLayout.GetParser(WillPower.IFileParserEncoder)">
+            <summary>
+            Gets a <see cref="T:WillPower.IFileParser">file parser</see> object extracted from this layouts properties.
+            </summary>
+            <param name="encoder">The <see cref="T:WillPower.IFileParserEncoder">encoder</see> to use. If null, the default (EBCDIC 2 ASCII) is used.</param>
+            <returns>A <see cref="T:WillPower.IFileParser">parser</see> derived from this object's properties.</returns>
         </member>
         <member name="T:WillPower.TaskManager">
             <summary>
@@ -1306,15 +2417,15 @@
         </member>
         <member name="E:WillPower.TaskManager.OnThreadException">
             <summary>
-            Fires when a <see cref="P:WillPower.TaskManager.PendingTasks">Pending Task</see> is fails to execute.
+            Fires when a <see cref="P:WillPower.TaskManager.PendingTasks">Pending Task</see> fails to execute.
             If this event is not handled, an unhandled <see cref="T:System.Exception">Exception</see> could 
             be thrown in the background thread and should be handled elsewhere.
             </summary>
         </member>
         <member name="P:WillPower.TaskManager.TimeOut">
             <summary>
-            The <see cref="T:System.TimeSpan">System.TimeSpan</see> to wait for an available thread prior to throwing a 
-            <see cref="T:System.TimeoutException">TimeoutException</see>.
+            The <see cref="T:System.TimeSpan">TimeSpan</see> to wait for an available thread prior to throwing a 
+            <see cref="T:System.TimeoutException">Timeout Exception</see>.
             Default is 10 seconds.
             </summary>
         </member>
@@ -1419,7 +2530,8 @@
             using the provided <see cref="T:System.Threading.CancellationTokenSource">CancellationTokenSource</see>.
             </summary>
             <param name="task">The <see cref="T:System.Threading.Tasks.Task">Task</see> to be executed.</param>
-            <param name="cancellationTokenSource">The <see cref="T:System.Threading.CancellationTokenSource">source</see> of the <see cref="T:System.Threading.CancellationToken">CancellationToken</see>.</param>
+            <param name="cancellationTokenSource">The <see cref="T:System.Threading.CancellationTokenSource">source</see> 
+            of the <see cref="T:System.Threading.CancellationToken">CancellationToken</see>.</param>
         </member>
         <member name="M:WillPower.TaskManager.CleanTasks">
             <summary>
@@ -1501,7 +2613,8 @@
         </member>
         <member name="P:WillPower.IFileField.StartPosition">
             <summary>
-            The starting position of this field in the <see cref="T:WillPower.IFileRecord">record</see> expressed as an <see cref="T:System.UInt32">unsigned integer</see>.
+            The starting position of this field in the <see cref="T:WillPower.IFileRecord">record</see> expressed as an 
+            <see cref="T:System.UInt32">unsigned integer</see>.
             </summary>
         </member>
         <member name="P:WillPower.IFileField.Length">
@@ -1538,7 +2651,7 @@
         <member name="P:WillPower.IFileField.YearFirst">
             <summary>
             If <see cref="T:System.Boolean">true</see> and the <see cref="P:WillPower.IFileField.DataFormat">DataFormat</see> is set to String (0), 
-            will attempt to read the date value with year at the beginning.
+            will attempt to read the date value as year, month, day.
             </summary>
         </member>
         <member name="P:WillPower.IFileField.ByteValue">
@@ -1548,7 +2661,30 @@
         </member>
         <member name="P:WillPower.IFileField.StringValue">
             <summary>
-            The <see cref="M:WillPower.IFileField.Compute(System.Byte[])">computed</see> result as a <see cref="T:System.String">string</see>.
+            The <see cref="M:WillPower.IFileField.Compute(System.Byte[])">computed</see> result as a <see cref="T:System.String">string</see> or 
+            the value to be written.
+            </summary>
+        </member>
+        <member name="P:WillPower.IFileField.FillByte">
+            <summary>
+            The <see cref="T:System.Byte">byte</see>, in Source Encoding, to use as filler for this field.
+            This or <see cref="P:WillPower.IFileField.FillCharacter">FillCharacter</see> must be set, but not both. Changing one 
+            will affect the other. Used for writing.
+            </summary>
+        </member>
+        <member name="P:WillPower.IFileField.FillCharacter">
+            <summary>
+            The <see cref="T:System.Char">character</see>, in Source Encoding, to use as filler for this field.
+            This or <see cref="P:WillPower.IFileField.FillByte">FillByte</see> must be set, but not both. Changing one 
+            will affect the other. Used for writing.
+            </summary>
+        </member>
+        <member name="P:WillPower.IFileField.RightAlign">
+            <summary>
+            If <see cref="T:System.Boolean">true</see> the field will pad the <see cref="P:WillPower.IFileField.FillByte">FillByte</see> 
+            or <see cref="P:WillPower.IFileField.FillCharacter">FillCharacter</see> to the left.
+            If <see cref="T:System.Boolean">false</see> the field will pad the <see cref="P:WillPower.IFileField.FillByte">FillByte</see> 
+            or <see cref="P:WillPower.IFileField.FillCharacter">FillCharacter</see> to the right.
             </summary>
         </member>
         <member name="M:WillPower.IFileField.Compute(System.Byte[])">
@@ -1557,12 +2693,30 @@
             </summary>
             <param name="data">The <see cref="T:System.Array">array</see> of bytes to process.</param>
         </member>
+        <member name="M:WillPower.IFileField.Pack">
+            <summary>
+            Packs the field <see cref="P:WillPower.IFileField.Value">Value</see> to the <see cref="P:WillPower.IFileField.ByteValue">ByteValue</see> using the properties provided.
+            </summary>
+        </member>
+        <member name="P:WillPower.IFileField.BoolAsString">
+            <summary>
+            Identifies how a <see cref="T:System.Boolean">boolean</see> value is represented as a <see cref="T:System.String">string</see>.
+            Length of 1 will only return the first <see cref="T:System.Char">character</see> of the expected <see cref="T:System.String">string</see>.
+            </summary>
+        </member>
+        <member name="M:WillPower.IFileField.SetValue(System.Object)">
+            <summary>
+            Set the value of this field to the provided <see cref="T:System.Object">value</see>.
+            </summary>
+            <param name="value">The <see cref="T:System.Object">value</see> to assign to this field.</param>
+        </member>
         <member name="T:WillPower.IFileLayout">
             <summary>
             The layout of the file, including any <see cref="P:WillPower.IFileLayout.HeaderRecord">header</see>, 
             <see cref="P:WillPower.IFileLayout.FooterRecord">footer</see>, or <see cref="P:WillPower.IFileLayout.Conditions">conditional</see> rows.
             For binary files the <see cref="P:WillPower.IFileLayout.RecordLength">RecordLength</see> must be greater than 0.
-            For text files the default <see cref="P:WillPower.IFileLayout.TextLineTerminator">TextLineTerminator</see> is typically '\n' (nextline), but can be set at any time.
+            For text files the default <see cref="P:WillPower.IFileLayout.TextLineTerminator">TextLineTerminator</see> is typically '\n' (nextline), 
+            but can be set at any time.
             </summary>
         </member>
         <member name="P:WillPower.IFileLayout.Name">
@@ -1577,7 +2731,8 @@
         </member>
         <member name="P:WillPower.IFileLayout.Conditions">
             <summary>
-            The <see cref="T:System.Array">collection</see> of <see cref="T:WillPower.IFileConditional">conditions</see> to evaulate each <see cref="T:WillPower.IFileRecord">record</see> for (and apply those fields if true), if any.
+            The <see cref="T:System.Array">collection</see> of <see cref="T:WillPower.IFileConditional">conditions</see> to evaulate each 
+            <see cref="T:WillPower.IFileRecord">record</see> for (and apply those fields if true), if any.
             </summary>
         </member>
         <member name="P:WillPower.IFileLayout.HeaderRecord">
@@ -1592,7 +2747,8 @@
         </member>
         <member name="P:WillPower.IFileLayout.MasterFields">
             <summary>
-            The <see cref="T:System.Array">collection</see> of <see cref="T:WillPower.IFileField">fields</see> containing either master key fields (3D file), or all fields (2D file).
+            The <see cref="T:System.Array">collection</see> of <see cref="T:WillPower.IFileField">fields</see> containing either master key fields (3D file), 
+            or all fields (2D file).
             </summary>
         </member>
         <member name="P:WillPower.IFileLayout.RecordLength">
@@ -1602,12 +2758,28 @@
         </member>
         <member name="P:WillPower.IFileLayout.OpenAsText">
             <summary>
-            If <see cref="T:System.Boolean">true</see>, open using character-based methods. If <see cref="T:System.Boolean">false</see>, open using binary methods.
+            If <see cref="T:System.Boolean">true</see>, open using character-based methods. If <see cref="T:System.Boolean">false</see>, 
+            open using binary methods.
             </summary>
         </member>
         <member name="P:WillPower.IFileLayout.TextLineTerminator">
             <summary>
-            The <see cref="T:System.Char">character</see> used to determine end of line when <see cref="P:WillPower.IFileLayout.OpenAsText">OpenAsText</see> is <see cref="T:System.Boolean">true</see>.
+            The <see cref="T:System.Char">character</see> used to determine end of line when <see cref="P:WillPower.IFileLayout.OpenAsText">OpenAsText</see> 
+            is <see cref="T:System.Boolean">true</see>.
+            </summary>
+        </member>
+        <member name="P:WillPower.IFileLayout.FillByte">
+            <summary>
+            The <see cref="T:System.Byte">byte</see>, in Source Encoding, to use as filler for a record (spaces between fields).
+            This or <see cref="P:WillPower.IFileLayout.FillCharacter">FillCharacter</see> must be set, but not both. Changing one 
+            will affect the other. Used for writing.
+            </summary>
+        </member>
+        <member name="P:WillPower.IFileLayout.FillCharacter">
+            <summary>
+            The <see cref="T:System.Char">character</see>, in Source Encoding, to use as filler for a record (spaces between fields).
+            This or <see cref="P:WillPower.IFileLayout.FillByte">FillByte</see> must be set, but not both. Changing one 
+            will affect the other. Used for writing.
             </summary>
         </member>
         <member name="T:WillPower.IFileParser">
@@ -1626,6 +2798,9 @@
         <member name="P:WillPower.IFileParser.Records">
             <summary>
             The <see cref="T:System.Collections.Generic.IEnumerable`1">collection</see> of <see cref="T:WillPower.IFileRecord">records</see> read from the file.
+            It is suggested that this collection not be altered directly, but rather assigned to using the 
+            <see cref="M:WillPower.IFileParser.AddRecord(WillPower.IFileRecord)">AddRecord</see> and 
+            <see cref="M:WillPower.IFileParser.AddRecords(System.Collections.Generic.IEnumerable{WillPower.IFileRecord})">AddRecords</see> methods.
             </summary>
         </member>
         <member name="P:WillPower.IFileParser.TaskManager">
@@ -1652,6 +2827,36 @@
             </summary>
             <returns>A <see cref="T:System.Data.DataSet">DataSet</see> of <see cref="T:System.Data.DataTable">DataTables</see> with resulting data.</returns>
         </member>
+        <member name="M:WillPower.IFileParser.Pack(System.String)">
+            <summary>
+            Packs the <see cref="P:WillPower.IFileParser.Records">Records</see> and their <see cref="P:WillPower.IFileRecord.Fields">Fields</see> 
+            using the properties provided.
+            Optionally writes to the provided <see cref="T:System.String">outputFilename</see> as a binary.
+            </summary>
+            <param name="outputFilename">If not <see cref="T:System.Nullable">null</see>, will execute
+            <see cref="M:WillPower.IFileParser.SaveAs(System.String)">SaveAs</see> after performing the Pack using the 
+            <see cref="T:System.String">value</see> provided.</param>
+        </member>
+        <member name="M:WillPower.IFileParser.SaveAs(System.String)">
+            <summary>
+            Saves the Packed <see cref="P:WillPower.IFileParser.Records">Records</see> to the provided <see cref="T:System.String">outputFilename</see> as a binary.
+            </summary>
+            <param name="outputFilename">The <see cref="T:System.String">name</see> of the output file.</param>
+        </member>
+        <member name="M:WillPower.IFileParser.AddRecord(WillPower.IFileRecord)">
+            <summary>
+            Adds the provided <see cref="T:WillPower.IFileRecord">record</see> to the <see cref="P:WillPower.IFileParser.Records">Records</see> collection.
+            </summary>
+            <param name="record">The <see cref="T:WillPower.IFileRecord">IFileRecord</see> instance to add.</param>
+        </member>
+        <member name="M:WillPower.IFileParser.AddRecords(System.Collections.Generic.IEnumerable{WillPower.IFileRecord})">
+            <summary>
+            Adds the provided <see cref="T:System.Collections.Generic.IEnumerable`1">collection</see> of 
+            <see cref="T:WillPower.IFileRecord">records</see> to the <see cref="P:WillPower.IFileParser.Records">Records</see> collection.
+            </summary>
+            <param name="fileRecords">The <see cref="T:System.Collections.Generic.IEnumerable`1">collection</see> of 
+            <see cref="T:WillPower.IFileRecord">IFileRecord</see> instances to add.</param>
+        </member>
         <member name="T:WillPower.IFileParserEncoder">
             <summary>
             An Interface for containing the necessary <see cref="T:System.Text.Encoding">Encoding</see> properties to parse a file.
@@ -1669,7 +2874,8 @@
         </member>
         <member name="T:WillPower.IFileRecord">
             <summary>
-            A common interface for record-level data, their <see cref="T:WillPower.IFileField">fields</see>, and any possible <see cref="T:WillPower.FieldException">Exceptions</see>.
+            A common interface for record-level data, their <see cref="T:WillPower.IFileField">fields</see>, and any possible 
+            <see cref="T:WillPower.FieldException">Exceptions</see>.
             </summary>
         </member>
         <member name="P:WillPower.IFileRecord.Encoder">
@@ -1685,6 +2891,12 @@
         <member name="P:WillPower.IFileRecord.Exceptions">
             <summary>
             The <see cref="T:System.Array">collection</see> of <see cref="T:WillPower.FieldException">Exceptions</see>, if any.
+            </summary>
+        </member>
+        <member name="P:WillPower.IFileRecord.ByteValue">
+            <summary>
+            The packed and destination <see cref="T:System.Text.Encoding">Encoded</see> <see cref="T:System.Array">array</see> 
+            of bytes belonging to this <see cref="T:WillPower.IFileRecord">record</see>. Not used for file read.
             </summary>
         </member>
         <member name="M:WillPower.IFileRecord.ReadRecord(System.Byte[])">
@@ -1710,6 +2922,23 @@
             <param name="fieldName">The <see cref="T:System.String">name</see> of the <see cref="T:WillPower.IFileField">field</see>.</param>
             <returns>The value of the <see cref="T:WillPower.IFileField">field</see> expressed as <see cref="T:System.Type">T</see>.</returns>
         </member>
+        <member name="M:WillPower.IFileRecord.Pack(System.UInt32,System.Byte)">
+            <summary>
+            Packs the record <see cref="P:WillPower.IFileRecord.Fields">Fields</see> to their <see cref="P:WillPower.IFileField.ByteValue">ByteValues</see> 
+            using the properties provided.
+            </summary>
+            <param name="recordLength">The length of the record expressed as an <see cref="T:System.UInt32">unsigned integer</see>.</param>
+            <param name="fillByte">        
+            The <see cref="T:System.Byte">byte</see>, in Source Encoding, from <see cref="T:WillPower.IFileLayout">IFileLayout</see>.
+            </param>
+        </member>
+        <member name="M:WillPower.IFileRecord.SetValue(System.String,System.Object)">
+            <summary>
+            Set the value of the specified <see cref="T:System.String">field</see> to the provided <see cref="T:System.Object">value</see>.
+            </summary>
+            <param name="fieldName">The <see cref="T:System.String">Name</see> of the field to apply the value to.</param>
+            <param name="value">The <see cref="T:System.Object">value</see> to assign to the field.</param>
+        </member>
         <member name="T:WillPower.IO.FileParser.Properties.Resources">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
@@ -1731,6 +2960,11 @@
               Looks up a localized string similar to Length is invalid for this operation..
             </summary>
         </member>
+        <member name="P:WillPower.IO.FileParser.Properties.Resources.No">
+            <summary>
+              Looks up a localized string similar to No.
+            </summary>
+        </member>
         <member name="P:WillPower.IO.FileParser.Properties.Resources.OverFlow">
             <summary>
               Looks up a localized string similar to Provided value would result in a stack overflow..
@@ -1744,6 +2978,11 @@
         <member name="P:WillPower.IO.FileParser.Properties.Resources.UnsupportedType">
             <summary>
               Looks up a localized string similar to This type does not support the requested operation..
+            </summary>
+        </member>
+        <member name="P:WillPower.IO.FileParser.Properties.Resources.Yes">
+            <summary>
+              Looks up a localized string similar to Yes.
             </summary>
         </member>
     </members>

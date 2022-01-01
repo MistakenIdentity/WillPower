@@ -60,9 +60,9 @@ namespace WillPower
         /// </summary>
         private FileParserBase()
         {
-            this.TaskManager = new TaskManager
+            TaskManager = new TaskManager
             {
-                TimeOutAll = TimeSpan.FromHours(4)
+                TimeOutAll = TimeSpan.FromHours(4),
             };
         }
         /// <summary>
@@ -71,7 +71,7 @@ namespace WillPower
         /// <param name="encoder">The <see cref="IFileParserEncoder">IFileParserEncoder</see> instance to use for encoding.</param>
         public FileParserBase(IFileParserEncoder encoder) : this()
         {
-            this.Layout = new FileLayout(encoder);
+            Layout = new FileLayout(encoder);
         }
         /// <summary>
         /// .ctor. Must be inherited.
@@ -79,7 +79,7 @@ namespace WillPower
         /// <param name="layout">The <see cref="IFileLayout">layout</see> instance to use for processing.</param>
         public FileParserBase(IFileLayout layout) : this()
         {
-            this.Layout = layout;
+            Layout = layout;
         }
 
         /// <summary>
@@ -98,21 +98,51 @@ namespace WillPower
         public abstract void LoadStream(System.IO.Stream stream);
 
         /// <summary>
+        /// Packs the <see cref="Records">Records</see> and their <see cref="IFileRecord.Fields">Fields</see> 
+        /// using the properties provided.
+        /// Optionally writes to the provided <see cref="System.String">outputFilename</see> as a binary.
+        /// </summary>
+        /// <param name="outputFilename">If not <see cref="System.Nullable">null</see>, will execute
+        /// <see cref="SaveAs(string)">SaveAs</see> after performing the Pack using the 
+        /// <see cref="System.String">value</see> provided.</param>
+        public abstract void Pack(string outputFilename = null);
+
+        /// <summary>
+        /// Saves the Packed <see cref="Records">Records</see> to the provided <see cref="System.String">outputFilename</see> as a binary.
+        /// </summary>
+        /// <param name="outputFilename">The <see cref="System.String">name</see> of the output file.</param>
+        public abstract void SaveAs(string outputFilename);
+
+        /// <summary>
+        /// Adds the provided <see cref="IFileRecord">record</see> to the <see cref="Records">Records</see> collection.
+        /// </summary>
+        /// <param name="record">The <see cref="IFileRecord">IFileRecord</see> instance to add.</param>
+        public abstract void AddRecord(IFileRecord record);
+
+        /// <summary>
+        /// Adds the provided <see cref="System.Collections.Generic.IEnumerable{T}">collection</see> of 
+        /// <see cref="IFileRecord">records</see> to the <see cref="Records">Records</see> collection.
+        /// </summary>
+        /// <param name="fileRecords">The <see cref="System.Collections.Generic.IEnumerable{T}">collection</see> of 
+        /// <see cref="IFileRecord">IFileRecord</see> instances to add.</param>
+        public abstract void AddRecords(System.Collections.Generic.IEnumerable<IFileRecord> fileRecords);
+
+        /// <summary>
         /// Updates any <see cref="IFileParserEncoder">encoders</see> within the system
         /// </summary>
         protected void UpdateEncoders()
         {
-            foreach (IFileField field in this.Layout.MasterFields)
+            foreach (IFileField field in Layout.MasterFields)
             {
-                field.Encoder = this.Layout.Encoder;
+                field.Encoder = Layout.Encoder;
             }
-            if (this.IsConditional)
+            if (IsConditional)
             {
-                foreach (IFileConditional condition in this.Layout.Conditions)
+                foreach (IFileConditional condition in Layout.Conditions)
                 {
                     foreach (IFileField field in condition.Fields)
                     {
-                        field.Encoder = this.Layout.Encoder;
+                        field.Encoder = Layout.Encoder;
                     }
                 }
             }
@@ -122,21 +152,31 @@ namespace WillPower
         /// Creates a <see cref="System.Data.DataSet">DataSet</see> containing <see cref="System.Data.DataTable">DataTables</see> 
         /// for each conditional record type, header, footer, and/or master recordset.
         /// </summary>
-        /// <returns>A <see cref="System.Data.DataSet">DataSet</see> of <see cref="System.Data.DataTable">DataTables</see> with resulting data.</returns>
+        /// <returns>
+        /// A <see cref="System.Data.DataSet">DataSet</see> of <see cref="System.Data.DataTable">DataTables</see> with resulting data.
+        /// </returns>
         public System.Data.DataSet ToDataSet()
         {
-            System.Data.DataSet ds = new System.Data.DataSet(this.Layout.Name);
-            if (this.Layout.Conditions != null)
+            System.Data.DataSet ds = new System.Data.DataSet(Layout.Name);
+            if (Layout.Conditions != null)
             {
-                foreach (IFileConditional condition in this.Layout.Conditions)
+                foreach (IFileConditional condition in Layout.Conditions)
                 {
-                    ds.Tables.Add(GetTable(this.Records.Where(x => condition.Condition(x)).ToList(), condition.Name));
+                    var tabl = GetTable(Records.Where(x => condition.Condition(x)).ToList(), condition.Name);
+                    if (tabl != null)
+                    {
+                        ds.Tables.Add(tabl);
+                    }
                 }
-                ds.Tables.Add(GetTable(this.Records.Where(x => !this.Layout.Conditions.Any(y => y.Condition(x))).ToList()));
+                var table = GetTable(Records.Where(x => !Layout.Conditions.Any(y => y.Condition(x))).ToList());
+                if (table != null)
+                {
+                    ds.Tables.Add(table);
+                }
             }
             else
             {
-                ds.Tables.Add(GetTable(this.Records.ToList()));
+                ds.Tables.Add(GetTable(Records.ToList()));
             }
             return ds;
         }
@@ -146,7 +186,7 @@ namespace WillPower
         /// </summary>
         public void Dispose()
         {
-            this.TaskManager.Dispose();
+            TaskManager.Dispose();
         }
 
         private System.Data.DataTable GetTable(List<IFileRecord> records, string name = null)

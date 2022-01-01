@@ -41,7 +41,7 @@ namespace WillPower
                 sourceEncoding = value;
             }
         }
-        Encoding sourceEncoding;
+        private Encoding sourceEncoding = null;
 
         /// <summary>
         /// The <see cref="System.Text.Encoding">Encoding</see> the expected output should be in.
@@ -58,8 +58,32 @@ namespace WillPower
                 destinationEncoding = value;
             }
         }
-        Encoding destinationEncoding;
+        private Encoding destinationEncoding = null;
 
+        /// <summary>
+        /// Factory method for providing a default EBCDIC to ASCII (write = <see cref="System.Boolean">false</see>) or 
+        /// ASCII to EBCDIC (write = <see cref="System.Boolean">true</see>) <see cref="IFileParserEncoder">IFileParserEncoder</see>.
+        /// </summary>
+        /// <param name="write">
+        /// If <see cref="System.Boolean">true</see>, this will return the default ASCII to EBCDIC 
+        /// <see cref="IFileParserEncoder">IFileParserEncoder</see> instance for writing binary EBCDIC files.
+        /// If <see cref="System.Boolean">false</see>, this will return the default EBCDIC to ASCII 
+        /// <see cref="IFileParserEncoder">IFileParserEncoder</see> instance for reading binary EBCDIC files.
+        /// Default is <see cref="System.Boolean">false</see>.
+        /// </param>
+        /// <returns>A new default instance of <see cref="FileParserEncoder">FileParserEncoder</see>.</returns>
+        public static IFileParserEncoder GetDefaultEncoder(bool write = false)
+        {
+            if (!write)
+            {
+                return new FileParserEncoder();
+            }
+            return new FileParserEncoder
+            {
+                SourceEncoding = System.Text.Encoding.ASCII,
+                DestinationEncoding = Encodings.EBCDIC
+            };
+        }
 
     }
 }

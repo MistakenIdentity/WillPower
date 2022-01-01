@@ -51,13 +51,61 @@ namespace WillPower
         /// </summary>
         public FileFieldDataFormat DataFormat { get { return FileFieldDataFormat.Table; } set { } }
         /// <summary>
+        /// The <see cref="System.Byte">byte</see>, in Source Encoding, to use as filler for this field.
+        /// This or <see cref="FillCharacter">FillCharacter</see> must be set, but not both. Changing one 
+        /// will affect the other. Not needed on <see cref="FileTable">File Table</see>.
+        /// </summary>
+        public byte FillByte { get; set; }
+        /// <summary>
+        /// The <see cref="System.Char">character</see>, in Source Encoding, to use as filler for this field.
+        /// This or <see cref="FillByte">FillByte</see> must be set, but not both. Changing one 
+        /// will affect the other. Not needed on <see cref="FileTable">File Table</see>.
+        /// </summary>
+        public char FillCharacter
+        {
+            get
+            {
+                return (new byte[] { FillByte }).ToEncodedString(Encoder.SourceEncoding, Encoder.SourceEncoding).ToCharArray()[0];
+            }
+            set
+            {
+                FillByte = value.ToString().ToByteArray(Encoder.SourceEncoding)[0];
+            }
+        }
+        /// <summary>
+        /// If <see cref="System.Boolean">true</see> the field will pad the <see cref="FillByte">FillByte</see> 
+        /// or <see cref="FillCharacter">FillCharacter</see> to the left.
+        /// If <see cref="System.Boolean">false</see> the field will pad the <see cref="FillByte">FillByte</see> 
+        /// or <see cref="FillCharacter">FillCharacter</see> to the right.
+        /// Not needed on <see cref="FileTable">File Table</see>.
+        /// </summary>
+        public bool RightAlign { get; set; }
+        /// <summary>
+        /// Identifies how a <see cref="System.Boolean">boolean</see> value is represented as a <see cref="System.String">string</see>.
+        /// Not used on this instance.
+        /// </summary>
+        public BooleanStringRepresentation BoolAsString { get; set; }
+        /// <summary>
         /// The <see cref="IFileLayout">layout</see> of the table.
         /// </summary>
         public IFileLayout Layout { get; set; }
         /// <summary>
         /// The <see cref="System.Collections.Generic.IEnumerable{T}">collection</see> of <see cref="IFileRecord">records</see> read from the table.
+        /// It is suggested that this collection not be altered directly, but rather assigned to using the 
+        /// <see cref="AddRecord(IFileRecord)">AddRecord</see> and <see cref="AddRecords(IFileRecord[])">AddRecords</see> methods.
         /// </summary>
-        public IEnumerable<IFileRecord> Records { get { return records.ToArray(); } }
+        public IEnumerable<IFileRecord> Records 
+        { 
+            get 
+            { 
+                return records.ToArray(); 
+            }
+            set 
+            {
+                records.Clear();
+                records.AddRange(value);
+            }
+        }
         /// <summary>
         /// The <see cref="IFileField.Compute(byte[])">computed</see> value boxed as an <see cref="System.Object">object</see>.
         /// </summary>
@@ -69,13 +117,14 @@ namespace WillPower
         {
             get
             {
-                return this.GetType();
+                return GetType();
             }
+            set { }
         }
         /// <summary>
         /// Not used.
         /// </summary>
-        public byte Precision { get; set; }
+        public short Precision { get; set; }
         /// <summary>
         /// Not used.
         /// </summary>
@@ -87,9 +136,9 @@ namespace WillPower
         public byte[] ByteValue { get; set; }
         /// <summary>
         /// The <see cref="IFileField.Compute(byte[])">computed</see> result as a <see cref="System.String">string</see>.
-        /// For this object, this field will not return viable results.
+        /// For this object, this field will not set or return viable results.
         /// </summary>
-        public string StringValue { get; private set; }
+        public string StringValue { get; set; }
 
         /// <summary>
         /// .ctor. Creates a new instance of FileTable.
@@ -98,7 +147,7 @@ namespace WillPower
         public FileTable(IFileParserEncoder encoder)
         {
             records = new List<IFileRecord>();
-            this.Encoder = encoder;
+            Encoder = encoder;
         }
         /// <summary>
         /// .ctor. Creates a new instance of FileTable.
@@ -110,10 +159,39 @@ namespace WillPower
         /// <param name="length">The field (table) length expressed as an <see cref="System.UInt32">unsigned integer</see>.</param>
         public FileTable(IFileParserEncoder encoder, string name, uint startPosition, uint length) : this(encoder)
         {
+            StartPosition = startPosition;
+            Length = length;
+            Name = name;
+        }
 
-            this.StartPosition = startPosition;
-            this.Length = length;
-            this.Name = name;
+        /// <summary>
+        /// Assigns the provided collection of <see cref="IFileRecord">records</see> to the table.
+        /// </summary>
+        /// <param name="rows">The <see cref="System.Collections.Generic.IEnumerable{T}">collection</see> of 
+        /// <see cref="IFileRecord">records</see> to assign to this table.</param>
+        public void SetRecords(IFileRecord[] rows)
+        {
+            records.Clear();
+            records.AddRange(rows);
+        }
+
+        /// <summary>
+        /// Adds the provided collection of <see cref="IFileRecord">records</see> to the <see cref="Records">Records</see> collection.
+        /// </summary>
+        /// <param name="rows">The <see cref="System.Collections.Generic.IEnumerable{T}">collection</see> of 
+        /// <see cref="IFileRecord">records</see> to add to this table.</param>
+        public void AddRecords(IFileRecord[] rows)
+        {
+            records.AddRange(rows);
+        }
+
+        /// <summary>
+        /// Adds the provided <see cref="IFileRecord">record</see> to the <see cref="Records">Records</see> collection.
+        /// </summary>
+        /// <param name="row">The <see cref="IFileRecord">record</see> to add to this table.</param>
+        public void AddRecord(IFileRecord row)
+        {
+            records.Add(row);
         }
 
         /// <summary>
@@ -122,20 +200,20 @@ namespace WillPower
         /// <param name="data">The <see cref="System.Array">array</see> of bytes to process.</param>
         public void Compute(byte[] data = null)
         {
-            this.ByteValue = data;
+            ByteValue = data;
             if (data == null || data.Length < 1)
             {
-                this.Value = null;
+                Value = null;
                 return;
             }
             var bytes = data.ToList();
             int skip = 0;
             while (skip < data.Length - 1)
             {
-                records.Add(new FileRecord(this.Layout.MasterFields, bytes.Skip(skip).Take(this.Layout.RecordLength.ToInt()).ToArray()));
-                skip += this.Layout.RecordLength.ToInt();
+                records.Add(new FileRecord(Layout.MasterFields, bytes.Skip(skip).Take(Layout.RecordLength.ToInt()).ToArray()));
+                skip += Layout.RecordLength.ToInt();
             }
-            this.Value = this;
+            Value = this;
         }
 
         /// <summary>
@@ -144,12 +222,12 @@ namespace WillPower
         /// <returns>A <see cref="System.Data.DataTable">DataTable</see> of the <see cref="IFileRecord">records</see> computed.</returns>
         public System.Data.DataTable ToDataTable()
         {
-            System.Data.DataTable dt = new System.Data.DataTable(this.Name);
-            foreach (IFileField fld in this.Layout.MasterFields)
+            System.Data.DataTable dt = new System.Data.DataTable(Name);
+            foreach (IFileField fld in Layout.MasterFields)
             {
                 dt.Columns.Add(fld.Name, fld.Type);
             }
-            foreach (IFileRecord rec in this.Records)
+            foreach (IFileRecord rec in Records)
             {
                 System.Data.DataRow dr = dt.NewRow();
                 foreach (IFileField fld in rec.Fields)
@@ -160,5 +238,46 @@ namespace WillPower
             }
             return dt;
         }
+
+        /// <summary>
+        /// Packs the <see cref="Records">Records</see> and their <see cref="IFileRecord.Fields">Fields</see> 
+        /// using the properties provided.
+        /// </summary>
+        public byte[] Pack()
+        {
+            List<byte> bytes = new List<byte>();
+            if (Layout.HeaderRecord?.Fields?.Length > 0)
+            {
+                bytes.AddRange(Layout.HeaderRecord.Pack(Length, FillByte));
+            }
+            foreach (var record in Records)
+            {
+                bytes.AddRange(record.Pack(Length, FillByte));
+            }
+            if (Layout.FooterRecord?.Fields?.Length > 0)
+            {
+                bytes.AddRange(Layout.FooterRecord.Pack(Length, FillByte));
+            }
+            if (Length > bytes.Count)
+            {
+                bytes = bytes.ToArray().PadRight(Length.ToInt(), 
+                    FillByte.Convert(Encoder.SourceEncoding, Encoder.DestinationEncoding), true).ToList();
+            }
+            ByteValue = bytes.ToArray();
+            return ByteValue;
+        }
+
+        /// <summary>
+        /// Assign values using the <see cref="Records">Records</see> collection of this object. 
+        /// Do not use this method directly. 
+        /// </summary>
+        /// <param name="value">Not Used.</param>
+        /// <exception cref="System.ArgumentException">Thrown Always.</exception>
+        [System.Obsolete("Do not use this method on this object.")]
+        public void SetValue(object value)
+        {
+            throw new System.ArgumentException();
+        }
+
     }
 }

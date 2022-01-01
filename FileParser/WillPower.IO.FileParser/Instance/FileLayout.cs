@@ -38,7 +38,8 @@ namespace WillPower
         /// </summary>
         public IFileParserEncoder Encoder { get; set; }
         /// <summary>
-        /// The <see cref="System.Array">collection</see> of <see cref="IFileConditional">conditions</see> to evaulate each <see cref="IFileRecord">record</see> for (and apply those fields if true), if any.
+        /// The <see cref="System.Array">collection</see> of <see cref="IFileConditional">conditions</see> to evaulate each 
+        /// <see cref="IFileRecord">record</see> for (and apply those fields if true), if any.
         /// </summary>
         public IFileConditional[] Conditions { get; set; }
         /// <summary>
@@ -50,7 +51,8 @@ namespace WillPower
         /// </summary>
         public IFileRecord FooterRecord { get; set; }
         /// <summary>
-        /// The <see cref="System.Array">collection</see> of <see cref="IFileField">fields</see> containing either master key fields (3D file), or all fields (2D file).
+        /// The <see cref="System.Array">collection</see> of <see cref="IFileField">fields</see> containing either master key fields (3D file), 
+        /// or all fields (2D file).
         /// </summary>
         public IFileField[] MasterFields { get; set; }
         /// <summary>
@@ -58,7 +60,30 @@ namespace WillPower
         /// </summary>
         public uint RecordLength { get; set; }
         /// <summary>
-        /// If <see cref="System.Boolean">true</see>, open using character-based methods. If <see cref="System.Boolean">false</see>, open using binary methods.
+        /// The <see cref="System.Byte">byte</see>, in Source Encoding, to use as filler for a record (spaces between fields).
+        /// This or <see cref="FillCharacter">FillCharacter</see> must be set, but not both. Changing one 
+        /// will affect the other. Used for writing.
+        /// </summary>
+        public byte FillByte { get; set; }
+        /// <summary>
+        /// The <see cref="System.Char">character</see>, in Source Encoding, to use as filler for a record (spaces between fields).
+        /// This or <see cref="FillByte">FillByte</see> must be set, but not both. Changing one 
+        /// will affect the other. Used for writing.
+        /// </summary>
+        public char FillCharacter
+        {
+            get
+            {
+                return (new byte[] { FillByte }).ToEncodedString(Encoder.SourceEncoding, Encoder.SourceEncoding).ToCharArray()[0];
+            }
+            set
+            {
+                FillByte = value.ToString().ToByteArray(Encoder.SourceEncoding)[0];
+            }
+        }
+        /// <summary>
+        /// If <see cref="System.Boolean">true</see>, open using character-based methods. If <see cref="System.Boolean">false</see>, 
+        /// open using binary methods.
         /// </summary>
         public bool OpenAsText
         {
@@ -69,9 +94,9 @@ namespace WillPower
             set
             {
                 openAsText = value;
-                if (openAsText && this.Encoder.SourceEncoding == Encodings.EBCDIC)
+                if (openAsText && Encoder.SourceEncoding == Encodings.EBCDIC)
                 {
-                    this.Encoder.SourceEncoding = System.Text.Encoding.UTF8;
+                    Encoder.SourceEncoding = System.Text.Encoding.UTF8;
                 }
             }
         }
@@ -103,7 +128,7 @@ namespace WillPower
         /// </summary>
         public FileLayout()
         {
-            this.Encoder = new FileParserEncoder();
+            Encoder = new FileParserEncoder();
         }
         /// <summary>
         /// .ctor. Creates a new instance of FileLayout.
@@ -111,7 +136,7 @@ namespace WillPower
         /// <param name="encoder">The <see cref="IFileParserEncoder">IFileParserEncoder</see> instance to use for encoding.</param>
         public FileLayout(IFileParserEncoder encoder)
         {
-            this.Encoder = encoder;
+            Encoder = encoder;
         }
 
     }
