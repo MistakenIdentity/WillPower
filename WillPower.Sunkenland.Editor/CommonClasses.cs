@@ -53,7 +53,7 @@ public class GameItem
     public int amount { get; set; } = 1;
     public double condition { get; set; }
     public bool isCombinedWithItem { get; set; }
-    public object? itemProperties { get; set; }
+    public dynamic? itemProperties { get; set; }
 
 }
 

@@ -189,7 +189,7 @@ public partial class PlayerEditor : Form
             QS5.Update(new(Character.quickSlotStorageSaveData.itemSaveDataArray[4]));
             QS6.Update(new(Character.quickSlotStorageSaveData.itemSaveDataArray[5]));
             //unlocked items - Thing[]
-            this.ResumeLayout(true);
+            this.ResumeLayout(false);
         }
     }
 
@@ -230,7 +230,39 @@ public partial class PlayerEditor : Form
             case "IHelmet":
                 Character.playerEquipmentData.helmet = item.GameItem.ToGameItem();
                 break;
-            //TODO:
+            case "IArmor":
+                Character.playerEquipmentData.armor = item.GameItem.ToGameItem();
+                break;
+            case "IClothes":
+                Character.playerEquipmentData.clothes = item.GameItem.ToGameItem();
+                break;
+            case "IMask":
+                Character.playerEquipmentData.mask = item.GameItem.ToGameItem();
+                break;
+            case "IPants":
+                Character.playerEquipmentData.pants = item.GameItem.ToGameItem();
+                break;
+            case "IShoes":
+                Character.playerEquipmentData.shoes = item.GameItem.ToGameItem();
+                break;
+            case "IRebreather":
+                Character.playerEquipmentData.rebreather = item.GameItem.ToGameItem();
+                break;
+            case "IGloves":
+                Character.playerEquipmentData.gloves = item.GameItem.ToGameItem();
+                break;
+            case "IAux1":
+                Character.playerEquipmentData.misc1 = item.GameItem.ToGameItem();
+                break;
+            case "IAux2":
+                Character.playerEquipmentData.misc2 = item.GameItem.ToGameItem();
+                break;
+            case "IAux3":
+                Character.playerEquipmentData.misc3 = item.GameItem.ToGameItem();
+                break;
+            case "IAux4":
+                Character.playerEquipmentData.misc4 = item.GameItem.ToGameItem();
+                break;
         }
     }
 
@@ -238,6 +270,12 @@ public partial class PlayerEditor : Form
     {
         int idx = int.Parse(item.Name.Replace("Inv", ""));
         Character.inventoryStorageSaveData.itemSaveDataArray[idx] = item.GameItem.ToGameItem();
+    }
+
+    private void QuickslotChanged(InventoryItem item)
+    {
+        int idx = int.Parse(item.Name.Replace("QS", "")) - 1;
+        Character.quickSlotStorageSaveData.itemSaveDataArray[idx] = item.GameItem.ToGameItem();
     }
 
     private void Save()
@@ -274,7 +312,7 @@ public partial class PlayerEditor : Form
                 File.Delete(file);
             }
             File.Move(FileName, file);
-            File.WriteAllText(FileName, 
+            File.WriteAllText(FileName,
                 JsonSerializer.Serialize(CharacterFile, typeof(PlayerContainer), new JsonSerializerOptions() { WriteIndented = true }).Replace("[]", "{}"));
             ShowMessage($"File saved and backed up at {file}");
         }

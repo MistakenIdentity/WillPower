@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             CmbItem = new ComboBox();
             TxtQty = new TextBox();
             LblQty = new Label();
             RbNum = new RadioButton();
             RbStack = new RadioButton();
             RbCase = new RadioButton();
+            toolTip1 = new ToolTip(components);
             SuspendLayout();
             // 
             // CmbItem
@@ -137,5 +139,6 @@
         private RadioButton RbNum;
         private RadioButton RbStack;
         private RadioButton RbCase;
+        private ToolTip toolTip1;
     }
 }

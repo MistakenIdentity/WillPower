@@ -433,6 +433,7 @@
             internalGameItem1.Description = "";
             internalGameItem1.isCombinedWithItem = false;
             internalGameItem1.itemID = 0;
+            internalGameItem1.itemProperties = null;
             internalGameItem1.MaxStack = 1;
             internalGameItem1.Name = "";
             QS6.GameItem = internalGameItem1;
@@ -440,6 +441,7 @@
             QS6.Name = "QS6";
             QS6.Size = new Size(131, 46);
             QS6.TabIndex = 5;
+            QS6.ValueChanged += QuickslotChanged;
             // 
             // QS5
             // 
@@ -448,6 +450,7 @@
             internalGameItem2.Description = "";
             internalGameItem2.isCombinedWithItem = false;
             internalGameItem2.itemID = 0;
+            internalGameItem2.itemProperties = null;
             internalGameItem2.MaxStack = 1;
             internalGameItem2.Name = "";
             QS5.GameItem = internalGameItem2;
@@ -455,6 +458,7 @@
             QS5.Name = "QS5";
             QS5.Size = new Size(131, 49);
             QS5.TabIndex = 4;
+            QS5.ValueChanged += QuickslotChanged;
             // 
             // QS4
             // 
@@ -463,6 +467,7 @@
             internalGameItem3.Description = "";
             internalGameItem3.isCombinedWithItem = false;
             internalGameItem3.itemID = 0;
+            internalGameItem3.itemProperties = null;
             internalGameItem3.MaxStack = 1;
             internalGameItem3.Name = "";
             QS4.GameItem = internalGameItem3;
@@ -470,6 +475,7 @@
             QS4.Name = "QS4";
             QS4.Size = new Size(131, 49);
             QS4.TabIndex = 3;
+            QS4.ValueChanged += QuickslotChanged;
             // 
             // QS3
             // 
@@ -478,6 +484,7 @@
             internalGameItem4.Description = "";
             internalGameItem4.isCombinedWithItem = false;
             internalGameItem4.itemID = 0;
+            internalGameItem4.itemProperties = null;
             internalGameItem4.MaxStack = 1;
             internalGameItem4.Name = "";
             QS3.GameItem = internalGameItem4;
@@ -485,6 +492,7 @@
             QS3.Name = "QS3";
             QS3.Size = new Size(131, 49);
             QS3.TabIndex = 2;
+            QS3.ValueChanged += QuickslotChanged;
             // 
             // QS2
             // 
@@ -493,6 +501,7 @@
             internalGameItem5.Description = "";
             internalGameItem5.isCombinedWithItem = false;
             internalGameItem5.itemID = 0;
+            internalGameItem5.itemProperties = null;
             internalGameItem5.MaxStack = 1;
             internalGameItem5.Name = "";
             QS2.GameItem = internalGameItem5;
@@ -500,6 +509,7 @@
             QS2.Name = "QS2";
             QS2.Size = new Size(131, 49);
             QS2.TabIndex = 1;
+            QS2.ValueChanged += QuickslotChanged;
             // 
             // QS1
             // 
@@ -508,6 +518,7 @@
             internalGameItem6.Description = "";
             internalGameItem6.isCombinedWithItem = false;
             internalGameItem6.itemID = 0;
+            internalGameItem6.itemProperties = null;
             internalGameItem6.MaxStack = 1;
             internalGameItem6.Name = "";
             QS1.GameItem = internalGameItem6;
@@ -515,6 +526,7 @@
             QS1.Name = "QS1";
             QS1.Size = new Size(131, 49);
             QS1.TabIndex = 0;
+            QS1.ValueChanged += QuickslotChanged;
             // 
             // LblName
             // 
@@ -568,6 +580,7 @@
             internalGameItem7.Description = "";
             internalGameItem7.isCombinedWithItem = false;
             internalGameItem7.itemID = 0;
+            internalGameItem7.itemProperties = null;
             internalGameItem7.MaxStack = 1;
             internalGameItem7.Name = "";
             IRebreather.GameItem = internalGameItem7;
@@ -593,6 +606,7 @@
             internalGameItem8.Description = "";
             internalGameItem8.isCombinedWithItem = false;
             internalGameItem8.itemID = 0;
+            internalGameItem8.itemProperties = null;
             internalGameItem8.MaxStack = 1;
             internalGameItem8.Name = "";
             IGloves.GameItem = internalGameItem8;
@@ -618,6 +632,7 @@
             internalGameItem9.Description = "";
             internalGameItem9.isCombinedWithItem = false;
             internalGameItem9.itemID = 0;
+            internalGameItem9.itemProperties = null;
             internalGameItem9.MaxStack = 1;
             internalGameItem9.Name = "";
             IShoes.GameItem = internalGameItem9;
@@ -643,6 +658,7 @@
             internalGameItem10.Description = "";
             internalGameItem10.isCombinedWithItem = false;
             internalGameItem10.itemID = 0;
+            internalGameItem10.itemProperties = null;
             internalGameItem10.MaxStack = 1;
             internalGameItem10.Name = "";
             IArmor.GameItem = internalGameItem10;
@@ -668,6 +684,7 @@
             internalGameItem11.Description = "";
             internalGameItem11.isCombinedWithItem = false;
             internalGameItem11.itemID = 0;
+            internalGameItem11.itemProperties = null;
             internalGameItem11.MaxStack = 1;
             internalGameItem11.Name = "";
             IPants.GameItem = internalGameItem11;
@@ -684,6 +701,7 @@
             internalGameItem12.Description = "";
             internalGameItem12.isCombinedWithItem = false;
             internalGameItem12.itemID = 0;
+            internalGameItem12.itemProperties = null;
             internalGameItem12.MaxStack = 1;
             internalGameItem12.Name = "";
             IClothes.GameItem = internalGameItem12;
@@ -709,6 +727,7 @@
             internalGameItem13.Description = "";
             internalGameItem13.isCombinedWithItem = false;
             internalGameItem13.itemID = 0;
+            internalGameItem13.itemProperties = null;
             internalGameItem13.MaxStack = 1;
             internalGameItem13.Name = "";
             IMask.GameItem = internalGameItem13;
@@ -734,6 +753,7 @@
             internalGameItem14.Description = "";
             internalGameItem14.isCombinedWithItem = false;
             internalGameItem14.itemID = 0;
+            internalGameItem14.itemProperties = null;
             internalGameItem14.MaxStack = 1;
             internalGameItem14.Name = "";
             IHelmet.GameItem = internalGameItem14;
@@ -773,6 +793,7 @@
             internalGameItem15.Description = "";
             internalGameItem15.isCombinedWithItem = false;
             internalGameItem15.itemID = 0;
+            internalGameItem15.itemProperties = null;
             internalGameItem15.MaxStack = 1;
             internalGameItem15.Name = "";
             IAux4.GameItem = internalGameItem15;
@@ -789,6 +810,7 @@
             internalGameItem16.Description = "";
             internalGameItem16.isCombinedWithItem = false;
             internalGameItem16.itemID = 0;
+            internalGameItem16.itemProperties = null;
             internalGameItem16.MaxStack = 1;
             internalGameItem16.Name = "";
             IAux3.GameItem = internalGameItem16;
@@ -805,6 +827,7 @@
             internalGameItem17.Description = "";
             internalGameItem17.isCombinedWithItem = false;
             internalGameItem17.itemID = 0;
+            internalGameItem17.itemProperties = null;
             internalGameItem17.MaxStack = 1;
             internalGameItem17.Name = "";
             IAux2.GameItem = internalGameItem17;
@@ -821,6 +844,7 @@
             internalGameItem18.Description = "";
             internalGameItem18.isCombinedWithItem = false;
             internalGameItem18.itemID = 0;
+            internalGameItem18.itemProperties = null;
             internalGameItem18.MaxStack = 1;
             internalGameItem18.Name = "";
             IAux1.GameItem = internalGameItem18;

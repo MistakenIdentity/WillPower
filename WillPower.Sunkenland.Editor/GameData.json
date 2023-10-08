@@ -5331,8 +5331,8 @@
       "itemProperties": []
     },
     {
-      "Name": "Small Air Tank (w/Battery)",
-      "Description": "Small Air Tank (w/Battery)",
+      "Name": "Small Air Tank (Full)",
+      "Description": "Small Air Tank (Full)",
       "MaxStack": 1,
       "itemID": 541,
       "amount": 0,

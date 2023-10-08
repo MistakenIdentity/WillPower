@@ -102,6 +102,7 @@ public partial class InventoryItem : UserControl
             RbStack.Visible = true;
             TxtQty.Text = GameItem.amount.ToString();
         }
+        toolTip1.SetToolTip(CmbItem, GameItem.Description);
     }
 
     private void Integer_KeyPress(object sender, KeyPressEventArgs e)
