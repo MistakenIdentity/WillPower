@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>World.ico</ApplicationIcon>
+    <Description>A Sunkenland Player Character Editor.
+This code is provided 'AS IS, NO WARRANTY' and is intended for no specific use or person.       
+In fact, the code herein is so confuggled, it should not be used by ANYONE EVER and ANYTHING that happens as a result of its use is COMPLETELY and UTTERLY YOUR FAULT.  :p
+You have my permission to extract, copy, modify, steal, borrow, beg, fold, spindle, mutilate or otherwise abuse the code herein PROVIDED YOU LEAVE ME OUT OF IT! You Acknowledge and Accept FULL and SOLE responsibility and culpability for ANYTHING you do with or around it.</Description>
+    <Copyright>© 2023, Will `Willow' Osborn</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Form1.cs" />
+    <Compile Remove="Form1.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Form1.resx" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="GameData.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="GameData.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="World.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

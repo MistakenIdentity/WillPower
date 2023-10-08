@@ -1,0 +1,5756 @@
+{
+  "Items": [
+    {
+      "Name": "-Empty-",
+      "Description": "Nothing",
+      "MaxStack": 1,
+      "itemID": -1,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "50 Caliber Ammunition",
+      "Description": "50 Caliber Ammunition",
+      "MaxStack": 60,
+      "itemID": 1,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Black Powder",
+      "Description": "Black Powder",
+      "MaxStack": 20,
+      "itemID": 2,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Black Powder Ammunition",
+      "Description": "Black Powder Ammunition",
+      "MaxStack": 60,
+      "itemID": 3,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Primitive Grenade",
+      "Description": "Primitive Grenade",
+      "MaxStack": 5,
+      "itemID": 4,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Military Grenade",
+      "Description": "Military Grenade",
+      "MaxStack": 5,
+      "itemID": 5,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Molotov Cocktail",
+      "Description": "Molotov Cocktail",
+      "MaxStack": 5,
+      "itemID": 6,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Pistol Ammunition",
+      "Description": "Pistol Ammunition",
+      "MaxStack": 60,
+      "itemID": 7,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Rifle Ammunition",
+      "Description": "Rifle Ammunition",
+      "MaxStack": 60,
+      "itemID": 8,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Shotgun Ammunition",
+      "Description": "Shotgun Ammunition",
+      "MaxStack": 60,
+      "itemID": 9,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Warm Jacket",
+      "Description": "Warm Jacket",
+      "MaxStack": 1,
+      "itemID": 10,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Thick Cloth Armor",
+      "Description": "Thick Cloth Armor",
+      "MaxStack": 1,
+      "itemID": 11,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Thick Cloth Helmet",
+      "Description": "Thick Cloth Helmet",
+      "MaxStack": 1,
+      "itemID": 12,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Scrap Armor",
+      "Description": "Scrap Armor",
+      "MaxStack": 1,
+      "itemID": 13,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Scrap Helmet",
+      "Description": "Scrap Helmet",
+      "MaxStack": 1,
+      "itemID": 14,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Combat Armor",
+      "Description": "Combat Armor",
+      "MaxStack": 1,
+      "itemID": 15,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Iron Helmet",
+      "Description": "Iron Helmet",
+      "MaxStack": 1,
+      "itemID": 16,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Combat Knee Pads",
+      "Description": "Combat Knee Pads",
+      "MaxStack": 1,
+      "itemID": 17,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "2-layer T-Shirt A",
+      "Description": "2-layer T-Shirt A",
+      "MaxStack": 1,
+      "itemID": 18,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Vest A",
+      "Description": "Vest A",
+      "MaxStack": 1,
+      "itemID": 19,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Vest B",
+      "Description": "Vest B",
+      "MaxStack": 1,
+      "itemID": 20,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Vest Black",
+      "Description": "Vest Black",
+      "MaxStack": 1,
+      "itemID": 21,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Vest C",
+      "Description": "Vest C",
+      "MaxStack": 1,
+      "itemID": 22,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Vest1 Forest",
+      "Description": "Vest1 Forest",
+      "MaxStack": 1,
+      "itemID": 23,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Vest1 Sand",
+      "Description": "Vest1 Sand",
+      "MaxStack": 1,
+      "itemID": 24,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Vest3 Navy Blue",
+      "Description": "Vest3 Navy Blue",
+      "MaxStack": 1,
+      "itemID": 25,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Forest Combat Vest",
+      "Description": "Forest Combat Vest",
+      "MaxStack": 1,
+      "itemID": 26,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Football Helmet",
+      "Description": "Football Helmet",
+      "MaxStack": 1,
+      "itemID": 27,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Motorcycle Helmet",
+      "Description": "Motorcycle Helmet",
+      "MaxStack": 1,
+      "itemID": 28,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Police Vest",
+      "Description": "Police Vest",
+      "MaxStack": 1,
+      "itemID": 29,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Police Helmet",
+      "Description": "Police Helmet",
+      "MaxStack": 1,
+      "itemID": 30,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Army Vest",
+      "Description": "Army Vest",
+      "MaxStack": 1,
+      "itemID": 31,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Tactical Vest",
+      "Description": "Tactical Vest",
+      "MaxStack": 1,
+      "itemID": 32,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Tactical Helmet",
+      "Description": "Tactical Helmet",
+      "MaxStack": 1,
+      "itemID": 33,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Spetsnatz Vest",
+      "Description": "Spetsnatz Vest",
+      "MaxStack": 1,
+      "itemID": 34,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Spetsnatz Helmet",
+      "Description": "Spetsnatz Helmet",
+      "MaxStack": 1,
+      "itemID": 35,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Orange Coral",
+      "Description": "Orange Coral",
+      "MaxStack": 1,
+      "itemID": 36,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Purple Flower",
+      "Description": "Purple Flower",
+      "MaxStack": 1,
+      "itemID": 37,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Red Flower",
+      "Description": "Red Flower",
+      "MaxStack": 1,
+      "itemID": 38,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "White Flower",
+      "Description": "White Flower",
+      "MaxStack": 1,
+      "itemID": 39,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Rope",
+      "Description": "Rope",
+      "MaxStack": 20,
+      "itemID": 40,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Fabric",
+      "Description": "Fabric",
+      "MaxStack": 20,
+      "itemID": 41,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Components",
+      "Description": "Components",
+      "MaxStack": 20,
+      "itemID": 42,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Charcoal",
+      "Description": "Charcoal",
+      "MaxStack": 20,
+      "itemID": 43,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Glass",
+      "Description": "Glass",
+      "MaxStack": 40,
+      "itemID": 44,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Cotton",
+      "Description": "Cotton",
+      "MaxStack": 40,
+      "itemID": 45,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Adhesive Tape",
+      "Description": "Adhesive Tape",
+      "MaxStack": 20,
+      "itemID": 46,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Marlin Skin",
+      "Description": "Marlin Skin",
+      "MaxStack": 10,
+      "itemID": 47,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Rubber",
+      "Description": "Rubber",
+      "MaxStack": 10,
+      "itemID": 48,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Scrap Metal",
+      "Description": "Scrap Metal",
+      "MaxStack": 15,
+      "itemID": 49,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Shark Skin",
+      "Description": "Shark Skin",
+      "MaxStack": 10,
+      "itemID": 50,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Sulfur",
+      "Description": "Sulfur",
+      "MaxStack": 20,
+      "itemID": 51,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Wood Plank",
+      "Description": "Wood Plank",
+      "MaxStack": 20,
+      "itemID": 52,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Weapon Parts",
+      "Description": "Weapon Parts",
+      "MaxStack": 20,
+      "itemID": 53,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Electronic Parts",
+      "Description": "Electronic Parts",
+      "MaxStack": 20,
+      "itemID": 54,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Hide (Fur)",
+      "Description": "Hide (Fur)",
+      "MaxStack": 20,
+      "itemID": 55,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Gasoline Can",
+      "Description": "Gasoline Can",
+      "MaxStack": 10,
+      "itemID": 56,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Iron Ingot",
+      "Description": "Iron Ingot",
+      "MaxStack": 10,
+      "itemID": 57,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Iron Ore",
+      "Description": "Iron Ore",
+      "MaxStack": 10,
+      "itemID": 58,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Leather",
+      "Description": "Leather",
+      "MaxStack": 20,
+      "itemID": 59,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Smokeless Powder",
+      "Description": "Smokeless Powder",
+      "MaxStack": 20,
+      "itemID": 60,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Ballistic Fiber",
+      "Description": "Ballistic Fiber",
+      "MaxStack": 20,
+      "itemID": 61,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Fine Wood Plank",
+      "Description": "Fine Wood Plank",
+      "MaxStack": 20,
+      "itemID": 62,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Copper Ingot",
+      "Description": "Copper Ingot",
+      "MaxStack": 10,
+      "itemID": 63,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Copper Ore",
+      "Description": "Copper Ore",
+      "MaxStack": 10,
+      "itemID": 64,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Chemical Substance",
+      "Description": "Chemical Substance",
+      "MaxStack": 10,
+      "itemID": 65,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Paint",
+      "Description": "Paint",
+      "MaxStack": 10,
+      "itemID": 66,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Advanced Parts",
+      "Description": "Advanced Parts",
+      "MaxStack": 20,
+      "itemID": 67,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Marble",
+      "Description": "Marble",
+      "MaxStack": 10,
+      "itemID": 68,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Steel Ingot",
+      "Description": "Steel Ingot",
+      "MaxStack": 10,
+      "itemID": 69,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Advanced Alloy",
+      "Description": "Advanced Alloy",
+      "MaxStack": 10,
+      "itemID": 70,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Polymer",
+      "Description": "Polymer",
+      "MaxStack": 10,
+      "itemID": 71,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Bandage",
+      "Description": "Bandage",
+      "MaxStack": 10,
+      "itemID": 72,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Herbal Medicine",
+      "Description": "Herbal Medicine",
+      "MaxStack": 10,
+      "itemID": 73,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Lung Function Booster",
+      "Description": "Lung Function Booster",
+      "MaxStack": 10,
+      "itemID": 74,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Mixture For Endurance",
+      "Description": "Mixture For Endurance",
+      "MaxStack": 10,
+      "itemID": 75,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Antibiotics",
+      "Description": "Antibiotics",
+      "MaxStack": 10,
+      "itemID": 76,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Orange Coral",
+      "Description": "Orange Coral",
+      "MaxStack": 10,
+      "itemID": 77,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Flashlight",
+      "Description": "Flashlight",
+      "MaxStack": 1,
+      "itemID": 85,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Sea Water Bucket",
+      "Description": "Sea Water Bucket",
+      "MaxStack": 1,
+      "itemID": 86,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Water Bottle (Empty)",
+      "Description": "Water Bottle (Empty)",
+      "MaxStack": 5,
+      "itemID": 87,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Bag (Small 5 Slot)",
+      "Description": "Bag (Small 5 Slot)",
+      "MaxStack": 1,
+      "itemID": 88,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Pickaxe",
+      "Description": "Pickaxe",
+      "MaxStack": 1,
+      "itemID": 89,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Repair Hammer",
+      "Description": "Repair Hammer",
+      "MaxStack": 1,
+      "itemID": 90,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Binoculars",
+      "Description": "Binoculars",
+      "MaxStack": 1,
+      "itemID": 91,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Diving Fins",
+      "Description": "Diving Fins",
+      "MaxStack": 1,
+      "itemID": 92,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Fishing Rod",
+      "Description": "Fishing Rod",
+      "MaxStack": 1,
+      "itemID": 93,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Flare",
+      "Description": "Flare",
+      "MaxStack": 10,
+      "itemID": 94,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Small Air Tank (Empty)",
+      "Description": "Small Air Tank (Empty)",
+      "MaxStack": 1,
+      "itemID": 95,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Backpack (Medium 10 Slot)",
+      "Description": "Backpack (Medium 10 Slot)",
+      "MaxStack": 1,
+      "itemID": 96,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Battery (Empty)",
+      "Description": "Battery (Empty)",
+      "MaxStack": 1,
+      "itemID": 97,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Headlamp (Empty)",
+      "Description": "Headlamp (Empty)",
+      "MaxStack": 1,
+      "itemID": 98,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Alternative Rifle Sight",
+      "Description": "Alternative Rifle Sight",
+      "MaxStack": 1,
+      "itemID": 99,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Ore Detector (Empty)",
+      "Description": "Ore Detector (Empty)",
+      "MaxStack": 1,
+      "itemID": 100,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Underwater Roller (Empty)",
+      "Description": "Underwater Roller (Empty)",
+      "MaxStack": 1,
+      "itemID": 101,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Rough Axe",
+      "Description": "Rough Axe",
+      "MaxStack": 1,
+      "itemID": 102,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Metal Axe",
+      "Description": "Metal Axe",
+      "MaxStack": 1,
+      "itemID": 103,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Wooden Spear",
+      "Description": "Wooden Spear",
+      "MaxStack": 1,
+      "itemID": 104,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Bow",
+      "Description": "Bow",
+      "MaxStack": 1,
+      "itemID": 105,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Crossbow",
+      "Description": "Crossbow",
+      "MaxStack": 1,
+      "itemID": 106,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Arrow",
+      "Description": "Arrow",
+      "MaxStack": 1,
+      "itemID": 107,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Crossbow Bolt",
+      "Description": "Crossbow Bolt",
+      "MaxStack": 1,
+      "itemID": 108,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Spiked Club",
+      "Description": "Spiked Club",
+      "MaxStack": 1,
+      "itemID": 109,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Stone Axe",
+      "Description": "Stone Axe",
+      "MaxStack": 1,
+      "itemID": 110,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Wood Knife",
+      "Description": "Wood Knife",
+      "MaxStack": 1,
+      "itemID": 111,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Iron Axe",
+      "Description": "Iron Axe",
+      "MaxStack": 1,
+      "itemID": 112,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Iron Spear",
+      "Description": "Iron Spear",
+      "MaxStack": 1,
+      "itemID": 113,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Scrap Iron Spear",
+      "Description": "Scrap Iron Spear",
+      "MaxStack": 1,
+      "itemID": 114,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Antique Flintlock Pistol",
+      "Description": "Antique Flintlock Pistol",
+      "MaxStack": 1,
+      "itemID": 115,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Combat Knife",
+      "Description": "Combat Knife",
+      "MaxStack": 1,
+      "itemID": 116,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Iron Club",
+      "Description": "Iron Club",
+      "MaxStack": 1,
+      "itemID": 117,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Iron Sword",
+      "Description": "Iron Sword",
+      "MaxStack": 1,
+      "itemID": 118,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Machete",
+      "Description": "Machete",
+      "MaxStack": 1,
+      "itemID": 119,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Percussion Pistol",
+      "Description": "Percussion Pistol",
+      "MaxStack": 1,
+      "itemID": 120,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Skull Crusher",
+      "Description": "Skull Crusher",
+      "MaxStack": 1,
+      "itemID": 121,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Triple Barrel Pistol",
+      "Description": "Triple Barrel Pistol",
+      "MaxStack": 1,
+      "itemID": 122,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Scrap Gun",
+      "Description": "Scrap Gun",
+      "MaxStack": 1,
+      "itemID": 123,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Homemade Revolver",
+      "Description": "Homemade Revolver",
+      "MaxStack": 1,
+      "itemID": 124,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Double Barrel Shotgun",
+      "Description": "Double Barrel Shotgun",
+      "MaxStack": 1,
+      "itemID": 125,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Makarov",
+      "Description": "Makarov",
+      "MaxStack": 1,
+      "itemID": 126,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Gp20",
+      "Description": "Gp20",
+      "MaxStack": 1,
+      "itemID": 127,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Pump Shotgun",
+      "Description": "Pump Shotgun",
+      "MaxStack": 1,
+      "itemID": 128,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Submachine Gun",
+      "Description": "Submachine Gun",
+      "MaxStack": 1,
+      "itemID": 129,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Hunting Rifle",
+      "Description": "Hunting Rifle",
+      "MaxStack": 1,
+      "itemID": 130,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Aged Bolt Action Rifle",
+      "Description": "Aged Bolt Action Rifle",
+      "MaxStack": 1,
+      "itemID": 131,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "AK47",
+      "Description": "AK47",
+      "MaxStack": 1,
+      "itemID": 132,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "M14",
+      "Description": "M14",
+      "MaxStack": 1,
+      "itemID": 133,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "M16",
+      "Description": "M16",
+      "MaxStack": 1,
+      "itemID": 134,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Claw",
+      "Description": "Claw",
+      "MaxStack": 1,
+      "itemID": 135,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Motorboat",
+      "Description": "Construction Plan Motorboat",
+      "MaxStack": 1,
+      "itemID": 136,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Antique Flintlock Pistol",
+      "Description": "Construction Plan Antique Flintlock Pistol",
+      "MaxStack": 1,
+      "itemID": 137,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Reinforced Structures",
+      "Description": "Construction Plan Reinforced Structures",
+      "MaxStack": 1,
+      "itemID": 138,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Jet Ski",
+      "Description": "Construction Plan Jet Ski",
+      "MaxStack": 1,
+      "itemID": 139,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Name Missing",
+      "Description": "Not Found",
+      "MaxStack": 1,
+      "itemID": 140,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Light Helicopter",
+      "Description": "Construction Plan Light Helicopter",
+      "MaxStack": 1,
+      "itemID": 141,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Naval Speedboat",
+      "Description": "Construction Plan Naval Speedboat",
+      "MaxStack": 1,
+      "itemID": 142,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan 50 Caliber Ammunition",
+      "Description": "Construction Plan 50 Caliber Ammunition",
+      "MaxStack": 1,
+      "itemID": 143,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Paint",
+      "Description": "Construction Plan Paint",
+      "MaxStack": 1,
+      "itemID": 144,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Blue Patterned Chair",
+      "Description": "Construction Plan Blue Patterned Chair",
+      "MaxStack": 1,
+      "itemID": 145,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Concave Cabinet",
+      "Description": "Construction Plan Concave Cabinet",
+      "MaxStack": 1,
+      "itemID": 146,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Desk",
+      "Description": "Construction Plan Desk",
+      "MaxStack": 1,
+      "itemID": 147,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Plaid Sofa",
+      "Description": "Construction Plan Plaid Sofa",
+      "MaxStack": 1,
+      "itemID": 148,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Red Fabric Sofa",
+      "Description": "Construction Plan Red Fabric Sofa",
+      "MaxStack": 1,
+      "itemID": 149,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Solid Wooden Cabinet",
+      "Description": "Construction Plan Solid Wooden Cabinet",
+      "MaxStack": 1,
+      "itemID": 150,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Square Table",
+      "Description": "Construction Plan Square Table",
+      "MaxStack": 1,
+      "itemID": 151,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Armchair",
+      "Description": "Construction Plan Armchair",
+      "MaxStack": 1,
+      "itemID": 152,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Chair With Backrest",
+      "Description": "Construction Plan Chair With Backrest",
+      "MaxStack": 1,
+      "itemID": 153,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Black Leather Armchair",
+      "Description": "Construction Plan Black Leather Armchair",
+      "MaxStack": 1,
+      "itemID": 154,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Black Leather Sofa",
+      "Description": "Construction Plan Black Leather Sofa",
+      "MaxStack": 1,
+      "itemID": 155,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Buoy",
+      "Description": "Construction Plan Buoy",
+      "MaxStack": 1,
+      "itemID": 156,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Collection Cabinet",
+      "Description": "Construction Plan Collection Cabinet",
+      "MaxStack": 1,
+      "itemID": 157,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Counter",
+      "Description": "Construction Plan Counter",
+      "MaxStack": 1,
+      "itemID": 158,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Double Door Cabinet",
+      "Description": "Construction Plan Double Door Cabinet",
+      "MaxStack": 1,
+      "itemID": 159,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Double Shelf",
+      "Description": "Construction Plan Double Shelf",
+      "MaxStack": 1,
+      "itemID": 160,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Fireplace",
+      "Description": "Construction Plan Fireplace",
+      "MaxStack": 1,
+      "itemID": 161,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Wooden Desk",
+      "Description": "Construction Plan Wooden Desk",
+      "MaxStack": 1,
+      "itemID": 162,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Dressing Table",
+      "Description": "Construction Plan Dressing Table",
+      "MaxStack": 1,
+      "itemID": 163,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Round Glass Table",
+      "Description": "Construction Plan Round Glass Table",
+      "MaxStack": 1,
+      "itemID": 164,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Round Table",
+      "Description": "Construction Plan Round Table",
+      "MaxStack": 1,
+      "itemID": 165,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Single Bed",
+      "Description": "Construction Plan Single Bed",
+      "MaxStack": 1,
+      "itemID": 166,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Sofa",
+      "Description": "Construction Plan Sofa",
+      "MaxStack": 1,
+      "itemID": 167,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Crystal Chandelier",
+      "Description": "Construction Plan Crystal Chandelier",
+      "MaxStack": 1,
+      "itemID": 168,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Double Bed",
+      "Description": "Construction Plan Double Bed",
+      "MaxStack": 1,
+      "itemID": 169,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan European Chandelier",
+      "Description": "Construction Plan European Chandelier",
+      "MaxStack": 1,
+      "itemID": 170,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan European Chair",
+      "Description": "Construction Plan European Chair",
+      "MaxStack": 1,
+      "itemID": 171,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Fish Tank",
+      "Description": "Construction Plan Fish Tank",
+      "MaxStack": 1,
+      "itemID": 172,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Floor Tile",
+      "Description": "Construction Plan Floor Tile",
+      "MaxStack": 1,
+      "itemID": 173,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Floor Tile White",
+      "Description": "Construction Plan Floor Tile White",
+      "MaxStack": 1,
+      "itemID": 174,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Floor Tile Wood",
+      "Description": "Construction Plan Floor Tile Wood",
+      "MaxStack": 1,
+      "itemID": 175,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan French Sofa",
+      "Description": "Construction Plan French Sofa",
+      "MaxStack": 1,
+      "itemID": 176,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Green Leather Sofa",
+      "Description": "Construction Plan Green Leather Sofa",
+      "MaxStack": 1,
+      "itemID": 177,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Grandfather Clock",
+      "Description": "Construction Plan Hanging Clock",
+      "MaxStack": 1,
+      "itemID": 178,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Modern Floor Lamp",
+      "Description": "Construction Plan Modern Floor Lamp",
+      "MaxStack": 1,
+      "itemID": 179,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Modern Garden Lamp",
+      "Description": "Construction Plan Modern Garden Lamp",
+      "MaxStack": 1,
+      "itemID": 180,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Modern Street Lamp",
+      "Description": "Construction Plan Modern Street Lamp",
+      "MaxStack": 1,
+      "itemID": 181,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Modern Wall Lamp",
+      "Description": "Construction Plan Modern Wall Lamp",
+      "MaxStack": 1,
+      "itemID": 182,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Premium Fireplace",
+      "Description": "Construction Plan Premium Fireplace",
+      "MaxStack": 1,
+      "itemID": 183,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Single Leather Sofa",
+      "Description": "Construction Plan Single Leather Sofa",
+      "MaxStack": 1,
+      "itemID": 184,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Television",
+      "Description": "Construction Plan Television",
+      "MaxStack": 1,
+      "itemID": 185,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Vintage Leather Sofa",
+      "Description": "Construction Plan Vintage Leather Sofa",
+      "MaxStack": 1,
+      "itemID": 186,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Wallpaper Blue",
+      "Description": "Construction Plan Wallpaper Blue",
+      "MaxStack": 1,
+      "itemID": 187,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Wallpaper Green",
+      "Description": "Construction Plan Wallpaper Green",
+      "MaxStack": 1,
+      "itemID": 188,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Wallpaper Yellow",
+      "Description": "Construction Plan Wallpaper Yellow",
+      "MaxStack": 1,
+      "itemID": 189,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Broken Football Helmet",
+      "Description": "Broken Football Helmet",
+      "MaxStack": 5,
+      "itemID": 190,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Broken Tactical Vest",
+      "Description": "Broken Tactical Vest",
+      "MaxStack": 5,
+      "itemID": 191,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Broken Army Vest (Helmet)",
+      "Description": "Broken Army Vest (Helmet)",
+      "MaxStack": 5,
+      "itemID": 192,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Broken Army Vest",
+      "Description": "Broken Army Vest",
+      "MaxStack": 5,
+      "itemID": 193,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Broken Military Vest",
+      "Description": "Broken Military Vest",
+      "MaxStack": 5,
+      "itemID": 194,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Broken Motorcycle Helmet",
+      "Description": "Broken Motorcycle Helmet",
+      "MaxStack": 5,
+      "itemID": 195,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Broken Police Helmet",
+      "Description": "Broken Police Helmet",
+      "MaxStack": 5,
+      "itemID": 196,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Broken Police Vest",
+      "Description": "Broken Police Vest",
+      "MaxStack": 5,
+      "itemID": 197,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Broken Spetsnaz Vest",
+      "Description": "Broken Spetsnaz Vest",
+      "MaxStack": 5,
+      "itemID": 198,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Broken Spetsnaz Helmet",
+      "Description": "Broken Spetsnaz Helmet",
+      "MaxStack": 5,
+      "itemID": 199,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Broken GP2",
+      "Description": "Broken GP2",
+      "MaxStack": 5,
+      "itemID": 200,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Broken Hunting Rifle",
+      "Description": "Broken Hunting Rifle",
+      "MaxStack": 5,
+      "itemID": 201,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Broken PM (Makarov)",
+      "Description": "Broken PM (Makarov)",
+      "MaxStack": 5,
+      "itemID": 202,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Broken Pump Shotgun",
+      "Description": "Broken Pump Shotgun",
+      "MaxStack": 5,
+      "itemID": 203,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Broken Machine Pistol",
+      "Description": "Broken Machine Pistol",
+      "MaxStack": 5,
+      "itemID": 204,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Broken AK47",
+      "Description": "Broken AK47",
+      "MaxStack": 5,
+      "itemID": 205,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Broken M14",
+      "Description": "Broken M14",
+      "MaxStack": 5,
+      "itemID": 206,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Broken M16",
+      "Description": "Broken M16",
+      "MaxStack": 5,
+      "itemID": 207,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Broken Old Bolt Action Rifle",
+      "Description": "Broken Old Bolt Action Rifle",
+      "MaxStack": 5,
+      "itemID": 208,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "2 Ply T-Shirt A",
+      "Description": "2 Ply T-Shirt A",
+      "MaxStack": 1,
+      "itemID": 209,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "2 Ply T-Shirt B",
+      "Description": "2 Ply T-Shirt B",
+      "MaxStack": 1,
+      "itemID": 210,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "2 Ply T-Shirt E",
+      "Description": "2 Ply T-Shirt E",
+      "MaxStack": 1,
+      "itemID": 211,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Coarse T-Shirt",
+      "Description": "Coarse T-Shirt",
+      "MaxStack": 1,
+      "itemID": 212,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Loose Pants",
+      "Description": "Loose Pants",
+      "MaxStack": 1,
+      "itemID": 213,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Zipper",
+      "Description": "Zipper",
+      "MaxStack": 1,
+      "itemID": 214,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Bandage Boots",
+      "Description": "Bandage Boots",
+      "MaxStack": 1,
+      "itemID": 215,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Bandana Black",
+      "Description": "Bandana Black",
+      "MaxStack": 1,
+      "itemID": 216,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Bandana Olive",
+      "Description": "Bandana Olive",
+      "MaxStack": 1,
+      "itemID": 217,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Bandana Neck Black",
+      "Description": "Bandana Neck Black",
+      "MaxStack": 1,
+      "itemID": 218,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Bandana Neck Sand",
+      "Description": "Bandana Neck Sand",
+      "MaxStack": 1,
+      "itemID": 219,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Boots D",
+      "Description": "Boots D",
+      "MaxStack": 1,
+      "itemID": 220,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Boots Forest",
+      "Description": "Boots Forest",
+      "MaxStack": 1,
+      "itemID": 221,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Boots Navy Blue",
+      "Description": "Boots Navy Blue",
+      "MaxStack": 1,
+      "itemID": 222,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Boots1 A",
+      "Description": "Boots1 A",
+      "MaxStack": 1,
+      "itemID": 223,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Sriefel2 A",
+      "Description": "Sriefel2 A",
+      "MaxStack": 1,
+      "itemID": 224,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Bracer C",
+      "Description": "Bracer C",
+      "MaxStack": 1,
+      "itemID": 225,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Bracer C",
+      "Description": "Bracer C",
+      "MaxStack": 1,
+      "itemID": 226,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Loincloth Pants",
+      "Description": "Loincloth Pants",
+      "MaxStack": 1,
+      "itemID": 227,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Camisole A",
+      "Description": "Camisole A",
+      "MaxStack": 1,
+      "itemID": 228,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Camisole B",
+      "Description": "Camisole B",
+      "MaxStack": 1,
+      "itemID": 229,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Camisole D",
+      "Description": "Camisole D",
+      "MaxStack": 1,
+      "itemID": 230,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Camisole",
+      "Description": "Camisole",
+      "MaxStack": 1,
+      "itemID": 231,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Linen Shoes B",
+      "Description": "Linen Shoes B",
+      "MaxStack": 1,
+      "itemID": 232,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Linen Shoes C",
+      "Description": "Linen Shoes C",
+      "MaxStack": 1,
+      "itemID": 233,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Linen Shoes D",
+      "Description": "Linen Shoes D",
+      "MaxStack": 1,
+      "itemID": 234,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Cargo Pants B",
+      "Description": "Cargo Pants B",
+      "MaxStack": 1,
+      "itemID": 235,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Cargo Pants C",
+      "Description": "Cargo Pants C",
+      "MaxStack": 1,
+      "itemID": 236,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Cargo Shorts A",
+      "Description": "Cargo Shorts A",
+      "MaxStack": 1,
+      "itemID": 237,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Cargo Shorts B",
+      "Description": "Cargo Shorts B",
+      "MaxStack": 1,
+      "itemID": 238,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Cargo Shorts C",
+      "Description": "Cargo Shorts C",
+      "MaxStack": 1,
+      "itemID": 239,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Shirt With Closed Collar",
+      "Description": "Shirt With Closed Collar",
+      "MaxStack": 1,
+      "itemID": 240,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Shirt With Closed Collar",
+      "Description": "Shirt With Closed Collar",
+      "MaxStack": 1,
+      "itemID": 241,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Shirt With Closed Collar",
+      "Description": "Shirt With Closed Collar",
+      "MaxStack": 1,
+      "itemID": 242,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Corset B",
+      "Description": "Corset B",
+      "MaxStack": 1,
+      "itemID": 243,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Corset C",
+      "Description": "Corset C",
+      "MaxStack": 1,
+      "itemID": 244,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Fingerless Gloves Black",
+      "Description": "Fingerless Gloves Black",
+      "MaxStack": 1,
+      "itemID": 245,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Fingerless Gloves Brown",
+      "Description": "Fingerless Gloves Brown",
+      "MaxStack": 1,
+      "itemID": 246,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Flip-Flops A",
+      "Description": "Flip-Flops A",
+      "MaxStack": 1,
+      "itemID": 247,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Flip-Flops C",
+      "Description": "Flip-Flops C",
+      "MaxStack": 1,
+      "itemID": 248,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Flip-Flops D",
+      "Description": "Flip-Flops D",
+      "MaxStack": 1,
+      "itemID": 249,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Gas Mask A",
+      "Description": "Gas Mask A",
+      "MaxStack": 1,
+      "itemID": 250,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Gas Mask B",
+      "Description": "Gas Mask B",
+      "MaxStack": 1,
+      "itemID": 251,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Goggles A",
+      "Description": "Goggles A",
+      "MaxStack": 1,
+      "itemID": 252,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Henley Long-Sleeved Shirt A",
+      "Description": "Henley Long-Sleeved Shirt A",
+      "MaxStack": 1,
+      "itemID": 253,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Henley Long-Sleeved Shirt B",
+      "Description": "Henley Long-Sleeved Shirt B",
+      "MaxStack": 1,
+      "itemID": 254,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Henley Long-Sleeve D",
+      "Description": "Henley Long-Sleeve D",
+      "MaxStack": 1,
+      "itemID": 255,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "High Heels A",
+      "Description": "High Heels A",
+      "MaxStack": 1,
+      "itemID": 256,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "High Heels B",
+      "Description": "High Heels B",
+      "MaxStack": 1,
+      "itemID": 257,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "High Heels C",
+      "Description": "High Heels C",
+      "MaxStack": 1,
+      "itemID": 258,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "High Heels D",
+      "Description": "High Heels D",
+      "MaxStack": 1,
+      "itemID": 259,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Jeans B",
+      "Description": "Jeans B",
+      "MaxStack": 1,
+      "itemID": 260,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Jeans C",
+      "Description": "Jeans C",
+      "MaxStack": 1,
+      "itemID": 261,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Jeans E",
+      "Description": "Jeans E",
+      "MaxStack": 1,
+      "itemID": 262,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Jeans With Rivets",
+      "Description": "Jeans With Rivets",
+      "MaxStack": 1,
+      "itemID": 263,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Knee High Boots B",
+      "Description": "Knee High Boots B",
+      "MaxStack": 1,
+      "itemID": 264,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Knee High Boots C",
+      "Description": "Knee High Boots C",
+      "MaxStack": 1,
+      "itemID": 265,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Knee High Boots D",
+      "Description": "Knee High Boots D",
+      "MaxStack": 1,
+      "itemID": 266,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Leather Jeans",
+      "Description": "Leather Jeans",
+      "MaxStack": 1,
+      "itemID": 267,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Low-Cut Shorts B",
+      "Description": "Low-Cut Shorts B",
+      "MaxStack": 1,
+      "itemID": 268,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Low-Fitting Shorts C",
+      "Description": "Low-Fitting Shorts C",
+      "MaxStack": 1,
+      "itemID": 269,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Deep-Fitting Shorts D",
+      "Description": "Deep-Fitting Shorts D",
+      "MaxStack": 1,
+      "itemID": 270,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Mini-Skirt (red)",
+      "Description": "Mini-Skirt (red)",
+      "MaxStack": 1,
+      "itemID": 271,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Mini-Skirt D",
+      "Description": "Mini-Skirt D",
+      "MaxStack": 1,
+      "itemID": 272,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Moccasin Boots",
+      "Description": "Moccasin Boots",
+      "MaxStack": 1,
+      "itemID": 273,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Shirt With Open Collar C",
+      "Description": "Shirt With Open Collar C",
+      "MaxStack": 1,
+      "itemID": 274,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Shirt With Open Collar F",
+      "Description": "Shirt With Open Collar F",
+      "MaxStack": 1,
+      "itemID": 275,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Shirt With Open Collar H",
+      "Description": "Shirt With Open Collar H",
+      "MaxStack": 1,
+      "itemID": 276,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Open Collar Shirt I",
+      "Description": "Open Collar Shirt I",
+      "MaxStack": 1,
+      "itemID": 277,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Tucked-in Shirt Forest (Military Trousers)",
+      "Description": "Tucked-in Shirt Forest (Military Trousers)",
+      "MaxStack": 1,
+      "itemID": 278,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Pocketed Shirt Navy (Military Trousers)",
+      "Description": "Pocketed Shirt Navy (Military Trousers)",
+      "MaxStack": 1,
+      "itemID": 279,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Pocketed Shirt Sand (Military Trousers)",
+      "Description": "Pocketed Shirt Sand (Military Trousers)",
+      "MaxStack": 1,
+      "itemID": 280,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Pants 1A",
+      "Description": "Pants1 A",
+      "MaxStack": 1,
+      "itemID": 281,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Pants 1B",
+      "Description": "Pants1 B",
+      "MaxStack": 1,
+      "itemID": 282,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Pants 2A",
+      "Description": "Pants2 A",
+      "MaxStack": 1,
+      "itemID": 283,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Pants 2B",
+      "Description": "Pants2 B",
+      "MaxStack": 1,
+      "itemID": 284,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Patched Pants",
+      "Description": "Patched Pants",
+      "MaxStack": 1,
+      "itemID": 285,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Pencil Skirt A",
+      "Description": "Pencil Skirt A",
+      "MaxStack": 1,
+      "itemID": 286,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Lead",
+      "Description": "Lead",
+      "MaxStack": 1,
+      "itemID": 287,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Pencil Skirt E",
+      "Description": "Pencil Skirt E",
+      "MaxStack": 1,
+      "itemID": 288,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Rocker Jeans",
+      "Description": "Rocker Jeans",
+      "MaxStack": 1,
+      "itemID": 289,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Forest Tank Top",
+      "Description": "Forest Tarm Top",
+      "MaxStack": 1,
+      "itemID": 290,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Navy Tank Top",
+      "Description": "Navy Tarm Top",
+      "MaxStack": 1,
+      "itemID": 291,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Desert Camouflage Top",
+      "Description": "Desert Camouflage Top",
+      "MaxStack": 1,
+      "itemID": 292,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Work Dungarees A",
+      "Description": "Work Dungarees A",
+      "MaxStack": 1,
+      "itemID": 293,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Work Dungarees B",
+      "Description": "Work Dungarees B",
+      "MaxStack": 1,
+      "itemID": 294,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Work Dungarees C",
+      "Description": "Working Dungarees C",
+      "MaxStack": 1,
+      "itemID": 295,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Work Dungarees E",
+      "Description": "Working Dungarees E",
+      "MaxStack": 1,
+      "itemID": 296,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Shirt B",
+      "Description": "Shirt B",
+      "MaxStack": 1,
+      "itemID": 297,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Shirt E",
+      "Description": "Shirt E",
+      "MaxStack": 1,
+      "itemID": 298,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Shirt Standard Forest",
+      "Description": "Shirt Standard Forest",
+      "MaxStack": 1,
+      "itemID": 299,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Shirt Standard Marine",
+      "Description": "Shirt Standard Marine",
+      "MaxStack": 1,
+      "itemID": 300,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Stamdard Sand Shirt",
+      "Description": "Stamdard Sand Shirt",
+      "MaxStack": 1,
+      "itemID": 301,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Tactical Shirt Forest",
+      "Description": "Tactical Shirt Forest",
+      "MaxStack": 1,
+      "itemID": 302,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Tactical Shirt Marine",
+      "Description": "Tactical Shirt Marine",
+      "MaxStack": 1,
+      "itemID": 303,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Tactical Shirt Sand",
+      "Description": "Tactical Shirt Sand",
+      "MaxStack": 1,
+      "itemID": 304,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Ski Mask A",
+      "Description": "Ski Mask A",
+      "MaxStack": 1,
+      "itemID": 305,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Ski Mask B",
+      "Description": "Ski Mask B",
+      "MaxStack": 1,
+      "itemID": 306,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Skinny Pants C",
+      "Description": "Skinny Pants C",
+      "MaxStack": 1,
+      "itemID": 307,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Skinny Pants D",
+      "Description": "Skinny Pants D",
+      "MaxStack": 1,
+      "itemID": 308,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Pants B",
+      "Description": "Pants B",
+      "MaxStack": 1,
+      "itemID": 309,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Pants C",
+      "Description": "Pants C",
+      "MaxStack": 1,
+      "itemID": 310,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Sleeveless Oderteil B",
+      "Description": "Sleeveless Oderteil B",
+      "MaxStack": 1,
+      "itemID": 311,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Sleeveless Oderteil C",
+      "Description": "Sleeveless Oderteil C",
+      "MaxStack": 1,
+      "itemID": 312,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Sleeveless Oderteil D",
+      "Description": "Sleeveless Oderteil D",
+      "MaxStack": 1,
+      "itemID": 313,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Slipper A",
+      "Description": "Slipper A",
+      "MaxStack": 1,
+      "itemID": 314,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Slipper B",
+      "Description": "Slipper B",
+      "MaxStack": 1,
+      "itemID": 315,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Slipper C",
+      "Description": "Slipper C",
+      "MaxStack": 1,
+      "itemID": 316,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Slit Skirt B",
+      "Description": "Slit Skirt B",
+      "MaxStack": 1,
+      "itemID": 317,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Slit Skirt C",
+      "Description": "Slit Skirt C",
+      "MaxStack": 1,
+      "itemID": 318,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Slit Skirt D",
+      "Description": "Slit Skirt D",
+      "MaxStack": 1,
+      "itemID": 319,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Tower Shoes B",
+      "Description": "Tower Shoes B",
+      "MaxStack": 1,
+      "itemID": 320,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Sneakers C",
+      "Description": "Sneakers C",
+      "MaxStack": 1,
+      "itemID": 321,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Sneakers D",
+      "Description": "Sneakers D",
+      "MaxStack": 1,
+      "itemID": 322,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Style 2",
+      "Description": "Style 2",
+      "MaxStack": 1,
+      "itemID": 323,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Style 3",
+      "Description": "Style 3",
+      "MaxStack": 1,
+      "itemID": 324,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Style 5",
+      "Description": "Style 5",
+      "MaxStack": 1,
+      "itemID": 325,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Style 6",
+      "Description": "Style 6",
+      "MaxStack": 1,
+      "itemID": 326,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "T-Shirt A",
+      "Description": "T-Shirt A",
+      "MaxStack": 1,
+      "itemID": 327,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "T-Shirt C",
+      "Description": "T-Shirt C",
+      "MaxStack": 1,
+      "itemID": 328,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "T-Shirt D",
+      "Description": "T-Shirt D",
+      "MaxStack": 1,
+      "itemID": 329,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Tanktop B",
+      "Description": "Tanktop B",
+      "MaxStack": 1,
+      "itemID": 330,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Tanktop C",
+      "Description": "Tanktop C",
+      "MaxStack": 1,
+      "itemID": 331,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Tanktop D",
+      "Description": "Tanktop D",
+      "MaxStack": 1,
+      "itemID": 332,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Black Tanktop",
+      "Description": "Black Tanktop",
+      "MaxStack": 1,
+      "itemID": 333,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Tanktop Coyote",
+      "Description": "Tanktop Coyote",
+      "MaxStack": 1,
+      "itemID": 334,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Black T-Shirt",
+      "Description": "Black T-Shirt",
+      "MaxStack": 1,
+      "itemID": 335,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Coyote T-Shirt",
+      "Description": "Coyote T-Shirt",
+      "MaxStack": 1,
+      "itemID": 336,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Tucked-in Pants",
+      "Description": "Tucked-in Pants",
+      "MaxStack": 1,
+      "itemID": 337,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "V-Neck Scrub Shirt A",
+      "Description": "V-Neck Scrub Shirt A",
+      "MaxStack": 1,
+      "itemID": 338,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "V-Neck Scrub Shirt D",
+      "Description": "V-Neck Scrub Shirt D",
+      "MaxStack": 1,
+      "itemID": 339,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "White Gloves C",
+      "Description": "White Gloves C",
+      "MaxStack": 1,
+      "itemID": 340,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "White Gloves D",
+      "Description": "White Gloves D",
+      "MaxStack": 1,
+      "itemID": 341,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Work Gloves A",
+      "Description": "Work Gloves A",
+      "MaxStack": 1,
+      "itemID": 342,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Work Gloves B",
+      "Description": "Work Gloves B",
+      "MaxStack": 1,
+      "itemID": 343,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Work Gloves C",
+      "Description": "Work Gloves C",
+      "MaxStack": 1,
+      "itemID": 344,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Algae Carpet Decoration",
+      "Description": "Algae Carpet Decoration",
+      "MaxStack": 1,
+      "itemID": 345,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Toy Bicycle",
+      "Description": "Toy Bicycle",
+      "MaxStack": 1,
+      "itemID": 346,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Blue Oil Bottle",
+      "Description": "Blue Oil Bottle",
+      "MaxStack": 1,
+      "itemID": 347,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Candlestick",
+      "Description": "Candlestick",
+      "MaxStack": 1,
+      "itemID": 348,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Carpet",
+      "Description": "Carpet",
+      "MaxStack": 1,
+      "itemID": 349,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Ceramic Bottle",
+      "Description": "Ceramic Bottle",
+      "MaxStack": 1,
+      "itemID": 350,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Colored Carpet",
+      "Description": "Colored Carpet",
+      "MaxStack": 1,
+      "itemID": 351,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Cooling Chair",
+      "Description": "Cooling Chair",
+      "MaxStack": 1,
+      "itemID": 352,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Dart Target",
+      "Description": "Dart Target",
+      "MaxStack": 1,
+      "itemID": 353,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Decorative Plate Stand",
+      "Description": "Decorative Plate Stand",
+      "MaxStack": 1,
+      "itemID": 354,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Ornamental Chandelier",
+      "Description": "Ornamental Chandelier",
+      "MaxStack": 1,
+      "itemID": 355,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Table Clock",
+      "Description": "Table Clock",
+      "MaxStack": 1,
+      "itemID": 356,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Covered Easel",
+      "Description": "Covered Easel",
+      "MaxStack": 1,
+      "itemID": 357,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Exquisite Wooden Shelf",
+      "Description": "Exquisite Wooden Shelf",
+      "MaxStack": 1,
+      "itemID": 358,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Solid Wood Shelf",
+      "Description": "Solid Wood Shelf",
+      "MaxStack": 1,
+      "itemID": 359,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Pattern Carpet",
+      "Description": "Pattern Carpet",
+      "MaxStack": 1,
+      "itemID": 360,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Fish Statue",
+      "Description": "Fish Statue",
+      "MaxStack": 1,
+      "itemID": 361,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Floor Mirror",
+      "Description": "Floor Mirror",
+      "MaxStack": 1,
+      "itemID": 362,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Game Console",
+      "Description": "Console De Jeu",
+      "MaxStack": 1,
+      "itemID": 363,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Globe",
+      "Description": "Globe",
+      "MaxStack": 1,
+      "itemID": 364,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Handbag",
+      "Description": "Handbag",
+      "MaxStack": 1,
+      "itemID": 365,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Coathanger",
+      "Description": "Coat-Hanger",
+      "MaxStack": 1,
+      "itemID": 366,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Horse Statue",
+      "Description": "Horse Statue",
+      "MaxStack": 1,
+      "itemID": 367,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Horse Toy",
+      "Description": "Horse Toy",
+      "MaxStack": 1,
+      "itemID": 368,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Household Desk Lamp",
+      "Description": "Household Desk Lamp",
+      "MaxStack": 1,
+      "itemID": 369,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Jewelry Box",
+      "Description": "Jewelry Box",
+      "MaxStack": 1,
+      "itemID": 370,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Table Lamp",
+      "Description": "Table Lamp",
+      "MaxStack": 1,
+      "itemID": 371,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Wall Lamp",
+      "Description": "Wall Lamp",
+      "MaxStack": 1,
+      "itemID": 372,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Flashlight (Oil Lamp)",
+      "Description": "Flashlight (Oil Lamp)",
+      "MaxStack": 1,
+      "itemID": 373,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Large Vase",
+      "Description": "Large Vase",
+      "MaxStack": 1,
+      "itemID": 374,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Leather Suitcase",
+      "Description": "Leather Suitcase",
+      "MaxStack": 1,
+      "itemID": 375,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Mirror",
+      "Description": "Mirror",
+      "MaxStack": 1,
+      "itemID": 376,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Model Train",
+      "Description": "Model Train",
+      "MaxStack": 1,
+      "itemID": 377,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Moire Ceramic",
+      "Description": "Moire Ceramic",
+      "MaxStack": 1,
+      "itemID": 378,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Moire",
+      "Description": "Moire",
+      "MaxStack": 1,
+      "itemID": 379,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Neon Sign Best Day Ever",
+      "Description": "Neon Sign Best Day Ever",
+      "MaxStack": 1,
+      "itemID": 380,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Neon Sign Cat",
+      "Description": "Neon Sign Cat",
+      "MaxStack": 1,
+      "itemID": 381,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Neon Sign Player",
+      "Description": "Neon Sign Player",
+      "MaxStack": 1,
+      "itemID": 382,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Neon Sign Guitar",
+      "Description": "Neon Sign Guitar",
+      "MaxStack": 1,
+      "itemID": 383,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Neon Sign Hotel",
+      "Description": "Neon Sign Hotel",
+      "MaxStack": 1,
+      "itemID": 384,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Neon Sign Money",
+      "Description": "Neon Sign Money",
+      "MaxStack": 1,
+      "itemID": 385,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Neon Sign Night Club",
+      "Description": "Neon Sign Night Club",
+      "MaxStack": 1,
+      "itemID": 386,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Neon Sign Peace",
+      "Description": "Neon Sign Peace",
+      "MaxStack": 1,
+      "itemID": 387,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Neon Sign Route66",
+      "Description": "Neon Sign Route66",
+      "MaxStack": 1,
+      "itemID": 388,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Neon Sign Woman 1",
+      "Description": "Neon Sign Woman 1",
+      "MaxStack": 1,
+      "itemID": 389,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Neon Sign Woman 2",
+      "Description": "Neon Sign Woman 2",
+      "MaxStack": 1,
+      "itemID": 390,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Oil Painting Birds",
+      "Description": "Oil Painting Birds",
+      "MaxStack": 1,
+      "itemID": 391,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Oil Painting Comfortable",
+      "Description": "Oil Painting Comfortable",
+      "MaxStack": 1,
+      "itemID": 392,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Oil Painting Deep In The Valley",
+      "Description": "Oil Painting Deep In The Valley",
+      "MaxStack": 1,
+      "itemID": 393,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Oil Painting Desert Oasis",
+      "Description": "Oil Painting Desert Oasis",
+      "MaxStack": 1,
+      "itemID": 394,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Oil Painting Small Brook",
+      "Description": "Oil Painting Small Brook",
+      "MaxStack": 1,
+      "itemID": 395,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Oil Painting Forgotten Castle",
+      "Description": "Oil Painting Forgotten Castle",
+      "MaxStack": 1,
+      "itemID": 396,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Oil Painting Love",
+      "Description": "Oil Painting \u2665\u2665\u2665\u2665\u2665",
+      "MaxStack": 1,
+      "itemID": 397,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Oil Painting Happy Childhood",
+      "Description": "Oil Painting Happy Childhood",
+      "MaxStack": 1,
+      "itemID": 398,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Oil Painting Royal Castle",
+      "Description": "Oil Painting Royal Castle",
+      "MaxStack": 1,
+      "itemID": 399,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Oil Painting Landscape",
+      "Description": "Oil Painting Landscape",
+      "MaxStack": 1,
+      "itemID": 400,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Oil Painting Lotus",
+      "Description": "Oil Painting Lotus",
+      "MaxStack": 1,
+      "itemID": 401,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Oil Painting Rural Life",
+      "Description": "Oil Painting Rural Life",
+      "MaxStack": 1,
+      "itemID": 402,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Oil Painting Small Brook",
+      "Description": "Oil Painting Small Brook",
+      "MaxStack": 1,
+      "itemID": 403,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Oil Painting Evening Twilight",
+      "Description": "Oil Painting Evening Twilight",
+      "MaxStack": 1,
+      "itemID": 404,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Oil Painting Wilderness Scene",
+      "Description": "Oil Painting Wilderness Scene",
+      "MaxStack": 1,
+      "itemID": 405,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Old Clock",
+      "Description": "Old Clock",
+      "MaxStack": 1,
+      "itemID": 406,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Old Desk Lamp",
+      "Description": "Old Desk Lamp",
+      "MaxStack": 1,
+      "itemID": 407,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Old Style Regal",
+      "Description": "Old Style Regal",
+      "MaxStack": 1,
+      "itemID": 408,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Owl Toy",
+      "Description": "Owl Toy",
+      "MaxStack": 1,
+      "itemID": 409,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Pan (Pot)",
+      "Description": "Pan (Pot)",
+      "MaxStack": 1,
+      "itemID": 410,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Patterned Blue And White Vase",
+      "Description": "Patterned Blue And White Vase",
+      "MaxStack": 1,
+      "itemID": 411,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Patterned Bronze Ware",
+      "Description": "Patterned Bronze Ware",
+      "MaxStack": 1,
+      "itemID": 412,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Rubber Duck",
+      "Description": "Rubber Duck",
+      "MaxStack": 1,
+      "itemID": 413,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Toy Airplane",
+      "Description": "Toy Airplane",
+      "MaxStack": 1,
+      "itemID": 414,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Racing Model",
+      "Description": "Racing Model",
+      "MaxStack": 1,
+      "itemID": 415,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Radio",
+      "Description": "Radio",
+      "MaxStack": 1,
+      "itemID": 416,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Record Player Disc 1",
+      "Description": "Record Player Disc 1",
+      "MaxStack": 1,
+      "itemID": 417,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Record Player Disc 2",
+      "Description": "Record Player Disc 2",
+      "MaxStack": 1,
+      "itemID": 418,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Record Player Disc 3",
+      "Description": "Record Player Disc 3",
+      "MaxStack": 1,
+      "itemID": 419,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Red Carpet",
+      "Description": "Red Carpet",
+      "MaxStack": 1,
+      "itemID": 420,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Red Sofa Chair",
+      "Description": "Red Sofa Chair",
+      "MaxStack": 1,
+      "itemID": 421,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Retro Carpet",
+      "Description": "Retro Carpet",
+      "MaxStack": 1,
+      "itemID": 422,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Carpet",
+      "Description": "Carpet",
+      "MaxStack": 1,
+      "itemID": 423,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Hourglass",
+      "Description": "Hourglass",
+      "MaxStack": 1,
+      "itemID": 424,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Scale",
+      "Description": "Libra",
+      "MaxStack": 1,
+      "itemID": 425,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Small Globe",
+      "Description": "Small Globe",
+      "MaxStack": 1,
+      "itemID": 426,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Sofa Chair",
+      "Description": "Sofa Chair",
+      "MaxStack": 1,
+      "itemID": 427,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Solid Wood Shelf",
+      "Description": "Solid Wood Shelf",
+      "MaxStack": 1,
+      "itemID": 428,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Stone Elephant",
+      "Description": "Stone Elephant",
+      "MaxStack": 1,
+      "itemID": 429,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Striped Carpet",
+      "Description": "Striped Carpet",
+      "MaxStack": 1,
+      "itemID": 430,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Decorative Sword",
+      "Description": "Decorative Sword",
+      "MaxStack": 1,
+      "itemID": 431,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Old Telephone",
+      "Description": "Old Telephone",
+      "MaxStack": 1,
+      "itemID": 432,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Toy Bear",
+      "Description": "Toy Bear",
+      "MaxStack": 1,
+      "itemID": 433,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Make-up Mirror",
+      "Description": "Make-up Mirror",
+      "MaxStack": 1,
+      "itemID": 434,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Vinyl Machine",
+      "Description": "Vinyl Machine",
+      "MaxStack": 1,
+      "itemID": 435,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Violin",
+      "Description": "Violin",
+      "MaxStack": 1,
+      "itemID": 436,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Wall Clock",
+      "Description": "Wall Clock",
+      "MaxStack": 1,
+      "itemID": 437,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Wallet",
+      "Description": "Wallet",
+      "MaxStack": 1,
+      "itemID": 438,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Wanghai Reef",
+      "Description": "Wanghai Reef",
+      "MaxStack": 1,
+      "itemID": 439,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Scale",
+      "Description": "Balance",
+      "MaxStack": 1,
+      "itemID": 440,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Wooden Chair Deco End",
+      "Description": "Wooden Chair Deco End",
+      "MaxStack": 1,
+      "itemID": 441,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Baked Beans",
+      "Description": "Baked Beans",
+      "MaxStack": 10,
+      "itemID": 442,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Candy Bar",
+      "Description": "Candy Bar",
+      "MaxStack": 10,
+      "itemID": 443,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Energy Drink",
+      "Description": "Energy Drink",
+      "MaxStack": 10,
+      "itemID": 444,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Food Can",
+      "Description": "Food Can",
+      "MaxStack": 10,
+      "itemID": 445,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Instant Ramen",
+      "Description": "Instant Ramen",
+      "MaxStack": 10,
+      "itemID": 446,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Pudding",
+      "Description": "Pudding",
+      "MaxStack": 10,
+      "itemID": 447,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Lemonade",
+      "Description": "Lemonade",
+      "MaxStack": 10,
+      "itemID": 448,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Bird Meat",
+      "Description": "Bird Meat",
+      "MaxStack": 10,
+      "itemID": 449,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Cabbage",
+      "Description": "Cabbage",
+      "MaxStack": 10,
+      "itemID": 450,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Coffee Bean",
+      "Description": "Coffee Bean",
+      "MaxStack": 10,
+      "itemID": 451,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Crab Meat",
+      "Description": "Crab Meat",
+      "MaxStack": 10,
+      "itemID": 452,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Tarpon",
+      "Description": "Tarpon",
+      "MaxStack": 10,
+      "itemID": 453,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Wahoo",
+      "Description": "Wahoo",
+      "MaxStack": 10,
+      "itemID": 454,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Red Snapper",
+      "Description": "Red Snapper",
+      "MaxStack": 10,
+      "itemID": 455,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Bream",
+      "Description": "Bream",
+      "MaxStack": 10,
+      "itemID": 456,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Large Fish Meat",
+      "Description": "Large Fish Meat",
+      "MaxStack": 10,
+      "itemID": 457,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Lemon",
+      "Description": "Lemon",
+      "MaxStack": 10,
+      "itemID": 458,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Mushroom",
+      "Description": "Mushroom",
+      "MaxStack": 10,
+      "itemID": 459,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Potato",
+      "Description": "Potato",
+      "MaxStack": 10,
+      "itemID": 460,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Raw Meat",
+      "Description": "Raw Meat",
+      "MaxStack": 10,
+      "itemID": 461,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Red Alga",
+      "Description": "Red Alga",
+      "MaxStack": 10,
+      "itemID": 462,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Scallop",
+      "Description": "Scallop",
+      "MaxStack": 10,
+      "itemID": 463,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Strawberry",
+      "Description": "Strawberry",
+      "MaxStack": 10,
+      "itemID": 464,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Bottle Of Water (full)",
+      "Description": "Bottle Of Water (full)",
+      "MaxStack": 10,
+      "itemID": 465,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Fried Tarpon",
+      "Description": "Fried Wahoo (Tarpon)",
+      "MaxStack": 10,
+      "itemID": 466,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Fried Wahoo",
+      "Description": "Fried Wahoo",
+      "MaxStack": 10,
+      "itemID": 467,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Fried Red Snapper",
+      "Description": "Fried Red Snapper",
+      "MaxStack": 10,
+      "itemID": 468,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Fried Bream",
+      "Description": "Fried Bream",
+      "MaxStack": 10,
+      "itemID": 469,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Fried Bird Meat",
+      "Description": "Fried Bird Meat",
+      "MaxStack": 10,
+      "itemID": 470,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Fried Cabbage",
+      "Description": "Fried Cabbage",
+      "MaxStack": 10,
+      "itemID": 471,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Fried Crab",
+      "Description": "Fried Crab",
+      "MaxStack": 10,
+      "itemID": 472,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Fried Fish",
+      "Description": "Fried Fish",
+      "MaxStack": 10,
+      "itemID": 473,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Fried Meat",
+      "Description": "Fried Meat",
+      "MaxStack": 10,
+      "itemID": 474,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Fried Mushroom",
+      "Description": "Fried Mushroom",
+      "MaxStack": 10,
+      "itemID": 475,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Fried Potato",
+      "Description": "Fried Potato",
+      "MaxStack": 10,
+      "itemID": 476,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Fried Scallop Mushl",
+      "Description": "Fried Scallop Mushl",
+      "MaxStack": 10,
+      "itemID": 477,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Water (in Cup)",
+      "Description": "Water (in Cup)",
+      "MaxStack": 10,
+      "itemID": 478,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Bush Seed",
+      "Description": "Bush Seed",
+      "MaxStack": 20,
+      "itemID": 479,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Cabbage Seed",
+      "Description": "Cabbage Seed",
+      "MaxStack": 20,
+      "itemID": 480,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Cotton Seed",
+      "Description": "Cotton Seed",
+      "MaxStack": 20,
+      "itemID": 481,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Fishing Bait",
+      "Description": "Fishing Bait",
+      "MaxStack": 20,
+      "itemID": 482,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Lemon Seeds",
+      "Description": "Lemon Seeds",
+      "MaxStack": 20,
+      "itemID": 483,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Strawberry Seed",
+      "Description": "Strawberry Seed",
+      "MaxStack": 20,
+      "itemID": 484,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Salad",
+      "Description": "Salad",
+      "MaxStack": 10,
+      "itemID": 485,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Seafood Platter",
+      "Description": "Seafood Platter",
+      "MaxStack": 10,
+      "itemID": 486,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Fish Stew",
+      "Description": "Fish Stew",
+      "MaxStack": 10,
+      "itemID": 487,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Mushroom Bird Soup",
+      "Description": "Mushroom Bird Soup",
+      "MaxStack": 10,
+      "itemID": 488,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Alcohol",
+      "Description": "Alcohol",
+      "MaxStack": 10,
+      "itemID": 489,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Baked Fish With Lemon",
+      "Description": "Baked Fish With Lemon",
+      "MaxStack": 10,
+      "itemID": 490,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Coffee",
+      "Description": "Coffee",
+      "MaxStack": 10,
+      "itemID": 491,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Coral Smoothie",
+      "Description": "Coral Smoothie",
+      "MaxStack": 10,
+      "itemID": 492,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Crab Cake",
+      "Description": "Crab Cake",
+      "MaxStack": 10,
+      "itemID": 493,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Roasted Lemon Bird",
+      "Description": "Roasted Lemon Bird",
+      "MaxStack": 10,
+      "itemID": 494,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Steak Meal",
+      "Description": "Steak Meal",
+      "MaxStack": 10,
+      "itemID": 495,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Strawberry Lemon Smoothie",
+      "Description": "Strawberry Lemon Smoothie",
+      "MaxStack": 10,
+      "itemID": 496,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Catamaran Controller",
+      "Description": "Catamaran Controller",
+      "MaxStack": 1,
+      "itemID": 497,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Catamaran Hull",
+      "Description": "Catamaran Hull",
+      "MaxStack": 1,
+      "itemID": 498,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Catamaran Sail",
+      "Description": "Catamaran Sail",
+      "MaxStack": 1,
+      "itemID": 499,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Helicopter Console",
+      "Description": "Helicopter Console",
+      "MaxStack": 1,
+      "itemID": 500,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Helicopter Stabilizer",
+      "Description": "Helicopter Stabilizer",
+      "MaxStack": 1,
+      "itemID": 501,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Helicopter Engine",
+      "Description": "Helicopter Engine",
+      "MaxStack": 1,
+      "itemID": 502,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Helicopter Tank",
+      "Description": "Helicopter Tank",
+      "MaxStack": 1,
+      "itemID": 503,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Helicopter Propeller",
+      "Description": "Helicopter Propeller",
+      "MaxStack": 1,
+      "itemID": 504,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Jet Ski Steering",
+      "Description": "Jet Ski Steering",
+      "MaxStack": 1,
+      "itemID": 505,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Jetski Engine",
+      "Description": "Jetski Engine",
+      "MaxStack": 1,
+      "itemID": 506,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Jet Ski Fuel Tank",
+      "Description": "Jet Ski Fuel Tank",
+      "MaxStack": 1,
+      "itemID": 507,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Jet Ski Jet Pump",
+      "Description": "Jet Ski Jet Pump",
+      "MaxStack": 1,
+      "itemID": 508,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Jetstream Bowrider Console",
+      "Description": "Jetstream Bowrider Console",
+      "MaxStack": 1,
+      "itemID": 509,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Jetstream Bowrider Engine",
+      "Description": "Jetstream Bowrider Engine",
+      "MaxStack": 1,
+      "itemID": 510,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Jetstream Bowrider Hull",
+      "Description": "Jetstream Bowrider Hull",
+      "MaxStack": 1,
+      "itemID": 511,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Speedboat Marine Console",
+      "Description": "Console For Speedboat Marine",
+      "MaxStack": 1,
+      "itemID": 512,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Speedboat Marine Motor",
+      "Description": "Motor For Speedboat Marine",
+      "MaxStack": 1,
+      "itemID": 513,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Speedboat Marine Hull",
+      "Description": "Hull For Speedboat Marine",
+      "MaxStack": 1,
+      "itemID": 514,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Motorboat Engine",
+      "Description": "Motorboat Engine",
+      "MaxStack": 1,
+      "itemID": 515,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Motor Boat Fuel Tank",
+      "Description": "Fuel Tank For Motor Boat",
+      "MaxStack": 1,
+      "itemID": 516,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Motor Boat Hull",
+      "Description": "Motor Boat Hull",
+      "MaxStack": 1,
+      "itemID": 517,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Cigar Sales Objects",
+      "Description": "Cigar Sales Objects",
+      "MaxStack": 20,
+      "itemID": 518,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Expensive Wine",
+      "Description": "Expensive Wine",
+      "MaxStack": 20,
+      "itemID": 519,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "High Quality Perfume",
+      "Description": "High Quality Perfume",
+      "MaxStack": 20,
+      "itemID": 520,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "High-quality Watch",
+      "Description": "High-quality Watch",
+      "MaxStack": 20,
+      "itemID": 521,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Diamond Ring",
+      "Description": "Diamond Ring",
+      "MaxStack": 20,
+      "itemID": 522,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Magazine (periodical)",
+      "Description": "Magazine (periodical)",
+      "MaxStack": 20,
+      "itemID": 523,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Mobile Phone",
+      "Description": "Mobile Phone",
+      "MaxStack": 20,
+      "itemID": 524,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Silver Coins",
+      "Description": "Silver Coins",
+      "MaxStack": 20,
+      "itemID": 525,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Zippo Lighter",
+      "Description": "Zippo Sale Objects End",
+      "MaxStack": 20,
+      "itemID": 526,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Stun SMG",
+      "Description": "Stun SMG",
+      "MaxStack": 1,
+      "itemID": 527,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "DEG 45",
+      "Description": "DEG 45",
+      "MaxStack": 1,
+      "itemID": 528,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Defective DEG 45",
+      "Description": "Defective DEG 45",
+      "MaxStack": 1,
+      "itemID": 529,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Defective Stun SMG",
+      "Description": "Defective Stun SMG",
+      "MaxStack": 1,
+      "itemID": 530,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Military Backpack",
+      "Description": "Military Backpack",
+      "MaxStack": 1,
+      "itemID": 531,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Diving Fins (yellow)",
+      "Description": "Diving Fins (yellow)",
+      "MaxStack": 1,
+      "itemID": 532,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Ore Detector",
+      "Description": "Construction Plan Ore Detector",
+      "MaxStack": 1,
+      "itemID": 533,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Jetstream",
+      "Description": "Construction Plan Jetstream",
+      "MaxStack": 1,
+      "itemID": 534,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Military Backpack",
+      "Description": "Construction Plan Military Backpack",
+      "MaxStack": 1,
+      "itemID": 535,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Diving Fins (yellow)",
+      "Description": "Construction Plan Diving Fins (yellow)",
+      "MaxStack": 1,
+      "itemID": 536,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Large Generator",
+      "Description": "Construction Plan Large Generator",
+      "MaxStack": 1,
+      "itemID": 537,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Construction Plan Military Grenade",
+      "Description": "Construction Plan Military Grenade",
+      "MaxStack": 1,
+      "itemID": 538,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Patterned Circular Vase Decoration",
+      "Description": "Patterned Circular Vase Decoration",
+      "MaxStack": 1,
+      "itemID": 539,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    },
+    {
+      "Name": "Small Air Tank (w/Battery)",
+      "Description": "Small Air Tank (w/Battery)",
+      "MaxStack": 1,
+      "itemID": 541,
+      "amount": 0,
+      "condition": 100,
+      "isCombinedWithItem": false,
+      "itemProperties": []
+    }
+  ],
+  "Blueprints": [
+    {
+      "ID": 136,
+      "Name": "Motorboat"
+    },
+    {
+      "ID": 137,
+      "Name": "Antique Flintlock Pistol"
+    },
+    {
+      "ID": 138,
+      "Name": "Reinforced Structures"
+    },
+    {
+      "ID": 139,
+      "Name": "Jet Ski"
+    },
+    {
+      "ID": 141,
+      "Name": "Light Helicopter"
+    },
+    {
+      "ID": 142,
+      "Name": "Naval Speedboat"
+    },
+    {
+      "ID": 143,
+      "Name": "50 Caliber Ammunition"
+    },
+    {
+      "ID": 144,
+      "Name": "Paint"
+    },
+    {
+      "ID": 145,
+      "Name": "Blue Patterned Chair"
+    },
+    {
+      "ID": 146,
+      "Name": "Concave Cabinet"
+    },
+    {
+      "ID": 147,
+      "Name": "Desk"
+    },
+    {
+      "ID": 148,
+      "Name": "Plaid Sofa"
+    },
+    {
+      "ID": 149,
+      "Name": "Red Fabric Sofa"
+    },
+    {
+      "ID": 150,
+      "Name": "Solid Wooden Cabinet"
+    },
+    {
+      "ID": 151,
+      "Name": "Square Table"
+    },
+    {
+      "ID": 152,
+      "Name": "Armchair"
+    },
+    {
+      "ID": 153,
+      "Name": "Chair With Backrest"
+    },
+    {
+      "ID": 154,
+      "Name": "Black Leather Armchair"
+    },
+    {
+      "ID": 155,
+      "Name": "Black Leather Sofa"
+    },
+    {
+      "ID": 156,
+      "Name": "Buoy"
+    },
+    {
+      "ID": 157,
+      "Name": "Collection Cabinet"
+    },
+    {
+      "ID": 158,
+      "Name": "Counter"
+    },
+    {
+      "ID": 159,
+      "Name": "Double Door Cabinet"
+    },
+    {
+      "ID": 160,
+      "Name": "Double Shelf"
+    },
+    {
+      "ID": 161,
+      "Name": "Fireplace"
+    },
+    {
+      "ID": 162,
+      "Name": "Wooden Desk"
+    },
+    {
+      "ID": 163,
+      "Name": "Dressing Table"
+    },
+    {
+      "ID": 164,
+      "Name": "Round Glass Table"
+    },
+    {
+      "ID": 165,
+      "Name": "Round Table"
+    },
+    {
+      "ID": 166,
+      "Name": "Single Bed"
+    },
+    {
+      "ID": 167,
+      "Name": "Sofa"
+    },
+    {
+      "ID": 168,
+      "Name": "Crystal Chandelier"
+    },
+    {
+      "ID": 169,
+      "Name": "Double Bed"
+    },
+    {
+      "ID": 170,
+      "Name": "European Chandelier"
+    },
+    {
+      "ID": 171,
+      "Name": "European Chair"
+    },
+    {
+      "ID": 172,
+      "Name": "Fish Tank"
+    },
+    {
+      "ID": 173,
+      "Name": "Floor Tile"
+    },
+    {
+      "ID": 174,
+      "Name": "Floor Tile White"
+    },
+    {
+      "ID": 175,
+      "Name": "Floor Tile Wood"
+    },
+    {
+      "ID": 176,
+      "Name": "French Sofa"
+    },
+    {
+      "ID": 177,
+      "Name": "Green Leather Sofa"
+    },
+    {
+      "ID": 178,
+      "Name": "Grandfather Clock"
+    },
+    {
+      "ID": 179,
+      "Name": "Modern Floor Lamp"
+    },
+    {
+      "ID": 180,
+      "Name": "Modern Garden Lamp"
+    },
+    {
+      "ID": 181,
+      "Name": "Modern Street Lamp"
+    },
+    {
+      "ID": 182,
+      "Name": "Modern Wall Lamp"
+    },
+    {
+      "ID": 183,
+      "Name": "Premium Fireplace"
+    },
+    {
+      "ID": 184,
+      "Name": "Single Leather Sofa"
+    },
+    {
+      "ID": 185,
+      "Name": "Television"
+    },
+    {
+      "ID": 186,
+      "Name": "Vintage Leather Sofa"
+    },
+    {
+      "ID": 187,
+      "Name": "Wallpaper Blue"
+    },
+    {
+      "ID": 188,
+      "Name": "Wallpaper Green"
+    },
+    {
+      "ID": 189,
+      "Name": "Wallpaper Yellow"
+    },
+    {
+      "ID": 533,
+      "Name": "Ore Detector"
+    },
+    {
+      "ID": 534,
+      "Name": "Jetstream"
+    },
+    {
+      "ID": 535,
+      "Name": "Military Backpack"
+    },
+    {
+      "ID": 536,
+      "Name": "Diving Fins (yellow)"
+    },
+    {
+      "ID": 537,
+      "Name": "Large Generator"
+    },
+    {
+      "ID": 538,
+      "Name": "Military Grenade"
+    }
+  ],
+  "Locations": [
+    {
+      "ID": 1,
+      "Name": "The Castaway Island"
+    },
+    {
+      "ID": 2,
+      "Name": "Unknown Ruins"
+    },
+    {
+      "ID": 3,
+      "Name": "Highway Passes"
+    },
+    {
+      "ID": 4,
+      "Name": "The Mansion"
+    },
+    {
+      "ID": 5,
+      "Name": "Mutant Settlement"
+    },
+    {
+      "ID": 6,
+      "Name": "Trading Outpost"
+    },
+    {
+      "ID": 7,
+      "Name": "District 43"
+    },
+    {
+      "ID": 8,
+      "Name": "Small Rock Island"
+    },
+    {
+      "ID": 9,
+      "Name": "Machine Factory"
+    },
+    {
+      "ID": 10,
+      "Name": "Stormborn Outpost"
+    },
+    {
+      "ID": 11,
+      "Name": "Neptune"
+    },
+    {
+      "ID": 12,
+      "Name": "School"
+    },
+    {
+      "ID": 13,
+      "Name": "Police Station"
+    },
+    {
+      "ID": 14,
+      "Name": "Metal Mine"
+    },
+    {
+      "ID": 15,
+      "Name": "Large Rock Island"
+    },
+    {
+      "ID": 16,
+      "Name": "Amuzement park"
+    },
+    {
+      "ID": 17,
+      "Name": "The Bridge"
+    },
+    {
+      "ID": 18,
+      "Name": "Iceberg"
+    },
+    {
+      "ID": 19,
+      "Name": "Iron Helmet Base"
+    },
+    {
+      "ID": 20,
+      "Name": "The Parking Lot"
+    },
+    {
+      "ID": 21,
+      "Name": "Gas Station"
+    },
+    {
+      "ID": 22,
+      "Name": "Loner Base"
+    },
+    {
+      "ID": 23,
+      "Name": "Twin Rocks"
+    },
+    {
+      "ID": 24,
+      "Name": "Civic Center"
+    },
+    {
+      "ID": 25,
+      "Name": "Warehouse"
+    },
+    {
+      "ID": 26,
+      "Name": "Mutants Raft"
+    },
+    {
+      "ID": 27,
+      "Name": "Drowned Downtown"
+    },
+    {
+      "ID": 28,
+      "Name": "Iron Skull Base"
+    },
+    {
+      "ID": 29,
+      "Name": "Apartments"
+    },
+    {
+      "ID": 30,
+      "Name": "Village"
+    },
+    {
+      "ID": 31,
+      "Name": "Dreadville"
+    },
+    {
+      "ID": 32,
+      "Name": "Green Isle"
+    },
+    {
+      "ID": 33,
+      "Name": "Zion Atoll"
+    },
+    {
+      "ID": 34,
+      "Name": "Submerged Downtown"
+    },
+    {
+      "ID": 35,
+      "Name": "Power Plant"
+    },
+    {
+      "ID": 36,
+      "Name": "The Cliffton Outpost"
+    },
+    {
+      "ID": 37,
+      "Name": "The Ruins Island"
+    },
+    {
+      "ID": 38,
+      "Name": "Faraway Island"
+    },
+    {
+      "ID": 39,
+      "Name": "Radio Island"
+    },
+    {
+      "ID": 40,
+      "Name": "Ashbond Outpost"
+    },
+    {
+      "ID": 41,
+      "Name": "Refinery"
+    },
+    {
+      "ID": 42,
+      "Name": "The White Cliff"
+    },
+    {
+      "ID": 43,
+      "Name": "Sea Viper Outpost"
+    }
+  ]
+}
